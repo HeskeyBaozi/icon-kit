@@ -1,0 +1,28 @@
+{
+  "name": "icon-kit",
+  "version": "1.0.0",
+  "description": "Description",
+  "main": "index.js",
+  "repository": "https://github.com/HeskeyBaozi/icon-kit",
+  "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "generate": "cross-env dotenv_config_path=scripts/.scripts.env node -r dotenv/config -r ts-node/register scripts/generate.ts",
+    "build": "father build",
+    "test": "npm run test:unit",
+    "test:unit": "father test"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@types/cosmiconfig": "^5.0.3",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "@types/signale": "^1.2.1",
+    "cosmiconfig": "^5.2.1",
+    "cross-env": "^5.2.0",
+    "father": "^2.13.7",
+    "signale": "^1.4.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
