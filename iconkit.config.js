@@ -1,4 +1,4 @@
-module.exports = {
-  value: 'just for test!',
-  add: (a, b) => a + b
+export default {
+  context: __dirname,
+
 };
