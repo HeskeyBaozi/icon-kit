@@ -1,3 +1,11 @@
-import ExamplePlugin from './ExamplePlugin';
+import Generate from './commands/Generate';
+import ExampleBuildInPlugin from './ExampleBuildInPlugin';
 
-export default [new ExamplePlugin()];
+const commands = [
+  new Generate({
+    message: 'Hello, World!'
+  })
+];
+const buildIns = [new ExampleBuildInPlugin()];
+
+export default [...commands, ...buildIns];

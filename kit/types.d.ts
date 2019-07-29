@@ -1,3 +1,6 @@
+import PluginAPI from './PluginAPI';
+import KitService from './Service';
+
 export interface CwdNeeded {
   cwd: string;
 }
@@ -9,5 +12,9 @@ export interface ResolvePluginsArgs extends CwdNeeded {
 export interface KitPlugin {
   namespace: string;
   options?: object;
-  apply: (api: any, options?: object) => void;
+  apply: (api: ProxyPluginAPI, options?: object) => void;
+}
+
+export interface ProxyPluginAPI extends PluginAPI {
+  registerCommand: typeof KitService.prototype.registerCommand;
 }
