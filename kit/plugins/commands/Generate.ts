@@ -10,8 +10,8 @@ export default class GenerateCommandPlugin implements KitPlugin {
     api.registerCommand(
       'generate',
       (args: object) => {
-        console.log('Run Generate');
-        console.log('The args is', args);
+        api.logger.log('Run Generate');
+        api.logger.warn('The args is', args);
       },
       options
     );

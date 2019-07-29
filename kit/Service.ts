@@ -97,7 +97,7 @@ export default class KitService {
 
     if (options) {
       // do something with options
-      signale.log(`The Command ${name} with the options`, options);
+      debug(`The Command ${name} with the options`, options);
     }
     return executor(args);
   }
