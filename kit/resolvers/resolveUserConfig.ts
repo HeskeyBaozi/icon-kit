@@ -2,10 +2,8 @@ import { pathExists } from 'fs-extra';
 import { error, debug } from 'signale';
 import { join } from 'path';
 import loadDefaultModuleFirst from '../utils/loadDefaultModuleFirst';
+import { CwdNeeded } from '../types';
 
-export interface CwdNeeded {
-  cwd: string;
-}
 export const MODULE_NAME = 'iconkit';
 export const CONFIG_FILES = [
   `.${MODULE_NAME}rc.js`,
@@ -14,7 +12,7 @@ export const CONFIG_FILES = [
   `${MODULE_NAME}.config.ts`
 ];
 
-export default async function getUserConfig({
+export default async function resolveUserConfig({
   cwd
 }: CwdNeeded): Promise<object | null> {
   const configFilePath = await getFirstExistFilePath({

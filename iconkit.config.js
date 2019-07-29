@@ -1,4 +1,3 @@
 export default {
-  context: __dirname,
-
+  plugins: []
 };

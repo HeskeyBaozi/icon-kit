@@ -1,5 +1,7 @@
-import getUserConfig from '../helpers/getUserConfig';
+import * as yParser from 'yargs-parser';
+import KitService from '../Service';
 
-getUserConfig({ cwd: process.cwd() }).then((config) => {
-  console.log(config);
-});
+const args = yParser(process.argv.slice(2));
+new KitService({
+  cwd: process.cwd()
+}).run('generate', args);
