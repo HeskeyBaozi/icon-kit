@@ -5,6 +5,9 @@ import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
+import debugFactory from 'debug';
+
+const debug = debugFactory('service');
 
 export const ProxyMethodNames = Symbol('ProxyMethodNamesInService');
 
@@ -21,10 +24,16 @@ export default class KitService {
   async initialize() {
     // base config
     this.config = await resolveUserConfig(this.context);
+    debug(`The preload config is`, this.config);
 
     // resolve & initialize plugins
     if (this.config) {
       this.plugins = [...buildInPlugins, ...this.config.plugins];
+      debug(
+        `Try to initialize ${this.plugins.length} plugins, ${
+          this.config.plugins.length
+        } plugin(s) for user.`
+      );
       this.plugins.forEach(({ namespace, apply, options }) => {
         try {
           const rawApi = new PluginAPI(namespace, this);
@@ -46,8 +55,10 @@ export default class KitService {
           apply(api, options);
         } catch (e) {
           signale.error(e);
+          process.exit(1);
         }
       });
+      debug(`Initialzie plugins successfully!`);
     }
   }
 

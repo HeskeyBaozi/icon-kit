@@ -1,8 +1,12 @@
 import { pathExists } from 'fs-extra';
-import { error, debug } from 'signale';
+import { error } from 'signale';
 import { join } from 'path';
 import loadDefaultModuleFirst from '../utils/loadDefaultModuleFirst';
 import { CwdNeeded } from '../types';
+
+import debugFactory from 'debug';
+
+const debug = debugFactory('resolve');
 
 export const MODULE_NAME = 'iconkit';
 export const CONFIG_FILES = [
@@ -25,7 +29,6 @@ export default async function resolveUserConfig({
   }
   debug(`Begin to load config from ${configFilePath}`);
   const userConfig = loadDefaultModuleFirst<object>(require(configFilePath));
-  debug(`Config loaded: ${userConfig}`);
   return userConfig;
 }
 
