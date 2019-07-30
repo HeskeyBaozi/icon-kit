@@ -1,12 +1,9 @@
 import { pathExists } from 'fs-extra';
-import { error } from 'signale';
+import { error, success } from 'signale';
 import { join } from 'path';
 import loadDefaultModuleFirst from '../utils/loadDefaultModuleFirst';
-import { CwdNeeded } from '../types';
-
-import debugFactory from 'debug';
-
-const debug = debugFactory('resolve');
+import { CwdNeeded, Config } from '../types';
+import chalk from 'chalk';
 
 export const MODULE_NAME = 'iconkit';
 export const CONFIG_FILES = [
@@ -18,7 +15,7 @@ export const CONFIG_FILES = [
 
 export default async function resolveUserConfig({
   cwd
-}: CwdNeeded): Promise<object | null> {
+}: CwdNeeded): Promise<Config | Config[] | null> {
   const configFilePath = await getFirstExistFilePath({
     cwd,
     filePaths: CONFIG_FILES
@@ -27,9 +24,17 @@ export default async function resolveUserConfig({
     error(`Cannot find any config file!`);
     return null;
   }
-  debug(`Begin to load config from ${configFilePath}`);
-  const userConfig = loadDefaultModuleFirst<object>(require(configFilePath));
-  return userConfig;
+  success(`Load config file from ${chalk.underline.cyan(configFilePath)}.`);
+  const userConfig = loadDefaultModuleFirst<Config | Config[] | null>(
+    require(configFilePath)
+  );
+  if (
+    Array.isArray(userConfig) ||
+    (userConfig && Array.isArray(userConfig.plugins))
+  ) {
+    return userConfig;
+  }
+  return null;
 }
 
 async function getFirstExistFilePath({

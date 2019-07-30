@@ -18,3 +18,7 @@ export interface KitPlugin {
 export interface ProxyPluginAPI extends PluginAPI {
   registerCommand: typeof KitService.prototype.registerCommand;
 }
+
+export interface Config {
+  plugins: KitPlugin[];
+}

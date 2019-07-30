@@ -1,6 +1,4 @@
-import { AsyncSeriesHook } from 'tapable';
-import resolveUserConfig from './resolvers/resolveUserConfig';
-import { CwdNeeded, KitPlugin, ProxyPluginAPI } from './types';
+import { KitPlugin, ProxyPluginAPI, Config } from './types';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
@@ -12,20 +10,15 @@ const debug = debugFactory('service');
 export const ProxyMethodNames = Symbol('ProxyMethodNamesInService');
 
 export default class KitService {
-  context: CwdNeeded;
-  config: any | null = null;
+  config: Config;
   plugins: KitPlugin[] = [];
   commands: Map<string, Command> = new Map();
   [ProxyMethodNames]: string[] = ['registerCommand'];
-  constructor({ cwd }: CwdNeeded) {
-    this.context = { cwd };
+  constructor(config: Config) {
+    this.config = config;
   }
 
   async initialize() {
-    // base config
-    this.config = await resolveUserConfig(this.context);
-    debug(`The preload config is`, this.config);
-
     // resolve & initialize plugins
     if (this.config) {
       this.plugins = [...buildInPlugins, ...this.config.plugins];
