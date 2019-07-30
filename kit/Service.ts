@@ -13,7 +13,8 @@ import debugFactory from 'debug';
 import { Observable, fromEvent } from 'rxjs';
 import { takeUntil, map, concatAll, reduce, tap } from 'rxjs/operators';
 import { stream } from 'globby';
-import { createReadStream } from 'fs';
+import { createReadStream } from 'fs-extra';
+import { parse, relative, sep, resolve } from 'path';
 
 const debug = debugFactory('service');
 
@@ -94,9 +95,10 @@ export default class KitService {
 
   async initializeFlow() {
     const pathStream = stream(this.config!.sources, {
-      cwd: this.config!.context
+      cwd: this.config!.context,
+      absolute: true
     }).setEncoding('utf8');
-    const pathAndContent$ = fromEvent<string>(pathStream, 'data')
+    this.assets$ = fromEvent<string>(pathStream, 'data')
       .pipe(takeUntil(fromEvent(pathStream, 'end')))
       .pipe(
         map((path) => {
@@ -111,26 +113,34 @@ export default class KitService {
         concatAll()
       )
       .pipe(
-        tap(({ path, content }) => {
-          signale.success(path);
-          signale.info(content);
+        map<Asset, Asset>(({ path, content }) => {
+          return {
+            path: resolve(
+              this.config!.destination,
+              relative(this.config!.context, path)
+            ),
+            content
+          };
+        }),
+        map<Asset, Asset>(({ path, content }) => {
+          const parsedPath = parse(path);
+          const categoriesArray = relative(
+            this.config!.destination,
+            parsedPath.dir
+          ).split(sep);
+          const theme = categoriesArray.pop();
+          const filename = `${parsedPath.name}-${theme}${parsedPath.ext}`;
+          return {
+            path: theme ? resolve(this.config!.destination, filename) : path,
+            content
+          };
         })
-      )
-      .subscribe();
-    // let first = '';
-    // for await (const path of pathsStream) {
-    //   if (!first) {
-    //     first = path as string;
-    //     break;
-    //   }
-    // }
-    // const readStream = createReadStream(first, {
-    //   highWaterMark: 16,
-    //   encoding: 'utf8'
-    // });
-    // for await (const file of readStream) {
-    //   console.log('file = ', file);
-    // }
+      );
+
+    this.assets$.subscribe(({ path, content }) => {
+      console.log(path);
+      console.log(parse(path));
+    });
   }
 
   async run(command: string, args: object) {
