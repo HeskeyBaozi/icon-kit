@@ -103,17 +103,20 @@ export default class KitService {
           const s = createReadStream(path, 'utf8');
           return fromEvent<string>(s, 'data')
             .pipe(takeUntil(fromEvent(s, 'end')))
-            .pipe(reduce((data, chunk) => data + chunk))
-            .pipe(map<string, [string, string]>((data) => [path, data]));
+            .pipe(
+              reduce((acc, chunk) => acc + chunk),
+              map<string, Asset>((content) => ({ path, content }))
+            );
+        }),
+        concatAll()
+      )
+      .pipe(
+        tap(({ path, content }) => {
+          signale.success(path);
+          signale.info(content);
         })
       )
-      .pipe(concatAll())
-      .pipe(
-        tap(([path, data]) => {
-          signale.success(path);
-          signale.info(data);
-        })
-      );
+      .subscribe();
     // let first = '';
     // for await (const path of pathsStream) {
     //   if (!first) {

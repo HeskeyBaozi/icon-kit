@@ -36,6 +36,5 @@ export interface KitFullConfig extends KitConfig {
 
 export interface Asset {
   path: string;
-  filename: string;
   content: string;
 }
