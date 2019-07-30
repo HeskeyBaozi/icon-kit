@@ -21,23 +21,23 @@ const debug = debugFactory('service');
 export const ProxyPropertyNames = Symbol('ProxyPropertyNamesInService');
 
 export default class KitService {
-  preConfig: KitConfig;
-  config: KitFullConfig | null = null;
-  plugins: KitPlugin[] = [];
-  commands: Map<string, Command> = new Map();
-  assets$: Observable<Asset> | null = null;
-  [ProxyPropertyNames]: string[] = ['registerCommand', 'config'];
+  private preConfig: KitConfig;
+  public config: KitFullConfig | null = null;
+  private plugins: KitPlugin[] = [];
+  private commands: Map<string, Command> = new Map();
+  private assets$: Observable<Asset> | null = null;
+  private [ProxyPropertyNames]: string[] = ['registerCommand', 'config'];
   constructor(config: KitConfig) {
     this.preConfig = config;
   }
 
-  async initialize() {
+  private async initialize() {
     this.initializePlutins();
     this.initializeConfig();
     await this.initializeFlow();
   }
 
-  initializePlutins() {
+  private initializePlutins() {
     // resolve & initialize plugins
     if (this.preConfig) {
       const preloadConfigPlugins = this.preConfig.plugins || [];
@@ -76,7 +76,7 @@ export default class KitService {
     }
   }
 
-  initializeConfig() {
+  private initializeConfig() {
     // todo
     // no Object.assign(...)
     // apply plugins
@@ -93,7 +93,7 @@ export default class KitService {
     this.config = Object.freeze(config);
   }
 
-  async initializeFlow() {
+  private async initializeFlow() {
     const pathStream = stream(this.config!.sources, {
       cwd: this.config!.context,
       absolute: true
@@ -143,12 +143,12 @@ export default class KitService {
     });
   }
 
-  async run(command: string, args: object) {
+  public async run(command: string, args: object) {
     await this.initialize();
     return this.runCommand(command, args);
   }
 
-  registerCommand(
+  public registerCommand(
     commandName: string,
     executor: Function,
     options?: object
@@ -167,7 +167,7 @@ export default class KitService {
     );
   }
 
-  runCommand(name: string, args: object) {
+  private runCommand(name: string, args: object) {
     const command = this.commands.get(name);
     if (!command) {
       signale.error(`Command ${name} does NOT exists.`);
