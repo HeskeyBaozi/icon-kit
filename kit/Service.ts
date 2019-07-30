@@ -5,6 +5,7 @@ import {
   Asset,
   KitFullConfig
 } from './types';
+import { AsyncSeriesWaterfallHook } from 'tapable';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
@@ -26,7 +27,14 @@ export default class KitService {
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
   private assets$: Observable<Asset> | null = null;
-  private [ProxyPropertyNames]: string[] = ['registerCommand', 'config'];
+  private [ProxyPropertyNames]: string[] = [
+    'registerCommand',
+    'config',
+    'Assets$'
+  ];
+  private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
+    'asset'
+  ]);
   constructor(config: KitConfig) {
     this.preConfig = config;
   }
@@ -34,7 +42,7 @@ export default class KitService {
   private async initialize() {
     this.initializePlutins();
     this.initializeConfig();
-    await this.initializeFlow();
+    this.initializeFlow();
   }
 
   private initializePlutins() {
@@ -91,9 +99,15 @@ export default class KitService {
       tempConfig
     ) as KitFullConfig;
     this.config = Object.freeze(config);
+    for (const processor of this.config.flow) {
+      this.processors.tapPromise(
+        processor.namespace,
+        processor.transform.bind(processor)
+      );
+    }
   }
 
-  private async initializeFlow() {
+  private initializeFlow() {
     const pathStream = stream(this.config!.sources, {
       cwd: this.config!.context,
       absolute: true
@@ -113,6 +127,18 @@ export default class KitService {
         concatAll()
       )
       .pipe(
+        map<Asset, Promise<Asset>>((asset) => {
+          return this.processors.promise(asset);
+        }),
+        concatAll()
+      )
+      .pipe(
+        tap((what) => {
+          // console.log(what);
+        })
+      )
+      // use destination path
+      .pipe(
         map<Asset, Asset>(({ path, content }) => {
           return {
             path: resolve(
@@ -121,7 +147,9 @@ export default class KitService {
             ),
             content
           };
-        }),
+        })
+      )
+      .pipe(
         map<Asset, Asset>(({ path, content }) => {
           const parsedPath = parse(path);
           const categoriesArray = relative(
@@ -136,11 +164,6 @@ export default class KitService {
           };
         })
       );
-
-    this.assets$.subscribe(({ path, content }) => {
-      console.log(path);
-      console.log(parse(path));
-    });
   }
 
   public async run(command: string, args: object) {
@@ -181,5 +204,9 @@ export default class KitService {
       debug(`The Command ${name} with the options`, options);
     }
     return executor(args);
+  }
+
+  public get Assets$() {
+    return this.assets$;
   }
 }

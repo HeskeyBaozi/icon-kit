@@ -1,1 +1,7 @@
-export { KitPlugin, KitConfig, ProxyPluginAPI } from './types';
+export {
+  KitPlugin,
+  KitConfig,
+  ProxyPluginAPI,
+  Asset,
+  KitProcessor
+} from './types';

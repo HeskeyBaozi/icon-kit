@@ -15,22 +15,29 @@ export interface KitPlugin {
   apply: (api: ProxyPluginAPI, options?: object) => void;
 }
 
+export interface KitProcessor {
+  namespace: string;
+  options?: object;
+  transform: (asset: Asset) => Promise<Asset>;
+}
+
 export interface ProxyPluginAPI extends PluginAPI {
   config: typeof KitService.prototype.config;
   registerCommand: typeof KitService.prototype.registerCommand;
+  readonly Assets$: typeof KitService.prototype.Assets$;
 }
 
 export interface KitConfig {
   context?: string;
   sources: string[];
-  flow?: any[];
+  flow?: KitProcessor[];
   destination: string;
   plugins?: KitPlugin[];
 }
 
 export interface KitFullConfig extends KitConfig {
   context: string;
-  flow: any[];
+  flow: KitProcessor[];
   plugins: KitPlugin[];
 }
 

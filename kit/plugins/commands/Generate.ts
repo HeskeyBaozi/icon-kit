@@ -1,5 +1,8 @@
 import { KitPlugin, ProxyPluginAPI } from '../../types';
-import { from } from 'rxjs';
+import { createWriteStream, ensureDir } from 'fs-extra';
+import * as signale from 'signale';
+import chalk from 'chalk';
+import { dirname } from 'path';
 
 export default class GenerateCommandPlugin implements KitPlugin {
   namespace = 'build-in:generate-command';
@@ -11,36 +14,21 @@ export default class GenerateCommandPlugin implements KitPlugin {
     api.registerCommand(
       'generate',
       (args: object) => {
-        api.logger.log('Run Generate');
-        api.logger.warn('The args is', args);
-
-        const test = function* Hello() {
-          yield 1;
-          // await new Promise((r) => {
-          //   setTimeout(() => {
-          //     r();
-          //   }, 2000);
-          // });
-          yield 'test';
-          // await new Promise((r) => {
-          //   setTimeout(() => {
-          //     r();
-          //   }, 2000);
-          // });
-          return 'done';
-        };
-
-        from(test()).subscribe(
-          (result) => {
-            api.logger.info(result);
-          },
-          (d) => {
-            console.log(d);
-          },
-          () => {
-            console.log('dddd');
-          }
-        );
+        if (api.Assets$) {
+          api.Assets$.subscribe({
+            next: ({ path, content }) => {
+              ensureDir(dirname(path)).then(() => {
+                const writeStream = createWriteStream(path, 'utf8');
+                signale.info(`Write file to ${chalk.underline.cyan(path)}`);
+                writeStream.write(content);
+                writeStream.end();
+              });
+            },
+            complete: () => {
+              signale.success(`Completed.`);
+            }
+          });
+        }
       },
       options
     );
