@@ -1,8 +1,9 @@
-import { KitPlugin } from '../kit';
+import { KitPlugin, ProxyPluginAPI } from '@kit';
 
 export default class ExamplePlugin implements KitPlugin {
   namespace = 'example';
-  apply(api: any) {
-    // console.log('example', api);
+  apply(api: ProxyPluginAPI) {
+    // console.log(api);
+    // console.log('Before ExamplePlugin', api.config);
   }
 }

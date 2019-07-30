@@ -2,7 +2,7 @@ import { pathExists } from 'fs-extra';
 import { error, success } from 'signale';
 import { join } from 'path';
 import loadDefaultModuleFirst from '../utils/loadDefaultModuleFirst';
-import { CwdNeeded, Config } from '../types';
+import { CwdNeeded, KitConfig } from '../types';
 import chalk from 'chalk';
 
 export const MODULE_NAME = 'iconkit';
@@ -15,7 +15,7 @@ export const CONFIG_FILES = [
 
 export default async function resolveUserConfig({
   cwd
-}: CwdNeeded): Promise<Config | Config[] | null> {
+}: CwdNeeded): Promise<KitConfig | KitConfig[] | null> {
   const configFilePath = await getFirstExistFilePath({
     cwd,
     filePaths: CONFIG_FILES
@@ -25,7 +25,7 @@ export default async function resolveUserConfig({
     return null;
   }
   success(`Load config file from ${chalk.underline.cyan(configFilePath)}.`);
-  const userConfig = loadDefaultModuleFirst<Config | Config[] | null>(
+  const userConfig = loadDefaultModuleFirst<KitConfig | KitConfig[] | null>(
     require(configFilePath)
   );
   if (

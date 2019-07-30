@@ -6,7 +6,11 @@
     "declaration": true,
     "removeComments": true,
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@kit": ["./kit"]
+    }
   },
-  "include": ["src"]
+  "exclude": ["kit"]
 }

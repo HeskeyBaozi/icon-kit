@@ -7,16 +7,19 @@
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "license": "MIT",
   "scripts": {
+    "g": "npm run generate",
     "generate": "cross-env NODE_ENV=development dotenv_config_path=kit/scripts/.env node -r dotenv/config -r ts-node/register kit/scripts/generate.ts",
     "build": "father build",
     "test": "npm run test:unit",
-    "test:unit": "father test"
+    "test:unit": "father test",
+    "test:type-check": "tsc --noEmit --project kit/tsconfig.json"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@types/chalk": "^2.2.0",
     "@types/debug": "^4.1.4",
     "@types/fs-extra": "^8.0.0",
+    "@types/globby": "^9.1.0",
     "@types/jest": "^24.0.15",
     "@types/lodash": "^4.14.136",
     "@types/node": "^12.6.8",
@@ -28,6 +31,7 @@
     "debug": "^4.1.1",
     "father": "^2.13.7",
     "fs-extra": "^8.1.0",
+    "globby": "^10.0.1",
     "lodash": "^4.17.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -1,45 +1,65 @@
-import { KitPlugin, ProxyPluginAPI, Config } from './types';
+import {
+  KitPlugin,
+  ProxyPluginAPI,
+  KitConfig,
+  Asset,
+  KitFullConfig
+} from './types';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
+import { Observable, fromEvent } from 'rxjs';
+import { takeUntil, map, concatAll, reduce, tap } from 'rxjs/operators';
+import { stream } from 'globby';
+import { createReadStream } from 'fs';
 
 const debug = debugFactory('service');
 
-export const ProxyMethodNames = Symbol('ProxyMethodNamesInService');
+export const ProxyPropertyNames = Symbol('ProxyPropertyNamesInService');
 
 export default class KitService {
-  config: Config;
+  preConfig: KitConfig;
+  config: KitFullConfig | null = null;
   plugins: KitPlugin[] = [];
   commands: Map<string, Command> = new Map();
-  [ProxyMethodNames]: string[] = ['registerCommand'];
-  constructor(config: Config) {
-    this.config = config;
+  assets$: Observable<Asset> | null = null;
+  [ProxyPropertyNames]: string[] = ['registerCommand', 'config'];
+  constructor(config: KitConfig) {
+    this.preConfig = config;
   }
 
   async initialize() {
+    this.initializePlutins();
+    this.initializeConfig();
+    await this.initializeFlow();
+  }
+
+  initializePlutins() {
     // resolve & initialize plugins
-    if (this.config) {
-      this.plugins = [...buildInPlugins, ...this.config.plugins];
+    if (this.preConfig) {
+      const preloadConfigPlugins = this.preConfig.plugins || [];
+      this.plugins = [...buildInPlugins, ...preloadConfigPlugins];
       debug(
         `Try to initialize ${this.plugins.length} plugins, ${
-          this.config.plugins.length
+          preloadConfigPlugins.length
         } plugin(s) for user.`
       );
       this.plugins.forEach(({ namespace, apply, options }) => {
         try {
-          const rawApi = new PluginAPI(namespace, this);
+          const rawApi = new PluginAPI(namespace);
           const api = new Proxy(rawApi, {
             get: (target, property) => {
               if (
                 typeof property === 'string' &&
-                this[ProxyMethodNames].includes(property)
+                this[ProxyPropertyNames].includes(property)
               ) {
                 let result = (this as any)[property];
                 if (typeof result === 'function') {
                   result = result.bind(this);
                 }
+                // or return Object.freeze(result) ?
                 return result;
               }
               return (target as any)[property];
@@ -53,6 +73,61 @@ export default class KitService {
       });
       debug(`Initialzie plugins successfully!`);
     }
+  }
+
+  initializeConfig() {
+    // todo
+    // no Object.assign(...)
+    // apply plugins
+    const tempConfig = Object.freeze(this.preConfig);
+    const config = Object.assign(
+      {},
+      {
+        context: process.cwd(),
+        flow: [],
+        plugins: []
+      },
+      tempConfig
+    ) as KitFullConfig;
+    this.config = Object.freeze(config);
+  }
+
+  async initializeFlow() {
+    const pathStream = stream(this.config!.sources, {
+      cwd: this.config!.context
+    }).setEncoding('utf8');
+    const pathAndContent$ = fromEvent<string>(pathStream, 'data')
+      .pipe(takeUntil(fromEvent(pathStream, 'end')))
+      .pipe(
+        map((path) => {
+          const s = createReadStream(path, 'utf8');
+          return fromEvent<string>(s, 'data')
+            .pipe(takeUntil(fromEvent(s, 'end')))
+            .pipe(reduce((data, chunk) => data + chunk))
+            .pipe(map<string, [string, string]>((data) => [path, data]));
+        })
+      )
+      .pipe(concatAll())
+      .pipe(
+        tap(([path, data]) => {
+          signale.success(path);
+          signale.info(data);
+        })
+      );
+    // let first = '';
+    // for await (const path of pathsStream) {
+    //   if (!first) {
+    //     first = path as string;
+    //     break;
+    //   }
+    // }
+    // const readStream = createReadStream(first, {
+    //   highWaterMark: 16,
+    //   encoding: 'utf8'
+    // });
+    // for await (const file of readStream) {
+    //   console.log('file = ', file);
+    // }
   }
 
   async run(command: string, args: object) {
