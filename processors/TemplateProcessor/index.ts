@@ -1,12 +1,8 @@
 import { KitProcessor, Asset } from '@kit';
-import { template, flow, camelCase, upperFirst } from 'lodash';
+import { template } from 'lodash';
 import { readFile } from 'fs-extra';
 import { resolve } from 'path';
-
-const identifierCase = flow(
-  camelCase,
-  upperFirst
-);
+import { getIdentifierAccordingToNameAndDir } from '../../utils';
 
 export interface TemplateProcessorOptions {
   tplSrc: string;
@@ -20,13 +16,9 @@ export default class TemplateProcessor implements KitProcessor {
   static presets: { [key: string]: TemplateProcessorOptions } = {
     icon: {
       tplSrc: resolve(__dirname, './templates/icon.ts.ejs'),
-      mapAssetPropsToInterpolate: ({ content }: Asset) => {
-        const jsonContent = JSON.parse(content);
+      mapAssetPropsToInterpolate: ({ from, content }: Asset) => {
         return {
-          identifier: identifierCase(
-            jsonContent.name +
-              ((jsonContent.theme && upperFirst(jsonContent.theme)) || '')
-          ),
+          identifier: getIdentifierAccordingToNameAndDir(from.name, from.dir),
           json: content
         };
       }

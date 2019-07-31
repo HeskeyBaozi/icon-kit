@@ -1,7 +1,7 @@
 import { KitProcessor, Asset, AssetPath } from '@kit';
 import * as parseXml from '@rgrove/parse-xml';
 import { SyncWaterfallHook } from 'tapable';
-import { sep, normalize } from 'path';
+import { getThemeAccordingToDir } from '../utils';
 
 // options see:
 // https://github.com/rgrove/parse-xml#parsexmlxml-string-options-object--object
@@ -133,10 +133,7 @@ export default class XMLProcessor implements KitProcessor {
     node: AbstractNode,
     from: AssetPath
   ): IconDefinitionBase {
-    const theme =
-      normalize(from.dir)
-        .split(sep)
-        .pop() || '';
+    const theme = getThemeAccordingToDir(from.dir);
     return {
       name: from.name,
       theme,

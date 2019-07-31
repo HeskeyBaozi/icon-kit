@@ -6,6 +6,7 @@ import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
 import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
 import TemplateProcessor from './processors/TemplateProcessor';
 import PrettierProcessor from './processors/PrettierProcessor';
+import AttachThemeToIconPlugin from './plugins/AttachThemeToIconPlugin';
 
 export default [
   {
@@ -26,7 +27,7 @@ export default [
           })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new ExamplePlugin()]
+    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
   },
   {
     context: __dirname,

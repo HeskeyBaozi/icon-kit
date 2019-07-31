@@ -11,10 +11,10 @@ export interface ResolvePluginsArgs extends CwdNeeded {
   plugins: KitPlugin[];
 }
 
-export interface KitPlugin {
+export interface KitPlugin<O = any> {
   namespace: string;
-  options?: object;
-  apply: (api: ProxyPluginAPI, options?: object) => void;
+  options?: O;
+  apply: (api: ProxyPluginAPI, options?: O) => void;
 }
 
 export interface KitProcessor {
@@ -26,6 +26,7 @@ export interface KitProcessor {
 export interface ProxyPluginAPI extends PluginAPI {
   config: typeof KitService.prototype.config;
   registerCommand: typeof KitService.prototype.registerCommand;
+  registerPostProcessor: typeof KitService.prototype.registerPostProcessor;
   readonly Assets$: typeof KitService.prototype.Assets$;
 }
 

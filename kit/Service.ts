@@ -4,7 +4,8 @@ import {
   KitConfig,
   Asset,
   KitFullConfig,
-  EnsuredAsset
+  EnsuredAsset,
+  KitProcessor
 } from './types';
 import { AsyncSeriesWaterfallHook } from 'tapable';
 import buildInPlugins from './plugins';
@@ -16,7 +17,7 @@ import { Observable, fromEvent } from 'rxjs';
 import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
 import { stream } from 'globby';
 import { createReadStream } from 'fs-extra';
-import { parse, relative, sep, resolve } from 'path';
+import { parse, relative, resolve } from 'path';
 
 const debug = debugFactory('service');
 
@@ -30,12 +31,16 @@ export default class KitService {
   private assets$: Observable<EnsuredAsset> | null = null;
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
+    'registerPostProcessor',
     'config',
     'Assets$'
   ];
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
   ]);
+  private postProcessors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook(
+    ['ensuredAsset']
+  );
   constructor(config: KitConfig) {
     this.preConfig = config;
   }
@@ -54,7 +59,8 @@ export default class KitService {
       debug(
         `Try to initialize ${this.plugins.length} plugins, ${preloadConfigPlugins.length} plugin(s) for user.`
       );
-      this.plugins.forEach(({ namespace, apply, options }) => {
+      this.plugins.forEach((plugin) => {
+        const { namespace, apply, options } = plugin;
         try {
           const rawApi = new PluginAPI(namespace);
           const api = new Proxy(rawApi, {
@@ -73,7 +79,7 @@ export default class KitService {
               return (target as any)[property];
             }
           }) as ProxyPluginAPI;
-          apply(api, options);
+          apply.call(plugin, api, options);
         } catch (e) {
           signale.error(e);
           process.exit(1);
@@ -142,7 +148,7 @@ export default class KitService {
       )
       // use destination path
       .pipe(
-        map<Asset, EnsuredAsset>(({ from, to, content }) => {
+        map<Asset, EnsuredAsset>(({ from, content }) => {
           const toAbsolute = resolve(
             this.config!.destination,
             relative(this.config!.context, from.absolute)
@@ -158,27 +164,10 @@ export default class KitService {
         })
       )
       .pipe(
-        map<EnsuredAsset, EnsuredAsset>(({ from, to, content }) => {
-          const categoriesArray = relative(
-            this.config!.destination,
-            to.dir
-          ).split(sep);
-          const theme = categoriesArray.pop();
-          const filename = `${to.name}-${theme}${to.ext}`;
-          const toAbsolute = theme
-            ? resolve(this.config!.destination, filename)
-            : to.absolute;
-          return {
-            from,
-            to: theme
-              ? {
-                  ...parse(toAbsolute),
-                  absolute: toAbsolute
-                }
-              : to,
-            content
-          };
-        })
+        map<EnsuredAsset, Promise<EnsuredAsset>>((asset) => {
+          return this.postProcessors.promise(asset);
+        }),
+        concatAll()
       );
   }
 
@@ -204,6 +193,16 @@ export default class KitService {
         options
       })
     );
+  }
+
+  public registerPostProcessor({
+    namespace,
+    transform
+  }: {
+    namespace: string;
+    transform: (asset: EnsuredAsset) => Promise<EnsuredAsset>;
+  }) {
+    this.postProcessors.tapPromise(namespace, transform);
   }
 
   private runCommand(name: string, args: object) {
