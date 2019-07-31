@@ -30,6 +30,7 @@ coverage
 _site/
 .cache
 public
+src/ast/**/*
 
 # publish
 *.tgz

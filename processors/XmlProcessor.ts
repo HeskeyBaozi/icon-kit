@@ -168,7 +168,7 @@ export default class XMLProcessor implements KitProcessor {
     nodeReadyToStringify = postTransformedNode;
 
     return {
-      path: path.replace(/\.svg$/, '.json'),
+      path: path.replace(new RegExp(parsedPath.ext + '$'), '.json'),
       content: JSON.stringify(nodeReadyToStringify)
     };
   }
