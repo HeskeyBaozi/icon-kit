@@ -3,7 +3,10 @@ import SVGOProcessor from './processors/SVGOProcessor';
 import { resolve } from 'path';
 import { KitConfig } from '@kit';
 import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
-import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
+import XMLProcessor, {
+  AbstractNode,
+  NodeMeta
+} from './processors/XMLProcessor';
 
 export default [
   {
@@ -30,11 +33,11 @@ export default [
       new XMLProcessor({
         shape: 'icon-definition',
         extraNodeTransforms: [
-          (node: AbstractNode) => {
-            if (node.tag === 'path') {
-              node.attrs.fill = node.attrs.fill || '#333';
+          (nodeMeta: NodeMeta<AbstractNode>) => {
+            if (nodeMeta.node.tag === 'path') {
+              nodeMeta.node.attrs.fill = nodeMeta.node.attrs.fill || '#333';
             }
-            return node;
+            return nodeMeta;
           }
         ]
       })
