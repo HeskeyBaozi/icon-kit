@@ -7,6 +7,7 @@ import XMLProcessor, {
   AbstractNode,
   NodeMeta
 } from './processors/XMLProcessor';
+import TemplateProcessor from './processors/TemplateProcessor';
 
 export default [
   {
@@ -18,6 +19,9 @@ export default [
       }),
       new XMLProcessor({
         shape: 'icon-definition'
+      }),
+      new TemplateProcessor({
+        // mapAssetPropsToInterpolate: ({ path, content }: Asset) => ({})
       })
     ],
     destination: resolve(__dirname, './src/ast'),
