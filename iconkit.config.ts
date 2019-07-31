@@ -17,9 +17,7 @@ export default [
       new XMLProcessor({
         shape: 'icon-definition'
       }),
-      new TemplateProcessor({
-        // mapAssetPropsToInterpolate: ({ path, content }: Asset) => ({})
-      })
+      new TemplateProcessor(TemplateProcessor.presets.icon)
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]
