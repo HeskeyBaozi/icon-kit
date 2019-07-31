@@ -15,8 +15,7 @@ export default class SVGOProcessor implements KitProcessor {
   }
 
   async transform({ path, content }: Asset) {
-    const { data, info } = await this.optimizer.optimize(content);
-    console.log(`Info = `, info);
+    const { data } = await this.optimizer.optimize(content);
     return {
       path,
       content: data

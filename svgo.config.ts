@@ -1,7 +1,7 @@
 // SVGO Options
 // refer from @material-ui/icons
 // https://github.com/mui-org/material-ui/blob/master/packages/material-ui-icons/builder.js#L18
-export default {
+const defaultConfig = {
   floatPrecision: 2,
   plugins: [
     { cleanupAttrs: true },
@@ -37,7 +37,19 @@ export default {
     { mergePaths: true },
     { convertShapeToPath: true },
     { sortAttrs: true },
-    { removeDimensions: true },
-    { removeAttrs: { attrs: ['class'] } }
+    { removeDimensions: true }
   ]
 };
+
+export const twoToneSVGOConfig = Object.freeze({
+  ...defaultConfig,
+  plugins: [...defaultConfig.plugins, { removeAttrs: { attrs: ['class'] } }]
+});
+
+export const singleColorSVGOConfig = Object.freeze({
+  ...defaultConfig,
+  plugins: [
+    ...defaultConfig.plugins,
+    { removeAttrs: { attrs: ['class', 'fill'] } }
+  ]
+});

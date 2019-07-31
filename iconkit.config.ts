@@ -2,7 +2,8 @@ import ExamplePlugin from './plugins/ExamplePlugin';
 import SVGOProcessor from './processors/SVGOProcessor';
 import { resolve } from 'path';
 import { KitConfig } from '@kit';
-import SVGOOptions from './svgo.config';
+import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
+import XmlProcessor from './processors/XmlProcessor';
 
 export default [
   {
@@ -10,14 +11,9 @@ export default [
     sources: ['./svg/fill/*.svg', './svg/outline/*.svg'],
     flow: [
       new SVGOProcessor({
-        svgo: {
-          ...SVGOOptions,
-          plugins: [
-            ...SVGOOptions.plugins,
-            { removeAttrs: { attrs: ['class', 'fill'] } }
-          ]
-        }
-      })
+        svgo: singleColorSVGOConfig
+      }),
+      new XmlProcessor()
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]
@@ -27,8 +23,9 @@ export default [
     sources: ['./svg/twotone/*.svg'],
     flow: [
       new SVGOProcessor({
-        svgo: SVGOOptions
-      })
+        svgo: twoToneSVGOConfig
+      }),
+      new XmlProcessor()
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]
