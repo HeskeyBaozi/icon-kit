@@ -32,14 +32,14 @@ export interface ProxyPluginAPI extends PluginAPI {
 export interface KitConfig {
   context?: string;
   sources: string[];
-  flow?: KitProcessor[];
+  flow?: (KitProcessor | null)[];
   destination: string;
   plugins?: KitPlugin[];
 }
 
 export interface KitFullConfig extends KitConfig {
   context: string;
-  flow: KitProcessor[];
+  flow: (KitProcessor | null)[];
   plugins: KitPlugin[];
 }
 

@@ -23,7 +23,10 @@ export default class TemplateProcessor implements KitProcessor {
       mapAssetPropsToInterpolate: ({ content }: Asset) => {
         const jsonContent = JSON.parse(content);
         return {
-          identifier: identifierCase(jsonContent.name),
+          identifier: identifierCase(
+            jsonContent.name +
+              ((jsonContent.theme && upperFirst(jsonContent.theme)) || '')
+          ),
           json: content
         };
       }

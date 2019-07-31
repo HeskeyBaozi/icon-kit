@@ -5,6 +5,7 @@ import { KitConfig } from '@kit';
 import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
 import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
 import TemplateProcessor from './processors/TemplateProcessor';
+import PrettierProcessor from './processors/PrettierProcessor';
 
 export default [
   {
@@ -17,7 +18,12 @@ export default [
       new XMLProcessor({
         shape: 'icon-definition'
       }),
-      new TemplateProcessor(TemplateProcessor.presets.icon)
+      new TemplateProcessor(TemplateProcessor.presets.icon),
+      process.env.KIT_FAST_GENERATE
+        ? null
+        : new PrettierProcessor({
+            prettier: { parser: 'typescript', singleQuote: true }
+          })
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]
@@ -40,6 +46,9 @@ export default [
           }
         ]
       })
+      // new PrettierProcessor({
+      //   prettier: { parser: 'typescript', singleQuote: true }
+      // })
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]

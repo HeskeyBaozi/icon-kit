@@ -52,9 +52,7 @@ export default class KitService {
       const preloadConfigPlugins = this.preConfig.plugins || [];
       this.plugins = [...buildInPlugins, ...preloadConfigPlugins];
       debug(
-        `Try to initialize ${this.plugins.length} plugins, ${
-          preloadConfigPlugins.length
-        } plugin(s) for user.`
+        `Try to initialize ${this.plugins.length} plugins, ${preloadConfigPlugins.length} plugin(s) for user.`
       );
       this.plugins.forEach(({ namespace, apply, options }) => {
         try {
@@ -101,10 +99,12 @@ export default class KitService {
     ) as KitFullConfig;
     this.config = Object.freeze(config);
     for (const processor of this.config.flow) {
-      this.processors.tapPromise(
-        processor.namespace,
-        processor.transform.bind(processor)
-      );
+      if (processor) {
+        this.processors.tapPromise(
+          processor.namespace,
+          processor.transform.bind(processor)
+        );
+      }
     }
   }
 
