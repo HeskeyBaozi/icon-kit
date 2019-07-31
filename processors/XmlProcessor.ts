@@ -111,7 +111,7 @@ export default class XMLProcessor implements KitProcessor {
     }
   }
 
-  static toAbstractNode({ name, attributes, children }: XMLNode): AbstractNode {
+  toAbstractNode({ name, attributes, children }: XMLNode): AbstractNode {
     const currentNode: AbstractNode = {
       tag: name,
       attrs: {
@@ -126,7 +126,7 @@ export default class XMLProcessor implements KitProcessor {
     if (!(currentNode.children && currentNode.children.length)) {
       delete currentNode.children;
     }
-    return currentNode;
+    return this.extraNodeTransformsHooks.call(currentNode);
   }
 
   static toIconDefinitionBase(
@@ -141,7 +141,7 @@ export default class XMLProcessor implements KitProcessor {
     };
   }
 
-  async transform({ content, from, ...rest }: Asset) {
+  async transform({ content, from, to }: Asset) {
     const xmlTree: XMLNode = parseXml(
       content,
       this.options && this.options.parser
@@ -156,14 +156,12 @@ export default class XMLProcessor implements KitProcessor {
       | null = null;
     switch (this.options.shape) {
       case 'icon-definition':
-        nodeTransformed = XMLProcessor.toAbstractNode(xmlNode);
+        nodeTransformed = this.toAbstractNode(xmlNode);
         break;
       case 'xml-node':
       default:
         nodeTransformed = xmlNode;
     }
-
-    nodeTransformed = this.extraNodeTransformsHooks.call(nodeTransformed);
 
     if (this.options.shape === 'icon-definition') {
       nodeTransformed = XMLProcessor.toIconDefinitionBase(
@@ -177,7 +175,7 @@ export default class XMLProcessor implements KitProcessor {
     return {
       content: JSON.stringify(nodeTransformed),
       from,
-      ...rest
+      to
     };
   }
 }

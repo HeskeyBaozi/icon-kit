@@ -18,7 +18,7 @@ export default class TemplateProcessor implements KitProcessor {
       tplSrc: resolve(__dirname, './templates/icon.ts.ejs'),
       mapAssetPropsToInterpolate: ({ from, content }: Asset) => {
         return {
-          identifier: getIdentifierAccordingToNameAndDir(from.name, from.dir),
+          identifier: getIdentifierAccordingToNameAndDir(from),
           json: content
         };
       }

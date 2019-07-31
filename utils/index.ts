@@ -1,7 +1,8 @@
 import { normalize, sep } from 'path';
 import { memoize, flow, camelCase, upperFirst } from 'lodash';
+import { AssetPath } from '@kit';
 
-export const getThemeAccordingToDir = memoize(function getThemeAccordingToDir(
+export const getThemeAccordingToDir = function getThemeAccordingToDir(
   dir: string
 ): string {
   return (
@@ -9,7 +10,7 @@ export const getThemeAccordingToDir = memoize(function getThemeAccordingToDir(
       .split(sep)
       .pop() || ''
   );
-});
+};
 
 export const getIdentifierCase = memoize(
   flow(
@@ -18,10 +19,8 @@ export const getIdentifierCase = memoize(
   )
 );
 
-export const getIdentifierAccordingToNameAndDir = memoize(
-  (name: string, dir: string) => {
-    const theme = getThemeAccordingToDir(dir);
-    const kkCase = `${name}${theme ? `-${theme}` : ''}`;
-    return getIdentifierCase(kkCase);
-  }
-);
+export const getIdentifierAccordingToNameAndDir = memoize((from: AssetPath) => {
+  const theme = getThemeAccordingToDir(from.dir);
+  const kkCase = `${from.name}${theme ? `-${theme}` : ''}`;
+  return getIdentifierCase(kkCase);
+});

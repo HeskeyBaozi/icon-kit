@@ -26,8 +26,10 @@ export interface KitProcessor {
 export interface ProxyPluginAPI extends PluginAPI {
   config: typeof KitService.prototype.config;
   registerCommand: typeof KitService.prototype.registerCommand;
-  registerPostProcessor: typeof KitService.prototype.registerPostProcessor;
-  readonly Assets$: typeof KitService.prototype.Assets$;
+  asyncHooks: typeof KitService.prototype.asyncHooks;
+  generateFiles: typeof KitService.prototype.generateFiles;
+  assets$: typeof KitService.prototype.assets$;
+  extraAssets$: typeof KitService.prototype.extraAssets$;
 }
 
 export interface KitConfig {
@@ -56,4 +58,10 @@ export interface Asset {
 
 export interface EnsuredAsset extends Asset {
   to: AssetPath;
+}
+
+export interface ExtraAsset {
+  from?: AssetPath;
+  to: AssetPath;
+  content: string;
 }

@@ -5,7 +5,7 @@ import {
   Asset,
   KitFullConfig,
   EnsuredAsset,
-  KitProcessor
+  ExtraAsset
 } from './types';
 import { AsyncSeriesWaterfallHook } from 'tapable';
 import buildInPlugins from './plugins';
@@ -13,7 +13,7 @@ import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
-import { Observable, fromEvent } from 'rxjs';
+import { Observable, fromEvent, from } from 'rxjs';
 import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
 import { stream } from 'globby';
 import { createReadStream } from 'fs-extra';
@@ -28,19 +28,24 @@ export default class KitService {
   public config: KitFullConfig | null = null;
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
-  private assets$: Observable<EnsuredAsset> | null = null;
+  public assets$: Observable<EnsuredAsset> | null = null;
+  public extraAssets$: Observable<ExtraAsset> | null = null;
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
     'registerPostProcessor',
+    'generateFiles',
+    'asyncHooks',
     'config',
-    'Assets$'
+    'assets$',
+    'extraAssets$'
   ];
+  private extraAssets: ExtraAsset[] = [];
+  public asyncHooks = {
+    postProcessors: new AsyncSeriesWaterfallHook(['ensuredAsset'])
+  };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
   ]);
-  private postProcessors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook(
-    ['ensuredAsset']
-  );
   constructor(config: KitConfig) {
     this.preConfig = config;
   }
@@ -165,10 +170,12 @@ export default class KitService {
       )
       .pipe(
         map<EnsuredAsset, Promise<EnsuredAsset>>((asset) => {
-          return this.postProcessors.promise(asset);
+          return this.asyncHooks.postProcessors.promise(asset);
         }),
         concatAll()
       );
+
+    this.extraAssets$ = from(this.extraAssets);
   }
 
   public async run(command: string, args: object) {
@@ -195,16 +202,6 @@ export default class KitService {
     );
   }
 
-  public registerPostProcessor({
-    namespace,
-    transform
-  }: {
-    namespace: string;
-    transform: (asset: EnsuredAsset) => Promise<EnsuredAsset>;
-  }) {
-    this.postProcessors.tapPromise(namespace, transform);
-  }
-
   private runCommand(name: string, args: object) {
     const command = this.commands.get(name);
     if (!command) {
@@ -221,7 +218,7 @@ export default class KitService {
     return executor(args);
   }
 
-  public get Assets$() {
-    return this.assets$;
+  public generateFiles(...assets: ExtraAsset[]) {
+    this.extraAssets.push(...assets);
   }
 }

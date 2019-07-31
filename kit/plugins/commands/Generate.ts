@@ -3,6 +3,7 @@ import { createWriteStream, ensureDir, emptyDir } from 'fs-extra';
 import * as signale from 'signale';
 import chalk from 'chalk';
 import { dirname } from 'path';
+import { concat } from 'rxjs/operators';
 
 export default class GenerateCommandPlugin implements KitPlugin {
   namespace = 'build-in:generate-command';
@@ -14,10 +15,10 @@ export default class GenerateCommandPlugin implements KitPlugin {
     api.registerCommand(
       'generate',
       async (args: object) => {
-        if (api.Assets$) {
+        if (api.assets$ && api.extraAssets$) {
           await emptyDir(api.config!.destination);
-          api.Assets$.subscribe({
-            next: async ({ from, to, content }) => {
+          api.assets$.pipe(concat(api.extraAssets$)).subscribe({
+            next: async ({ to, content }) => {
               await ensureDir(dirname(to.absolute));
               const writeStream = createWriteStream(to.absolute, 'utf8');
               writeStream.write(content);

@@ -1,12 +1,13 @@
-import ExamplePlugin from './plugins/ExamplePlugin';
-import SVGOProcessor from './processors/SVGOProcessor';
 import { resolve } from 'path';
 import { KitConfig } from '@kit';
 import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
+import SVGOProcessor from './processors/SVGOProcessor';
 import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
 import TemplateProcessor from './processors/TemplateProcessor';
 import PrettierProcessor from './processors/PrettierProcessor';
 import AttachThemeToIconPlugin from './plugins/AttachThemeToIconPlugin';
+import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProcessor';
+import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
 
 export default [
   {
@@ -27,7 +28,15 @@ export default [
           })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
+    plugins: [
+      new AttachThemeToIconPlugin({ ext: '.ts' }),
+      new GenerateFilesPlugin([
+        {
+          output: resolve(__dirname, './src/types.d.ts'),
+          dataSource: resolve(__dirname, './templates/types.d.ts')
+        }
+      ])
+    ]
   },
   {
     context: __dirname,
@@ -46,12 +55,19 @@ export default [
             return node;
           }
         ]
-      })
-      // new PrettierProcessor({
-      //   prettier: { parser: 'typescript', singleQuote: true }
-      // })
+      }),
+      new TwoToneColorExtractProcessor({
+        primaryColors: ['#333'],
+        secondaryColors: ['#E6E6E6', '#D9D9D9', '#D8D8D8']
+      }),
+      new TemplateProcessor(TemplateProcessor.presets.icon),
+      process.env.KIT_FAST_GENERATE
+        ? null
+        : new PrettierProcessor({
+            prettier: { parser: 'typescript', singleQuote: true }
+          })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new ExamplePlugin()]
+    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
   }
 ] as KitConfig[];

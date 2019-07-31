@@ -4,5 +4,6 @@ export {
   ProxyPluginAPI,
   Asset,
   AssetPath,
-  KitProcessor
+  KitProcessor,
+  ExtraAsset
 } from './types';
