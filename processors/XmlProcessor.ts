@@ -1,7 +1,7 @@
-import { KitProcessor, Asset } from '@kit';
+import { KitProcessor, Asset, AssetPath } from '@kit';
 import * as parseXml from '@rgrove/parse-xml';
 import { SyncWaterfallHook } from 'tapable';
-import { parse, ParsedPath } from 'path';
+import { sep, normalize } from 'path';
 
 // options see:
 // https://github.com/rgrove/parse-xml#parsexmlxml-string-options-object--object
@@ -33,9 +33,10 @@ export interface AbstractNode {
   children?: AbstractNode[];
 }
 
-export interface NodeMeta<N> {
-  node: N;
-  parsedPath: ParsedPath;
+export interface IconDefinitionBase {
+  name: string; // kebab-case-style
+  theme: string;
+  icon: AbstractNode;
 }
 
 export const oldIcons = [
@@ -90,31 +91,27 @@ export default class XMLProcessor implements KitProcessor {
     if (this.options.shape === 'icon-definition') {
       this.postRootNodeTransformsHooks.tap(
         `icon-should-not-be-focusable`,
-        (nodeMeta: NodeMeta<AbstractNode>) => {
-          if (nodeMeta.node.tag === 'svg') {
-            nodeMeta.node.attrs.focusable = 'false';
+        (icond: IconDefinitionBase) => {
+          if (icond.icon.tag === 'svg') {
+            icond.icon.attrs.focusable = 'false';
           }
-          return nodeMeta;
+          return icond;
         }
       );
 
       this.postRootNodeTransformsHooks.tap(
         `icons-after-3.9.x-should-be-resize-viewbox`,
-        (nodeMeta: NodeMeta<AbstractNode>) => {
-          if (
-            nodeMeta.node.tag === 'svg' &&
-            !oldIcons.includes(nodeMeta.parsedPath.name)
-          ) {
-            nodeMeta.node.attrs.viewBox = '64 64 896 896';
+        (icond: IconDefinitionBase) => {
+          if (icond.icon.tag === 'svg' && !oldIcons.includes(icond.name)) {
+            icond.icon.attrs.viewBox = '64 64 896 896';
           }
-          return nodeMeta;
+          return icond;
         }
       );
     }
   }
 
-  toIconDefinitionNode({ node, parsedPath }: NodeMeta<XMLNode>): AbstractNode {
-    const { name, attributes, children } = node;
+  static toAbstractNode({ name, attributes, children }: XMLNode): AbstractNode {
     const currentNode: AbstractNode = {
       tag: name,
       attrs: {
@@ -122,54 +119,68 @@ export default class XMLProcessor implements KitProcessor {
       },
       children: children
         .map((child) =>
-          child.type === 'element'
-            ? this.toIconDefinitionNode({ node: child, parsedPath })
-            : null
+          child.type === 'element' ? this.toAbstractNode(child) : null
         )
         .filter(($) => Boolean($)) as AbstractNode[]
     };
     if (!(currentNode.children && currentNode.children.length)) {
       delete currentNode.children;
     }
-    const { node: extraTransformedNode } = this.extraNodeTransformsHooks.call({
-      node: currentNode,
-      parsedPath
-    });
-    return extraTransformedNode;
+    return currentNode;
   }
 
-  async transform({ path, content }: Asset) {
-    const parsedPath = parse(path);
+  static toIconDefinitionBase(
+    node: AbstractNode,
+    from: AssetPath
+  ): IconDefinitionBase {
+    const theme =
+      normalize(from.dir)
+        .split(sep)
+        .pop() || '';
+    return {
+      name: from.name,
+      theme,
+      icon: node
+    };
+  }
+
+  async transform({ content, from, ...rest }: Asset) {
     const xmlTree: XMLNode = parseXml(
       content,
       this.options && this.options.parser
     );
-    const root =
+    const xmlNode =
       xmlTree.type === 'document' ? (xmlTree.children[0] as XMLNode) : xmlTree;
 
-    let nodeReadyToStringify = null;
+    let nodeTransformed:
+      | AbstractNode
+      | XMLNode
+      | IconDefinitionBase
+      | null = null;
     switch (this.options.shape) {
       case 'icon-definition':
-        nodeReadyToStringify = this.toIconDefinitionNode({
-          node: root,
-          parsedPath
-        });
+        nodeTransformed = XMLProcessor.toAbstractNode(xmlNode);
         break;
       case 'xml-node':
       default:
-        nodeReadyToStringify = root;
+        nodeTransformed = xmlNode;
     }
-    const { node: postTransformedNode } = this.postRootNodeTransformsHooks.call(
-      {
-        node: nodeReadyToStringify,
-        parsedPath
-      }
-    );
-    nodeReadyToStringify = postTransformedNode;
+
+    nodeTransformed = this.extraNodeTransformsHooks.call(nodeTransformed);
+
+    if (this.options.shape === 'icon-definition') {
+      nodeTransformed = XMLProcessor.toIconDefinitionBase(
+        nodeTransformed as AbstractNode,
+        from
+      );
+    }
+
+    nodeTransformed = this.postRootNodeTransformsHooks.call(nodeTransformed);
 
     return {
-      path: path.replace(new RegExp(parsedPath.ext + '$'), '.json'),
-      content: JSON.stringify(nodeReadyToStringify)
+      content: JSON.stringify(nodeTransformed),
+      from,
+      ...rest
     };
   }
 }

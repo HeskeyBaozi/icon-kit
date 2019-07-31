@@ -3,7 +3,8 @@ import {
   ProxyPluginAPI,
   KitConfig,
   Asset,
-  KitFullConfig
+  KitFullConfig,
+  EnsuredAsset
 } from './types';
 import { AsyncSeriesWaterfallHook } from 'tapable';
 import buildInPlugins from './plugins';
@@ -12,7 +13,7 @@ import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
 import { Observable, fromEvent } from 'rxjs';
-import { takeUntil, map, concatAll, reduce, tap } from 'rxjs/operators';
+import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
 import { stream } from 'globby';
 import { createReadStream } from 'fs-extra';
 import { parse, relative, sep, resolve } from 'path';
@@ -26,7 +27,7 @@ export default class KitService {
   public config: KitFullConfig | null = null;
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
-  private assets$: Observable<Asset> | null = null;
+  private assets$: Observable<EnsuredAsset> | null = null;
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
     'config',
@@ -121,7 +122,14 @@ export default class KitService {
             .pipe(takeUntil(fromEvent(s, 'end')))
             .pipe(
               reduce((acc, chunk) => acc + chunk),
-              map<string, Asset>((content) => ({ path, content }))
+              map<string, Asset>((content) => ({
+                from: {
+                  ...parse(path),
+                  absolute: path
+                },
+                to: null,
+                content
+              }))
             );
         }),
         concatAll()
@@ -132,34 +140,42 @@ export default class KitService {
         }),
         concatAll()
       )
-      .pipe(
-        tap((what) => {
-          // console.log(what);
-        })
-      )
       // use destination path
       .pipe(
-        map<Asset, Asset>(({ path, content }) => {
+        map<Asset, EnsuredAsset>(({ from, to, content }) => {
+          const toAbsolute = resolve(
+            this.config!.destination,
+            relative(this.config!.context, from.absolute)
+          );
           return {
-            path: resolve(
-              this.config!.destination,
-              relative(this.config!.context, path)
-            ),
+            from,
+            to: {
+              ...parse(toAbsolute),
+              absolute: toAbsolute
+            },
             content
           };
         })
       )
       .pipe(
-        map<Asset, Asset>(({ path, content }) => {
-          const parsedPath = parse(path);
+        map<EnsuredAsset, EnsuredAsset>(({ from, to, content }) => {
           const categoriesArray = relative(
             this.config!.destination,
-            parsedPath.dir
+            to.dir
           ).split(sep);
           const theme = categoriesArray.pop();
-          const filename = `${parsedPath.name}-${theme}${parsedPath.ext}`;
+          const filename = `${to.name}-${theme}${to.ext}`;
+          const toAbsolute = theme
+            ? resolve(this.config!.destination, filename)
+            : to.absolute;
           return {
-            path: theme ? resolve(this.config!.destination, filename) : path,
+            from,
+            to: theme
+              ? {
+                  ...parse(toAbsolute),
+                  absolute: toAbsolute
+                }
+              : to,
             content
           };
         })

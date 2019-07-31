@@ -17,9 +17,9 @@ export default class GenerateCommandPlugin implements KitPlugin {
         if (api.Assets$) {
           await emptyDir(api.config!.destination);
           api.Assets$.subscribe({
-            next: async ({ path, content }) => {
-              await ensureDir(dirname(path));
-              const writeStream = createWriteStream(path, 'utf8');
+            next: async ({ from, to, content }) => {
+              await ensureDir(dirname(to.absolute));
+              const writeStream = createWriteStream(to.absolute, 'utf8');
               writeStream.write(content);
               writeStream.end();
             },

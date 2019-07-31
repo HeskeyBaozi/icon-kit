@@ -10,10 +10,9 @@ export default class TemplateProcessor implements KitProcessor {
     this.options = options;
   }
 
-  async transform({ path, content }: Asset) {
+  async transform({ ...rest }: Asset) {
     return {
-      path,
-      content
+      ...rest
     };
   }
 }

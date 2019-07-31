@@ -14,10 +14,10 @@ export default class SVGOProcessor implements KitProcessor {
     this.optimizer = new SVGO(this.options.svgo);
   }
 
-  async transform({ path, content }: Asset) {
+  async transform({ content, ...rest }: Asset) {
     const { data } = await this.optimizer.optimize(content);
     return {
-      path,
+      ...rest,
       content: data
     };
   }

@@ -1,6 +1,7 @@
 import PluginAPI from './PluginAPI';
 import KitService from './Service';
 import { Observable } from 'rxjs';
+import { ParsedPath } from 'path';
 
 export interface CwdNeeded {
   cwd: string;
@@ -42,7 +43,16 @@ export interface KitFullConfig extends KitConfig {
   plugins: KitPlugin[];
 }
 
+export interface AssetPath extends ParsedPath {
+  absolute: string;
+}
+
 export interface Asset {
-  path: string;
+  from: AssetPath;
+  to: AssetPath | null;
   content: string;
+}
+
+export interface EnsuredAsset extends Asset {
+  to: AssetPath;
 }
