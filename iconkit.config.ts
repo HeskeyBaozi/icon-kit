@@ -3,7 +3,7 @@ import SVGOProcessor from './processors/SVGOProcessor';
 import { resolve } from 'path';
 import { KitConfig } from '@kit';
 import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
-import XmlProcessor from './processors/XmlProcessor';
+import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
 
 export default [
   {
@@ -13,7 +13,9 @@ export default [
       new SVGOProcessor({
         svgo: singleColorSVGOConfig
       }),
-      new XmlProcessor()
+      new XMLProcessor({
+        shape: 'icon-definition'
+      })
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]
@@ -25,7 +27,17 @@ export default [
       new SVGOProcessor({
         svgo: twoToneSVGOConfig
       }),
-      new XmlProcessor()
+      new XMLProcessor({
+        shape: 'icon-definition',
+        extraNodeTransforms: [
+          (node: AbstractNode) => {
+            if (node.tag === 'path') {
+              node.attrs.fill = node.attrs.fill || '#333';
+            }
+            return node;
+          }
+        ]
+      })
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new ExamplePlugin()]

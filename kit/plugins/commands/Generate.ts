@@ -1,5 +1,5 @@
 import { KitPlugin, ProxyPluginAPI } from '../../types';
-import { createWriteStream, ensureDir } from 'fs-extra';
+import { createWriteStream, ensureDir, emptyDir } from 'fs-extra';
 import * as signale from 'signale';
 import chalk from 'chalk';
 import { dirname } from 'path';
@@ -13,19 +13,18 @@ export default class GenerateCommandPlugin implements KitPlugin {
   apply(api: ProxyPluginAPI, options?: object) {
     api.registerCommand(
       'generate',
-      (args: object) => {
+      async (args: object) => {
         if (api.Assets$) {
+          await emptyDir(api.config!.destination);
           api.Assets$.subscribe({
-            next: ({ path, content }) => {
-              ensureDir(dirname(path)).then(() => {
-                const writeStream = createWriteStream(path, 'utf8');
-                signale.info(`Write file to ${chalk.underline.cyan(path)}`);
-                writeStream.write(content);
-                writeStream.end();
-              });
+            next: async ({ path, content }) => {
+              await ensureDir(dirname(path));
+              const writeStream = createWriteStream(path, 'utf8');
+              writeStream.write(content);
+              writeStream.end();
             },
             complete: () => {
-              signale.success(`Completed.`);
+              signale.success(`Process file(s) completed.`);
             }
           });
         }
