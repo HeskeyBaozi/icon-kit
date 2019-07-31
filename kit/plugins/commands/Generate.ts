@@ -24,7 +24,11 @@ export default class GenerateCommandPlugin implements KitPlugin {
               writeStream.end();
             },
             complete: () => {
-              signale.success(`Process file(s) completed.`);
+              signale.success(
+                `Process file(s) finshied, from the sources: ${chalk.underline.cyan(
+                  '[ ' + api.config!.sources + ' ]'
+                )}.`
+              );
             }
           });
         }
