@@ -20,7 +20,7 @@ export interface XMLNode {
   type: string;
   name: string;
   attributes: {
-    [key: string]: string | number | boolean;
+    [key: string]: string;
   };
   children: XMLNode[];
 }
@@ -28,7 +28,7 @@ export interface XMLNode {
 export interface AbstractNode {
   tag: string;
   attrs: {
-    [key: string]: string | number | boolean;
+    [key: string]: string;
   };
   children?: AbstractNode[];
 }
@@ -92,7 +92,7 @@ export default class XMLProcessor implements KitProcessor {
         `icon-should-not-be-focusable`,
         (nodeMeta: NodeMeta<AbstractNode>) => {
           if (nodeMeta.node.tag === 'svg') {
-            nodeMeta.node.attrs.focusable = false;
+            nodeMeta.node.attrs.focusable = 'false';
           }
           return nodeMeta;
         }
