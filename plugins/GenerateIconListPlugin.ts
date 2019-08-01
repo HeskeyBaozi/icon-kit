@@ -2,7 +2,7 @@ import { KitPlugin, ProxyPluginAPI, Asset } from '@kit';
 import { set, get, template } from 'lodash';
 import { getThemeAccordingToDir } from '../utils';
 import GenerateFilesPlugin from './GenerateFilesPlugin';
-import { resolve, parse, relative } from 'path';
+import { resolve, parse, relative, join, dirname } from 'path';
 import { readFileSync } from 'fs-extra';
 
 export interface GenerateIconListPluginOptions {
@@ -20,14 +20,14 @@ export default class GenerateIconListPlugin implements KitPlugin {
       [name: string]: {
         fill?: string;
         outline?: string;
-        'twotone'?: string;
+        twotone?: string;
       };
     } = {};
 
     api.syncHooks.beforeEmit.tap(this.namespace, (asset: Asset) => {
       if (asset.from && asset.from.dir) {
         const theme = getThemeAccordingToDir(asset.from.dir);
-        const rl = relative(this.options.output, asset.from.absolute);
+        const rl = relative(dirname(this.options.output), asset.from.absolute);
         const name = asset.from.name;
         set(acc, [name, theme], `![${name}](${rl})`);
       }
