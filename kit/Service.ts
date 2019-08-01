@@ -7,14 +7,14 @@ import {
   EnsuredAsset,
   ExtraAsset
 } from './types';
-import { AsyncSeriesWaterfallHook } from 'tapable';
+import { AsyncSeriesWaterfallHook, SyncHook, SyncBailHook } from 'tapable';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
 import { Observable, fromEvent, from } from 'rxjs';
-import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
+import { takeUntil, map, concatAll, reduce, tap } from 'rxjs/operators';
 import { stream } from 'globby';
 import { createReadStream } from 'fs-extra';
 import { parse, relative, resolve } from 'path';
@@ -35,6 +35,7 @@ export default class KitService {
     'registerPostProcessor',
     'generateFiles',
     'asyncHooks',
+    'syncHooks',
     'config',
     'assets$',
     'extraAssets$'
@@ -42,6 +43,11 @@ export default class KitService {
   private extraAssets: ExtraAsset[] = [];
   public asyncHooks = {
     postProcessors: new AsyncSeriesWaterfallHook(['ensuredAsset'])
+  };
+  public syncHooks = {
+    beforeEmit: new SyncHook(['ensuredAsset']),
+    noEmitFlag: new SyncBailHook(['asset']),
+    afterEmit: new SyncHook()
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'

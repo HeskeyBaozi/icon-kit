@@ -8,6 +8,7 @@ import PrettierProcessor from './processors/PrettierProcessor';
 import AttachThemeToIconPlugin from './plugins/AttachThemeToIconPlugin';
 import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProcessor';
 import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
+import IconListPlugin from './plugins/IconListPlugin';
 
 export default [
   {
@@ -69,5 +70,11 @@ export default [
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
+  },
+  {
+    context: __dirname,
+    sources: ['./svg/**/*.svg'],
+    destination: './des',
+    plugins: [new IconListPlugin()]
   }
 ] as KitConfig[];

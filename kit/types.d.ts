@@ -27,6 +27,7 @@ export interface ProxyPluginAPI extends PluginAPI {
   config: typeof KitService.prototype.config;
   registerCommand: typeof KitService.prototype.registerCommand;
   asyncHooks: typeof KitService.prototype.asyncHooks;
+  syncHooks: typeof KitService.prototype.syncHooks;
   generateFiles: typeof KitService.prototype.generateFiles;
   assets$: typeof KitService.prototype.assets$;
   extraAssets$: typeof KitService.prototype.extraAssets$;

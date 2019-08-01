@@ -5,5 +5,6 @@ export {
   Asset,
   AssetPath,
   KitProcessor,
-  ExtraAsset
+  ExtraAsset,
+  EnsuredAsset
 } from './types';
