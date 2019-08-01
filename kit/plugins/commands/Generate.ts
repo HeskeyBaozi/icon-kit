@@ -2,13 +2,13 @@ import {
   KitPlugin,
   ProxyPluginAPI,
   EnsuredAsset,
-  ExtraAsset
+  ExtraAsset,
+  Asset
 } from '../../types';
 import { createWriteStream, ensureDir, emptyDir } from 'fs-extra';
 import * as signale from 'signale';
 import chalk from 'chalk';
 import { dirname } from 'path';
-import { concat } from 'rxjs/operators';
 
 export default class GenerateCommandPlugin implements KitPlugin {
   namespace = 'build-in:generate-command';
@@ -21,16 +21,14 @@ export default class GenerateCommandPlugin implements KitPlugin {
       'generate',
       async (args: object) => {
         if (api.assets$ && api.extraAssets$) {
-          await emptyDir(api.config!.destination);
-          api.assets$.pipe(concat(api.extraAssets$)).subscribe({
-            next: async (asset: EnsuredAsset | ExtraAsset) => {
-              const { to, content } = asset;
-              api.syncHooks.beforeEmit.call(asset);
-              const noEmitFlag = api.syncHooks.noEmitFlag.call(asset);
-              if (noEmitFlag) {
-                // no emit
-              } else {
-                // omit
+          if (api.config!.destination) {
+            await emptyDir(api.config!.destination);
+          }
+          api.assets$.subscribe({
+            next: async (asset: Asset) => {
+              if (api.config!.destination && asset.to) {
+                const { to, content } = asset;
+                api.syncHooks.beforeEmit.call(asset);
                 await ensureDir(dirname(to.absolute));
                 const writeStream = createWriteStream(to.absolute, 'utf8');
                 writeStream.write(content);
@@ -39,11 +37,36 @@ export default class GenerateCommandPlugin implements KitPlugin {
             },
             complete: () => {
               api.syncHooks.afterEmit.call();
+              if (api.config!.destination) {
+                signale.success(
+                  `Done. The sources: ${chalk.underline.cyan(
+                    '[ ' + api.config!.sources + ' ]'
+                  )}.`
+                );
+              } else {
+                signale.success(
+                  `Done. There is no file emitted. The sources: ${chalk.underline.cyan(
+                    '[ ' + api.config!.sources + ' ]'
+                  )}.`
+                );
+              }
+            }
+          });
+
+          api.extraAssets$.subscribe({
+            next: async (asset: ExtraAsset) => {
+              const { to, content } = asset;
+              api.syncHooks.beforeEmit.call(asset);
+              await ensureDir(dirname(to.absolute));
+              const writeStream = createWriteStream(to.absolute, 'utf8');
+              writeStream.write(content);
+              writeStream.end();
               signale.success(
-                `Process file(s) finshied, from the sources: ${chalk.underline.cyan(
-                  '[ ' + api.config!.sources + ' ]'
-                )}.`
+                `Generate extra file: ${chalk.underline.cyan(to.base)}.`
               );
+            },
+            complete: () => {
+              api.syncHooks.afterEmit.call();
             }
           });
         }

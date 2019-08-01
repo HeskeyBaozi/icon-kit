@@ -28,7 +28,7 @@ export default class KitService {
   public config: KitFullConfig | null = null;
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
-  public assets$: Observable<EnsuredAsset> | null = null;
+  public assets$: Observable<Asset> | null = null;
   public extraAssets$: Observable<ExtraAsset> | null = null;
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
@@ -46,7 +46,6 @@ export default class KitService {
   };
   public syncHooks = {
     beforeEmit: new SyncHook(['ensuredAsset']),
-    noEmitFlag: new SyncBailHook(['asset']),
     afterEmit: new SyncHook()
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
@@ -159,7 +158,11 @@ export default class KitService {
       )
       // use destination path
       .pipe(
-        map<Asset, EnsuredAsset>(({ from, content }) => {
+        map<Asset, Asset>((asset: Asset) => {
+          if (!this.config!.destination) {
+            return { ...asset };
+          }
+          const { from, content } = asset;
           const toAbsolute = resolve(
             this.config!.destination,
             relative(this.config!.context, from.absolute)
@@ -175,7 +178,7 @@ export default class KitService {
         })
       )
       .pipe(
-        map<EnsuredAsset, Promise<EnsuredAsset>>((asset) => {
+        map<Asset, Promise<Asset>>((asset) => {
           return this.asyncHooks.postProcessors.promise(asset);
         }),
         concatAll()

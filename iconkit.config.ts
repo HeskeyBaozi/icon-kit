@@ -8,7 +8,7 @@ import PrettierProcessor from './processors/PrettierProcessor';
 import AttachThemeToIconPlugin from './plugins/AttachThemeToIconPlugin';
 import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProcessor';
 import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
-import IconListPlugin from './plugins/IconListPlugin';
+import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
 
 export default [
   {
@@ -29,15 +29,7 @@ export default [
           })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [
-      new AttachThemeToIconPlugin({ ext: '.ts' }),
-      new GenerateFilesPlugin([
-        {
-          output: resolve(__dirname, './src/types.d.ts'),
-          dataSource: resolve(__dirname, './templates/types.d.ts')
-        }
-      ])
-    ]
+    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
   },
   {
     context: __dirname,
@@ -74,7 +66,16 @@ export default [
   {
     context: __dirname,
     sources: ['./svg/**/*.svg'],
-    destination: './des',
-    plugins: [new IconListPlugin()]
+    plugins: [
+      new GenerateIconListPlugin({
+        output: resolve(__dirname, './docs/list.md')
+      }),
+      new GenerateFilesPlugin([
+        {
+          output: resolve(__dirname, './src/types.d.ts'),
+          dataSource: resolve(__dirname, './templates/types.d.ts')
+        }
+      ])
+    ]
   }
 ] as KitConfig[];
