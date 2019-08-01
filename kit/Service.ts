@@ -4,20 +4,20 @@ import {
   KitConfig,
   Asset,
   KitFullConfig,
-  EnsuredAsset,
   ExtraAsset
 } from './types';
-import { AsyncSeriesWaterfallHook, SyncHook, SyncBailHook } from 'tapable';
+import { AsyncSeriesWaterfallHook, SyncHook } from 'tapable';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
-import { Observable, fromEvent, from } from 'rxjs';
-import { takeUntil, map, concatAll, reduce, tap } from 'rxjs/operators';
+import { Observable, fromEvent, ReplaySubject } from 'rxjs';
+import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
 import { stream } from 'globby';
 import { createReadStream } from 'fs-extra';
 import { parse, relative, resolve } from 'path';
+import { cloneDeep } from 'lodash';
 
 const debug = debugFactory('service');
 
@@ -29,10 +29,10 @@ export default class KitService {
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
   public assets$: Observable<Asset> | null = null;
-  public extraAssets$: Observable<ExtraAsset> | null = null;
+  public extraAssets$: ReplaySubject<ExtraAsset> = new ReplaySubject();
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
-    'registerPostProcessor',
+    'registerPlugin',
     'generateFiles',
     'asyncHooks',
     'syncHooks',
@@ -41,27 +41,33 @@ export default class KitService {
     'extraAssets$'
   ];
   private extraAssets: ExtraAsset[] = [];
+  private extraPlugins: KitPlugin[] = [];
   public asyncHooks = {
     postProcessors: new AsyncSeriesWaterfallHook(['ensuredAsset'])
   };
   public syncHooks = {
     beforeEmit: new SyncHook(['ensuredAsset']),
-    afterEmit: new SyncHook()
+    beforeAssetsTakingEffect: new SyncHook(),
+    afterAssetsTakingEffect: new SyncHook(),
+    beforeExtraAssetsTakingEffect: new SyncHook(),
+    afterExtraAssetsTakingEffect: new SyncHook()
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
   ]);
+  private isInitialized: boolean = false;
   constructor(config: KitConfig) {
     this.preConfig = config;
   }
 
   private async initialize() {
-    this.initializePlutins();
+    this.initializePlugins();
     this.initializeConfig();
     this.initializeFlow();
+    this.isInitialized = true;
   }
 
-  private initializePlutins() {
+  private initializePlugins() {
     // resolve & initialize plugins
     if (this.preConfig) {
       const preloadConfigPlugins = this.preConfig.plugins || [];
@@ -70,32 +76,51 @@ export default class KitService {
         `Try to initialize ${this.plugins.length} plugins, ${preloadConfigPlugins.length} plugin(s) for user.`
       );
       this.plugins.forEach((plugin) => {
-        const { namespace, apply, options } = plugin;
-        try {
-          const rawApi = new PluginAPI(namespace);
-          const api = new Proxy(rawApi, {
-            get: (target, property) => {
-              if (
-                typeof property === 'string' &&
-                this[ProxyPropertyNames].includes(property)
-              ) {
-                let result = (this as any)[property];
-                if (typeof result === 'function') {
-                  result = result.bind(this);
-                }
-                // or return Object.freeze(result) ?
-                return result;
-              }
-              return (target as any)[property];
-            }
-          }) as ProxyPluginAPI;
-          apply.call(plugin, api, options);
-        } catch (e) {
-          signale.error(e);
-          process.exit(1);
-        }
+        this.initializeOnePlugin(plugin);
       });
+
+      let count = 0;
+      while (this.extraPlugins.length) {
+        const extraPlugins = cloneDeep(this.extraPlugins);
+        this.extraPlugins = [];
+        extraPlugins.forEach((plugin) => {
+          this.initializeOnePlugin(plugin);
+          this.plugins.push(plugin);
+        });
+        count++;
+        if (count > 10) {
+          throw new Error(`Circle detected in registering extra plugins.`);
+        }
+      }
+
       debug(`Initialzie plugins successfully!`);
+    }
+  }
+
+  private initializeOnePlugin(plugin: KitPlugin) {
+    const { namespace, apply, options } = plugin;
+    try {
+      const rawApi = new PluginAPI(namespace);
+      const api = new Proxy(rawApi, {
+        get: (target, property) => {
+          if (
+            typeof property === 'string' &&
+            this[ProxyPropertyNames].includes(property)
+          ) {
+            let result = (this as any)[property];
+            if (typeof result === 'function') {
+              result = result.bind(this);
+            }
+            // or return Object.freeze(result) ?
+            return result;
+          }
+          return (target as any)[property];
+        }
+      }) as ProxyPluginAPI;
+      apply.call(plugin, api, options);
+    } catch (e) {
+      signale.error(e);
+      process.exit(1);
     }
   }
 
@@ -183,8 +208,6 @@ export default class KitService {
         }),
         concatAll()
       );
-
-    this.extraAssets$ = from(this.extraAssets);
   }
 
   public async run(command: string, args: object) {
@@ -209,6 +232,16 @@ export default class KitService {
         options
       })
     );
+  }
+
+  public registerPlugin(plugin: KitPlugin) {
+    if (
+      plugin &&
+      typeof plugin.apply === 'function' &&
+      typeof plugin.namespace === 'string'
+    ) {
+      this.extraPlugins.push(plugin);
+    }
   }
 
   private runCommand(name: string, args: object) {

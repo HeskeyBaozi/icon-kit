@@ -16,17 +16,16 @@ export default class GenerateFilesPlugin implements KitPlugin {
   }
 
   apply(api: ProxyPluginAPI) {
-    const result = this.options.map(({ output, data, dataSource }) => {
+    this.options.forEach(({ output, data, dataSource }) => {
       const content =
         data || (dataSource && readFileSync(dataSource, 'utf8')) || '';
-      return {
+      api.extraAssets$.next({
         to: {
           ...parse(output),
           absolute: output
         },
         content
-      };
+      });
     });
-    api.generateFiles(...result);
   }
 }

@@ -21,14 +21,15 @@ export default class GenerateCommandPlugin implements KitPlugin {
       'generate',
       async (args: object) => {
         if (api.assets$ && api.extraAssets$) {
+          api.syncHooks.beforeAssetsTakingEffect.call();
           if (api.config!.destination) {
             await emptyDir(api.config!.destination);
           }
-          api.assets$.subscribe({
+          const assets$Subscription = api.assets$.subscribe({
             next: async (asset: Asset) => {
+              api.syncHooks.beforeEmit.call(asset);
               if (api.config!.destination && asset.to) {
                 const { to, content } = asset;
-                api.syncHooks.beforeEmit.call(asset);
                 await ensureDir(dirname(to.absolute));
                 const writeStream = createWriteStream(to.absolute, 'utf8');
                 writeStream.write(content);
@@ -36,7 +37,7 @@ export default class GenerateCommandPlugin implements KitPlugin {
               }
             },
             complete: () => {
-              api.syncHooks.afterEmit.call();
+              api.syncHooks.afterAssetsTakingEffect.call();
               if (api.config!.destination) {
                 signale.success(
                   `Done. The sources: ${chalk.underline.cyan(
@@ -50,23 +51,26 @@ export default class GenerateCommandPlugin implements KitPlugin {
                   )}.`
                 );
               }
-            }
-          });
 
-          api.extraAssets$.subscribe({
-            next: async (asset: ExtraAsset) => {
-              const { to, content } = asset;
-              api.syncHooks.beforeEmit.call(asset);
-              await ensureDir(dirname(to.absolute));
-              const writeStream = createWriteStream(to.absolute, 'utf8');
-              writeStream.write(content);
-              writeStream.end();
-              signale.success(
-                `Generate extra file: ${chalk.underline.cyan(to.base)}.`
-              );
-            },
-            complete: () => {
-              api.syncHooks.afterEmit.call();
+              assets$Subscription.unsubscribe();
+              api.syncHooks.beforeExtraAssetsTakingEffect.call();
+              const extraAssets$Subsription = api.extraAssets$.subscribe({
+                next: async (asset: ExtraAsset) => {
+                  api.syncHooks.beforeEmit.call(asset);
+                  const { to, content } = asset;
+                  await ensureDir(dirname(to.absolute));
+                  const writeStream = createWriteStream(to.absolute, 'utf8');
+                  writeStream.write(content);
+                  writeStream.end();
+                  signale.success(
+                    `Generate extra file: ${chalk.underline.cyan(to.base)}.`
+                  );
+                },
+                complete: () => {
+                  api.syncHooks.afterExtraAssetsTakingEffect.call();
+                  extraAssets$Subsription.unsubscribe();
+                }
+              });
             }
           });
         }
