@@ -40,7 +40,6 @@ export default class KitService {
     'assets$',
     'extraAssets$'
   ];
-  private extraAssets: ExtraAsset[] = [];
   private extraPlugins: KitPlugin[] = [];
   public asyncHooks = {
     postProcessors: new AsyncSeriesWaterfallHook(['ensuredAsset'])
@@ -258,9 +257,5 @@ export default class KitService {
       debug(`The Command ${name} with the options`, options);
     }
     return executor(args);
-  }
-
-  public generateFiles(...assets: ExtraAsset[]) {
-    this.extraAssets.push(...assets);
   }
 }
