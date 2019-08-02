@@ -6,7 +6,7 @@ import {
   KitFullConfig,
   ExtraAsset
 } from './types';
-import { AsyncSeriesWaterfallHook, SyncHook } from 'tapable';
+import { AsyncSeriesWaterfallHook, SyncHook, HookMap } from 'tapable';
 import buildInPlugins from './plugins';
 import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
@@ -50,8 +50,10 @@ export default class KitService {
     afterAssetsTakingEffect: new SyncHook(),
     beforeExtraAssetsTakingEffect: new SyncHook(),
     afterExtraAssetsTakingEffect: new SyncHook(),
-    beforeProcessor: new SyncHook(['processor', 'asset']),
-    afterProcessor: new SyncHook(['processor', 'assetProccessed'])
+    beforeProcessor: new HookMap(() => new SyncHook(['processor', 'asset'])),
+    afterProcessor: new HookMap(
+      () => new SyncHook(['processor', 'assetProccessed'])
+    )
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
@@ -61,8 +63,20 @@ export default class KitService {
     this.preConfig = config;
     this.processors.intercept({
       register: (tapInfo) => {
-        console.log('tap info = ', tapInfo);
-        return undefined;
+        const { name, fn } = tapInfo;
+        const beforeHook = this.syncHooks.beforeProcessor.get(name);
+        const afterHook = this.syncHooks.afterProcessor.get(name);
+        tapInfo.fn = async (asset: any) => {
+          if (beforeHook) {
+            beforeHook.call(asset);
+          }
+          const result = await fn(asset);
+          if (afterHook) {
+            afterHook.call(result);
+          }
+          return result;
+        };
+        return tapInfo;
       }
     });
   }
@@ -146,6 +160,7 @@ export default class KitService {
       tempConfig
     ) as KitFullConfig;
     this.config = Object.freeze(config);
+
     for (const processor of this.config.flow) {
       if (processor) {
         this.processors.tapPromise(
