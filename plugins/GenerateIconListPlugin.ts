@@ -1,7 +1,7 @@
 import { KitPlugin, ProxyPluginAPI, Asset } from '@kit';
 import { set, get, template } from 'lodash';
 import { getThemeAccordingToDir } from '../utils';
-import { resolve, parse, relative, dirname } from 'path';
+import { resolve, parse, relative, dirname, normalize } from 'path';
 import { readFileSync } from 'fs-extra';
 
 export interface GenerateIconListPluginOptions {
@@ -28,7 +28,7 @@ export default class GenerateIconListPlugin implements KitPlugin {
         const theme = getThemeAccordingToDir(asset.from.dir);
         const rl = relative(dirname(this.options.output), asset.from.absolute);
         const name = asset.from.name;
-        set(acc, [name, theme], `![${name}](${rl})`);
+        set(acc, [name, theme], `![${name}](${normalize(rl)})`);
       }
     });
 
