@@ -12,6 +12,7 @@ import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
 
 export default [
   {
+    name: 'generate-fill-and-outline-icons',
     context: __dirname,
     sources: ['./svg/fill/*.svg', './svg/outline/*.svg'],
     flow: [
@@ -32,6 +33,7 @@ export default [
     plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
   },
   {
+    name: 'generate-twotone-icons',
     context: __dirname,
     sources: ['./svg/twotone/*.svg'],
     flow: [
@@ -64,6 +66,7 @@ export default [
     plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
   },
   {
+    name: 'generate-list-and-copy-files',
     context: __dirname,
     sources: ['./svg/**/*.svg'],
     plugins: [

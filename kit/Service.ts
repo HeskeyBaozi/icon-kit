@@ -49,7 +49,9 @@ export default class KitService {
     beforeAssetsTakingEffect: new SyncHook(),
     afterAssetsTakingEffect: new SyncHook(),
     beforeExtraAssetsTakingEffect: new SyncHook(),
-    afterExtraAssetsTakingEffect: new SyncHook()
+    afterExtraAssetsTakingEffect: new SyncHook(),
+    beforeProcessor: new SyncHook(['processor', 'asset']),
+    afterProcessor: new SyncHook(['processor', 'assetProccessed'])
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
@@ -57,6 +59,12 @@ export default class KitService {
   private isInitialized: boolean = false;
   constructor(config: KitConfig) {
     this.preConfig = config;
+    this.processors.intercept({
+      register: (tapInfo) => {
+        console.log('tap info = ', tapInfo);
+        return undefined;
+      }
+    });
   }
 
   private async initialize() {

@@ -34,6 +34,7 @@ export interface ProxyPluginAPI extends PluginAPI {
 }
 
 export interface KitConfig {
+  name: string;
   context?: string;
   sources: string[];
   flow?: (KitProcessor | null)[];

@@ -40,13 +40,17 @@ export default class GenerateCommandPlugin implements KitPlugin {
               api.syncHooks.afterAssetsTakingEffect.call();
               if (api.config!.destination) {
                 signale.success(
-                  `Done. The sources: ${chalk.underline.cyan(
+                  `${chalk.underline.greenBright(
+                    `[${api.config!.name}]`
+                  )}: Done. The sources: ${chalk.underline.cyan(
                     '[ ' + api.config!.sources + ' ]'
                   )}.`
                 );
               } else {
                 signale.success(
-                  `Done. There is no file emitted. The sources: ${chalk.underline.cyan(
+                  `${chalk.underline.greenBright(
+                    `[${api.config!.name}]`
+                  )}: Done. There is no file emitted. The sources: ${chalk.underline.cyan(
                     '[ ' + api.config!.sources + ' ]'
                   )}.`
                 );
@@ -63,7 +67,9 @@ export default class GenerateCommandPlugin implements KitPlugin {
                   writeStream.write(content);
                   writeStream.end();
                   signale.success(
-                    `Generate extra file: ${chalk.underline.cyan(to.base)}.`
+                    `SubTask from ${chalk.underline.greenBright(
+                      `[${api.config!.name}]`
+                    )}. Generate extra file: ${chalk.underline.cyan(to.base)}.`
                   );
                 },
                 complete: () => {
