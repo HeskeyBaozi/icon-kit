@@ -2,14 +2,14 @@ import { KitPlugin, ProxyPluginAPI } from '@kit';
 import { getIdentifierAccordingToNameAndDir } from '../utils';
 import { resolve, parse } from 'path';
 
-export interface AttachThemeToIconPluginOptions {
+export interface RenameIconByThemePluginOptions {
   ext: string;
 }
 
-export default class AttachThemeToIconPlugin implements KitPlugin {
+export default class RenameIconByThemePlugin implements KitPlugin {
   namespace = 'attach-theme-to-icon-plugin';
-  options: AttachThemeToIconPluginOptions;
-  constructor(o: AttachThemeToIconPluginOptions) {
+  options: RenameIconByThemePluginOptions;
+  constructor(o: RenameIconByThemePluginOptions) {
     this.options = o;
   }
   apply(api: ProxyPluginAPI) {

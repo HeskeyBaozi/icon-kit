@@ -5,7 +5,7 @@ import SVGOProcessor from './processors/SVGOProcessor';
 import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
 import TemplateProcessor from './processors/TemplateProcessor';
 import PrettierProcessor from './processors/PrettierProcessor';
-import AttachThemeToIconPlugin from './plugins/AttachThemeToIconPlugin';
+import RenameIconByThemePlugin from './plugins/RenameIconByThemePlugin';
 import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProcessor';
 import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
 import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
@@ -30,7 +30,7 @@ export default [
           })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
+    plugins: [new RenameIconByThemePlugin({ ext: '.ts' })]
   },
   {
     name: 'generate-twotone-icons',
@@ -63,7 +63,7 @@ export default [
           })
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new AttachThemeToIconPlugin({ ext: '.ts' })]
+    plugins: [new RenameIconByThemePlugin({ ext: '.ts' })]
   },
   {
     name: 'generate-list-and-copy-files',
