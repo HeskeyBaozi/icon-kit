@@ -1,8 +1,7 @@
 import { KitPlugin, ProxyPluginAPI, Asset } from '@kit';
 import { set, get, template } from 'lodash';
 import { getThemeAccordingToDir } from '../utils';
-import GenerateFilesPlugin from './GenerateFilesPlugin';
-import { resolve, parse, relative, join, dirname } from 'path';
+import { resolve, parse, relative, dirname } from 'path';
 import { readFileSync } from 'fs-extra';
 
 export interface GenerateIconListPluginOptions {
@@ -24,7 +23,7 @@ export default class GenerateIconListPlugin implements KitPlugin {
       };
     } = {};
 
-    api.syncHooks.beforeEmit.tap(this.namespace, (asset: Asset) => {
+    api.syncHooks.beforeAssetEmit.tap(this.namespace, (asset: Asset) => {
       if (asset.from && asset.from.dir) {
         const theme = getThemeAccordingToDir(asset.from.dir);
         const rl = relative(dirname(this.options.output), asset.from.absolute);
@@ -33,7 +32,7 @@ export default class GenerateIconListPlugin implements KitPlugin {
       }
     });
 
-    api.syncHooks.beforeExtraAssetsTakingEffect.tap(this.namespace, () => {
+    api.syncHooks.onAssetsComplete.tap(this.namespace, () => {
       let content = '';
       Object.keys(acc).forEach((name) => {
         const target = acc[name]!;

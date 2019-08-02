@@ -5,7 +5,7 @@ import {
   Asset,
   KitFullConfig,
   ExtraAsset,
-  EnsuredAsset
+  UnensuredAsset
 } from './types';
 import { AsyncSeriesWaterfallHook, SyncHook, HookMap } from 'tapable';
 import buildInPlugins from './plugins';
@@ -13,12 +13,13 @@ import * as signale from 'signale';
 import PluginAPI from './PluginAPI';
 import Command from './Command';
 import debugFactory from 'debug';
-import { Observable, fromEvent, ReplaySubject } from 'rxjs';
+import { Observable, fromEvent, Subject } from 'rxjs';
 import { takeUntil, map, concatAll, reduce } from 'rxjs/operators';
 import { stream } from 'globby';
-import { createReadStream } from 'fs-extra';
-import { parse, relative, resolve } from 'path';
+import { createReadStream, ensureDir, createWriteStream } from 'fs-extra';
+import { parse, dirname } from 'path';
 import { cloneDeep } from 'lodash';
+import { getToPath } from './utils/getToPath';
 
 const debug = debugFactory('service');
 
@@ -29,8 +30,8 @@ export default class KitService {
   public config: KitFullConfig | null = null;
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
-  public assets$: Observable<EnsuredAsset> | null = null;
-  public extraAssets$: ReplaySubject<ExtraAsset> = new ReplaySubject();
+  public assets$: Observable<Asset | UnensuredAsset> | null = null;
+  public extraAssets$: Subject<ExtraAsset> = new Subject();
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
     'registerPlugin',
@@ -39,22 +40,28 @@ export default class KitService {
     'syncHooks',
     'config',
     'assets$',
-    'extraAssets$'
+    'extraAssets$',
+    'writeAsset'
   ];
   private extraPlugins: KitPlugin[] = [];
   public asyncHooks = {
     postProcessors: new AsyncSeriesWaterfallHook(['ensuredAsset'])
   };
   public syncHooks = {
-    beforeEmit: new SyncHook(['ensuredAsset']),
+    beforeAssetEmit: new SyncHook(['asset']),
+    beforeExtraAssetEmit: new SyncHook(['asset']),
     beforeAssetsTakingEffect: new SyncHook(),
-    afterAssetsTakingEffect: new SyncHook(),
+    onAssetsComplete: new SyncHook(),
+    afterAssetsTakingEffect: new SyncHook(['subscription']),
     beforeExtraAssetsTakingEffect: new SyncHook(),
-    afterExtraAssetsTakingEffect: new SyncHook(),
+    onExtraAssetsComplete: new SyncHook(),
+    afterExtraAssetsTakingEffect: new SyncHook(['subscription']),
     beforeProcessor: new HookMap(() => new SyncHook(['processor', 'asset'])),
     afterProcessor: new HookMap(
       () => new SyncHook(['processor', 'assetProccessed'])
-    )
+    ),
+    afterInitialized: new SyncHook(),
+    afterConfigInitialized: new SyncHook(['config'])
   };
   private processors: AsyncSeriesWaterfallHook = new AsyncSeriesWaterfallHook([
     'asset'
@@ -65,9 +72,10 @@ export default class KitService {
     this.processors.intercept({
       register: (tapInfo) => {
         const { name, fn } = tapInfo;
-        const beforeHook = this.syncHooks.beforeProcessor.get(name);
-        const afterHook = this.syncHooks.afterProcessor.get(name);
+
         tapInfo.fn = async (asset: any) => {
+          const beforeHook = this.syncHooks.beforeProcessor.get(name);
+          const afterHook = this.syncHooks.afterProcessor.get(name);
           if (beforeHook) {
             beforeHook.call(asset);
           }
@@ -87,6 +95,7 @@ export default class KitService {
     this.initializeConfig();
     this.initializeFlow();
     this.isInitialized = true;
+    this.syncHooks.afterInitialized.call();
   }
 
   private initializePlugins() {
@@ -174,6 +183,8 @@ export default class KitService {
         );
       }
     }
+
+    this.syncHooks.afterConfigInitialized.call(this.config);
   }
 
   private initializeFlow() {
@@ -194,7 +205,7 @@ export default class KitService {
                 ...parse(path),
                 absolute: path
               },
-              to: null,
+              to: void 0,
               content: ''
             });
           }
@@ -202,12 +213,12 @@ export default class KitService {
             .pipe(takeUntil(fromEvent(s, 'end')))
             .pipe(
               reduce((acc, chunk) => acc + chunk),
-              map<string, Asset>((content) => ({
+              map<string, UnensuredAsset>((content) => ({
                 from: {
                   ...parse(path),
                   absolute: path
                 },
-                to: null,
+                to: void 0,
                 content
               }))
             );
@@ -215,36 +226,37 @@ export default class KitService {
         concatAll()
       )
       .pipe(
-        map<Asset, Promise<Asset>>((asset) => {
-          return this.processors.promise(asset);
-        }),
-        concatAll()
-      )
-      // use destination path
-      .pipe(
-        map<Asset, EnsuredAsset>((asset) => {
+        map<UnensuredAsset, Asset | UnensuredAsset>((asset) => {
           if (!this.config!.destination) {
-            return { ...asset };
+            return asset;
           }
           const { from, content } = asset;
-          const toAbsolute = resolve(
-            this.config!.destination,
-            relative(this.config!.context, from.absolute)
-          );
           return {
             from,
-            to: {
-              ...parse(toAbsolute),
-              absolute: toAbsolute
-            },
+            to: getToPath({
+              destination: this.config!.destination,
+              from,
+              configContext: this.config!.context
+            }),
             content
-          } as any;
+          } as Asset;
         })
       )
       .pipe(
-        map<EnsuredAsset, Promise<EnsuredAsset>>((asset: EnsuredAsset) => {
-          return this.asyncHooks.postProcessors.promise(asset);
-        }),
+        map<Asset | UnensuredAsset, Promise<Asset | UnensuredAsset>>(
+          (asset) => {
+            return this.processors.promise(asset);
+          }
+        ),
+        concatAll()
+      )
+
+      .pipe(
+        map<Asset | UnensuredAsset, Promise<Asset | UnensuredAsset>>(
+          (asset) => {
+            return this.asyncHooks.postProcessors.promise(asset);
+          }
+        ),
         concatAll()
       );
   }
@@ -297,5 +309,13 @@ export default class KitService {
       debug(`The Command ${name} with the options`, options);
     }
     return executor(args);
+  }
+
+  public async writeAsset(asset: ExtraAsset) {
+    const { to, content } = asset;
+    await ensureDir(dirname(to.absolute));
+    const writeStream = createWriteStream(to.absolute, 'utf8');
+    writeStream.write(content);
+    writeStream.end();
   }
 }

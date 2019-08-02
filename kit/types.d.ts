@@ -31,12 +31,14 @@ export interface ProxyPluginAPI extends PluginAPI {
   syncHooks: typeof KitService.prototype.syncHooks;
   assets$: typeof KitService.prototype.assets$;
   extraAssets$: typeof KitService.prototype.extraAssets$;
+  writeAsset: typeof KitService.prototype.writeAsset;
 }
 
 export interface KitConfig {
   name: string;
   context?: string;
   sources: string[];
+  relativeBase?: string;
   flow?: (KitProcessor | null)[];
   destination: string;
   plugins?: KitPlugin[];
@@ -52,14 +54,16 @@ export interface AssetPath extends ParsedPath {
   absolute: string;
 }
 
-export interface Asset {
+export interface UnensuredAsset {
   from: AssetPath;
-  to: AssetPath | null;
+  to?: AssetPath;
   content: string;
 }
 
-export interface EnsuredAsset extends Asset {
+export interface Asset extends ExtraAsset, UnensuredAsset {
+  from: AssetPath;
   to: AssetPath;
+  content: string;
 }
 
 export interface ExtraAsset {

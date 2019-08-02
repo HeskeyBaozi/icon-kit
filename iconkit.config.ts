@@ -10,12 +10,14 @@ import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProces
 import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
 import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
 import { getIdentifierAccordingToNameAndDir } from './utils';
+import GenerateInlineSVGPlugin from './plugins/GenerateInlineSVGPlugin';
 
 export default [
   {
     name: 'generate-fill-and-outline-icons',
     context: __dirname,
     sources: ['./svg/fill/*.svg', './svg/outline/*.svg'],
+    relativeBase: './svg',
     flow: [
       new SVGOProcessor({
         svgo: singleColorSVGOConfig
@@ -39,18 +41,17 @@ export default [
     destination: resolve(__dirname, './src/ast'),
     plugins: [
       new RenameIconByThemePlugin({ ext: '.ts' }),
-      new GenerateFilesPlugin([
-        {
-          dataSource: resolve(__dirname, './templates/types.d.ts'),
-          output: resolve(__dirname, './src/types.d.ts')
-        }
-      ])
+      new GenerateInlineSVGPlugin({
+        destination: resolve(__dirname, './inline-svg'),
+        objectLikeSourceProcessorName: 'xml-processor'
+      })
     ]
   },
   {
     name: 'generate-twotone-icons',
     context: __dirname,
-    sources: ['./inline-svg/twotone/*.svg'],
+    sources: ['./svg/twotone/*.svg'],
+    relativeBase: './svg',
     flow: [
       new SVGOProcessor({
         svgo: twoToneSVGOConfig
@@ -84,7 +85,13 @@ export default [
         : null
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new RenameIconByThemePlugin({ ext: '.ts' })]
+    plugins: [
+      new RenameIconByThemePlugin({ ext: '.ts' }),
+      new GenerateInlineSVGPlugin({
+        destination: resolve(__dirname, './inline-svg'),
+        objectLikeSourceProcessorName: 'xml-processor'
+      })
+    ]
   },
   {
     name: 'generate-list',
@@ -93,7 +100,13 @@ export default [
     plugins: [
       new GenerateIconListPlugin({
         output: resolve(__dirname, './docs/list.md')
-      })
+      }),
+      new GenerateFilesPlugin([
+        {
+          dataSource: resolve(__dirname, './templates/types.d.ts'),
+          output: resolve(__dirname, './src/types.d.ts')
+        }
+      ])
     ]
   }
 ] as KitConfig[];

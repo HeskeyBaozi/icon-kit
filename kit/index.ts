@@ -6,5 +6,9 @@ export {
   AssetPath,
   KitProcessor,
   ExtraAsset,
-  EnsuredAsset
+  UnensuredAsset
 } from './types';
+
+export { getToPath } from './utils';
+
+export { default as Service } from './Service';

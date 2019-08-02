@@ -1,5 +1,10 @@
 import { KitPlugin, ProxyPluginAPI, Asset } from '@kit';
-import { HelperRenderOptions } from '../utils';
+import { getToPath } from '../kit/utils';
+import {
+  HelperRenderOptions,
+  renderIconDefinitionToSVGElement
+} from '../utils';
+import { IconDefinition } from '../templates/types';
 
 export interface GenerateInlineSVGPluginOptions extends HelperRenderOptions {
   objectLikeSourceProcessorName: string;
@@ -14,8 +19,23 @@ export default class GenerateInlineSVGPlugin implements KitPlugin {
   }
 
   apply(api: ProxyPluginAPI) {
-    api.syncHooks.afterProcessor
-      .for(this.options.objectLikeSourceProcessorName)
-      .tap(this.namespace, (asset: Asset) => {});
+    api.syncHooks.afterConfigInitialized.tap(this.namespace, () => {
+      api.syncHooks.afterProcessor
+        .for(this.options.objectLikeSourceProcessorName)
+        .tap(this.namespace, ({ from, content }: Asset) => {
+          const icond = new Function(`return ${content}`)() as IconDefinition;
+          const svg = renderIconDefinitionToSVGElement(icond);
+
+          api.extraAssets$.next({
+            to: getToPath({
+              destination: this.options.destination,
+              from,
+              configContext: api.config!.context,
+              relativeBase: api.config!.relativeBase
+            }),
+            content: svg
+          });
+        });
+    });
   }
 }

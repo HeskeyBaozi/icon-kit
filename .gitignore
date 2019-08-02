@@ -32,6 +32,7 @@ _site/
 public
 src/ast/**/*
 src/types.d.ts
+# inline-svg/**/*.svg
 
 # publish
 *.tgz

@@ -17,7 +17,7 @@ export interface HelperRenderOptions {
 
 export function renderIconDefinitionToSVGElement(
   icond: IconDefinition,
-  options: HelperRenderOptions
+  options: HelperRenderOptions = {}
 ): string {
   if (typeof icond.icon === 'function') {
     // two-tone

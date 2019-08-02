@@ -1,12 +1,7 @@
-import {
-  KitPlugin,
-  ProxyPluginAPI,
-  ExtraAsset,
-  Asset
-} from '../../types';
-import { createWriteStream, ensureDir, emptyDir } from 'fs-extra';
+import { KitPlugin, ProxyPluginAPI, ExtraAsset, Asset } from '../../types';
+import { emptyDir } from 'fs-extra';
 import chalk from 'chalk';
-import { dirname } from 'path';
+import { relative } from 'path';
 
 export default class GenerateCommandPlugin implements KitPlugin {
   namespace = 'build-in:generate-command';
@@ -15,6 +10,36 @@ export default class GenerateCommandPlugin implements KitPlugin {
     this.options = options;
   }
   apply(api: ProxyPluginAPI, options?: object) {
+    api.syncHooks.afterInitialized.tap(this.namespace, () => {
+      api.syncHooks.beforeExtraAssetsTakingEffect.call();
+      const extraAssets$Subsription = api.extraAssets$.subscribe({
+        next: async (asset: ExtraAsset) => {
+          api.syncHooks.beforeExtraAssetEmit.call(asset);
+          await api.writeAsset(asset);
+          if (!asset.to.absolute.endsWith('.svg')) {
+            api.logger.complete(
+              `${chalk.underline.greenBright(
+                `[${api.config!.name}]`
+              )}: Extra file: ${chalk.underline.cyan(
+                relative(api.config!.context, asset.to.absolute)
+              )} generated.`
+            );
+          }
+        },
+        complete: () => {
+          // maybe never run!?
+          api.syncHooks.onExtraAssetsComplete.call();
+          api.logger.complete(
+            `Extra assets from ${chalk.underline.greenBright(
+              `[${api.config!.name}]`
+            )}: Done.`
+          );
+          extraAssets$Subsription.unsubscribe();
+        }
+      });
+      api.syncHooks.afterExtraAssetsTakingEffect.call(extraAssets$Subsription);
+    });
+
     api.registerCommand(
       'generate',
       async (args: object) => {
@@ -24,18 +49,14 @@ export default class GenerateCommandPlugin implements KitPlugin {
             await emptyDir(api.config!.destination);
           }
           const assets$Subscription = api.assets$.subscribe({
-            next: async (asset: Asset) => {
-              api.syncHooks.beforeEmit.call(asset);
+            next: async (asset) => {
+              api.syncHooks.beforeAssetEmit.call(asset);
               if (api.config!.destination && asset.to) {
-                const { to, content } = asset;
-                await ensureDir(dirname(to.absolute));
-                const writeStream = createWriteStream(to.absolute, 'utf8');
-                writeStream.write(content);
-                writeStream.end();
+                await api.writeAsset(asset as Asset);
               }
             },
             complete: () => {
-              api.syncHooks.afterAssetsTakingEffect.call();
+              api.syncHooks.onAssetsComplete.call();
               if (api.config!.destination) {
                 api.logger.complete(
                   `${chalk.underline.greenBright(
@@ -53,30 +74,11 @@ export default class GenerateCommandPlugin implements KitPlugin {
                   )}.`
                 );
               }
-
               assets$Subscription.unsubscribe();
-              api.syncHooks.beforeExtraAssetsTakingEffect.call();
-              const extraAssets$Subsription = api.extraAssets$.subscribe({
-                next: async (asset: ExtraAsset) => {
-                  api.syncHooks.beforeEmit.call(asset);
-                  const { to, content } = asset;
-                  await ensureDir(dirname(to.absolute));
-                  const writeStream = createWriteStream(to.absolute, 'utf8');
-                  writeStream.write(content);
-                  writeStream.end();
-                  api.logger.complete(
-                    `SubTask from ${chalk.underline.greenBright(
-                      `[${api.config!.name}]`
-                    )}. Generate extra file: ${chalk.underline.cyan(to.base)}.`
-                  );
-                },
-                complete: () => {
-                  api.syncHooks.afterExtraAssetsTakingEffect.call();
-                  extraAssets$Subsription.unsubscribe();
-                }
-              });
+              api.extraAssets$.complete();
             }
           });
+          api.syncHooks.afterAssetsTakingEffect.call(assets$Subscription);
         }
       },
       options
