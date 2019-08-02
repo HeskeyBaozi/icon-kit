@@ -1,7 +1,12 @@
 import { IconDefinition, AbstractNode } from '../templates/types';
 
+const defaultColors = {
+  primaryColor: '#333',
+  secondaryColor: '#E6E6E6'
+};
+
 export interface HelperRenderOptions {
-  placeholders: {
+  placeholders?: {
     primaryColor: string;
     secondaryColor: string;
   };
@@ -16,7 +21,7 @@ export function renderIconDefinitionToSVGElement(
 ): string {
   if (typeof icond.icon === 'function') {
     // two-tone
-    const placeholders = options.placeholders;
+    const placeholders = options.placeholders || defaultColors;
     return renderAbstractNodeToSVGElement(
       icond.icon(placeholders.primaryColor, placeholders.secondaryColor),
       options

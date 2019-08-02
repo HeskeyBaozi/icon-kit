@@ -1,8 +1,6 @@
 import { KitProcessor, Asset } from '@kit';
 import { template } from 'lodash';
 import { readFile } from 'fs-extra';
-import { resolve } from 'path';
-import { getIdentifierAccordingToNameAndDir } from '../../utils';
 
 export interface TemplateProcessorOptions {
   tplSrc: string;
@@ -12,18 +10,6 @@ export interface TemplateProcessorOptions {
 export default class TemplateProcessor implements KitProcessor {
   namespace = 'template-processor';
   options: TemplateProcessorOptions;
-
-  static presets: { [key: string]: TemplateProcessorOptions } = {
-    icon: {
-      tplSrc: resolve(__dirname, './templates/icon.ts.ejs'),
-      mapAssetPropsToInterpolate: ({ from, content }: Asset) => {
-        return {
-          identifier: getIdentifierAccordingToNameAndDir(from),
-          json: content
-        };
-      }
-    }
-  };
 
   constructor(options: TemplateProcessorOptions) {
     this.options = options;

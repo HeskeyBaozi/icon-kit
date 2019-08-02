@@ -9,6 +9,7 @@ import RenameIconByThemePlugin from './plugins/RenameIconByThemePlugin';
 import TwoToneColorExtractProcessor from './processors/TwoToneColorExtractProcessor';
 import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
 import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
+import { getIdentifierAccordingToNameAndDir } from './utils';
 
 export default [
   {
@@ -22,20 +23,34 @@ export default [
       new XMLProcessor({
         shape: 'icon-definition'
       }),
-      new TemplateProcessor(TemplateProcessor.presets.icon),
-      process.env.KIT_FAST_GENERATE
-        ? null
-        : new PrettierProcessor({
+      new TemplateProcessor({
+        tplSrc: resolve(__dirname, './templates/icon.ts.ejs'),
+        mapAssetPropsToInterpolate: ({ from, content }) => ({
+          identifier: getIdentifierAccordingToNameAndDir(from),
+          content
+        })
+      }),
+      !process.env.KIT_FAST_GENERATE
+        ? new PrettierProcessor({
             prettier: { parser: 'typescript', singleQuote: true }
           })
+        : null
     ],
     destination: resolve(__dirname, './src/ast'),
-    plugins: [new RenameIconByThemePlugin({ ext: '.ts' })]
+    plugins: [
+      new RenameIconByThemePlugin({ ext: '.ts' }),
+      new GenerateFilesPlugin([
+        {
+          dataSource: resolve(__dirname, './templates/types.d.ts'),
+          output: resolve(__dirname, './src/types.d.ts')
+        }
+      ])
+    ]
   },
   {
     name: 'generate-twotone-icons',
     context: __dirname,
-    sources: ['./svg/twotone/*.svg'],
+    sources: ['./inline-svg/twotone/*.svg'],
     flow: [
       new SVGOProcessor({
         svgo: twoToneSVGOConfig
@@ -55,30 +70,30 @@ export default [
         primaryColors: ['#333'],
         secondaryColors: ['#E6E6E6', '#D9D9D9', '#D8D8D8']
       }),
-      new TemplateProcessor(TemplateProcessor.presets.icon),
-      process.env.KIT_FAST_GENERATE
-        ? null
-        : new PrettierProcessor({
+      new TemplateProcessor({
+        tplSrc: resolve(__dirname, './templates/icon.ts.ejs'),
+        mapAssetPropsToInterpolate: ({ from, content }) => ({
+          identifier: getIdentifierAccordingToNameAndDir(from),
+          content
+        })
+      }),
+      !process.env.KIT_FAST_GENERATE
+        ? new PrettierProcessor({
             prettier: { parser: 'typescript', singleQuote: true }
           })
+        : null
     ],
     destination: resolve(__dirname, './src/ast'),
     plugins: [new RenameIconByThemePlugin({ ext: '.ts' })]
   },
   {
-    name: 'generate-list-and-copy-files',
+    name: 'generate-list',
     context: __dirname,
-    sources: ['./svg/**/*.svg'],
+    sources: ['./inline-svg/**/*.svg'],
     plugins: [
       new GenerateIconListPlugin({
         output: resolve(__dirname, './docs/list.md')
-      }),
-      new GenerateFilesPlugin([
-        {
-          output: resolve(__dirname, './src/types.d.ts'),
-          dataSource: resolve(__dirname, './templates/types.d.ts')
-        }
-      ])
+      })
     ]
   }
 ] as KitConfig[];

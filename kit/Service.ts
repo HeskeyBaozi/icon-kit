@@ -186,6 +186,18 @@ export default class KitService {
       .pipe(
         map((path) => {
           const s = createReadStream(path, 'utf8');
+
+          // optimize when no destination
+          if (!this.config!.destination) {
+            return Promise.resolve({
+              from: {
+                ...parse(path),
+                absolute: path
+              },
+              to: null,
+              content: ''
+            });
+          }
           return fromEvent<string>(s, 'data')
             .pipe(takeUntil(fromEvent(s, 'end')))
             .pipe(
