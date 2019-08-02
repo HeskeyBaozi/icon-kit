@@ -3,6 +3,7 @@ import { set, get, template } from 'lodash';
 import { getThemeAccordingToDir } from '../utils';
 import { resolve, parse, relative, dirname, normalize } from 'path';
 import { readFileSync } from 'fs-extra';
+import { oldIcons } from '../processors/XMLProcessor';
 
 export interface GenerateIconListPluginOptions {
   output: string;
@@ -27,8 +28,15 @@ export default class GenerateIconListPlugin implements KitPlugin {
       if (asset.from && asset.from.dir) {
         const theme = getThemeAccordingToDir(asset.from.dir);
         const rl = relative(dirname(this.options.output), asset.from.absolute);
-        const name = asset.from.name;
-        set(acc, [name, theme], `<img width="80" height="80" src="${normalize(rl)}" alt="${name}" />`);
+        let name = asset.from.name;
+        if (oldIcons.includes(name)) {
+          name = `${name} (< 3.9)`;
+        }
+        set(
+          acc,
+          [name, theme],
+          `<img width="70" height="70" src="${normalize(rl)}" alt="${name}" />`
+        );
       }
     });
 
