@@ -16,7 +16,7 @@ export function renderIconDefinitionToSVGElement(
 ): string {
   if (typeof icond.icon === 'function') {
     // two-tone
-    const placeholders = options.placeholders || {};
+    const placeholders = options.placeholders;
     return renderAbstractNodeToSVGElement(
       icond.icon(placeholders.primaryColor, placeholders.secondaryColor),
       options

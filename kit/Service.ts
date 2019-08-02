@@ -4,7 +4,8 @@ import {
   KitConfig,
   Asset,
   KitFullConfig,
-  ExtraAsset
+  ExtraAsset,
+  EnsuredAsset
 } from './types';
 import { AsyncSeriesWaterfallHook, SyncHook, HookMap } from 'tapable';
 import buildInPlugins from './plugins';
@@ -28,7 +29,7 @@ export default class KitService {
   public config: KitFullConfig | null = null;
   private plugins: KitPlugin[] = [];
   private commands: Map<string, Command> = new Map();
-  public assets$: Observable<Asset> | null = null;
+  public assets$: Observable<EnsuredAsset> | null = null;
   public extraAssets$: ReplaySubject<ExtraAsset> = new ReplaySubject();
   private [ProxyPropertyNames]: string[] = [
     'registerCommand',
@@ -121,7 +122,11 @@ export default class KitService {
   private initializeOnePlugin(plugin: KitPlugin) {
     const { namespace, apply, options } = plugin;
     try {
-      const rawApi = new PluginAPI(namespace);
+      const taskName =
+        (this.config && this.config.name) ||
+        (this.preConfig && this.preConfig.name) ||
+        'unknown-task';
+      const rawApi = new PluginAPI(namespace, taskName);
       const api = new Proxy(rawApi, {
         get: (target, property) => {
           if (
@@ -205,7 +210,7 @@ export default class KitService {
       )
       // use destination path
       .pipe(
-        map<Asset, Asset>((asset: Asset) => {
+        map<Asset, EnsuredAsset>((asset) => {
           if (!this.config!.destination) {
             return { ...asset };
           }
@@ -221,11 +226,11 @@ export default class KitService {
               absolute: toAbsolute
             },
             content
-          };
+          } as any;
         })
       )
       .pipe(
-        map<Asset, Promise<Asset>>((asset) => {
+        map<EnsuredAsset, Promise<EnsuredAsset>>((asset: EnsuredAsset) => {
           return this.asyncHooks.postProcessors.promise(asset);
         }),
         concatAll()

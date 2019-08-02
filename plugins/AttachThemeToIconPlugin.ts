@@ -13,12 +13,6 @@ export default class AttachThemeToIconPlugin implements KitPlugin {
     this.options = o;
   }
   apply(api: ProxyPluginAPI) {
-    api.syncHooks.afterProcessor
-      .for('twotone-color-extract-processor')
-      .tap(this.namespace, (asset) => {
-        console.log('after = ', asset);
-      });
-
     api.asyncHooks.postProcessors.tapPromise(
       this.namespace,
       async ({ from, content }) => {

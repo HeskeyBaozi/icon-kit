@@ -10,7 +10,7 @@ const args = yParser(process.argv.slice(2));
 
   // Failure
   if (!configOrConfigs) {
-    signale.error(`Failed to resolve config(s).`);
+    signale.fatal(`Failed to resolve config(s).`);
     return;
   }
 

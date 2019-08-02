@@ -1,12 +1,10 @@
 import {
   KitPlugin,
   ProxyPluginAPI,
-  EnsuredAsset,
   ExtraAsset,
   Asset
 } from '../../types';
 import { createWriteStream, ensureDir, emptyDir } from 'fs-extra';
-import * as signale from 'signale';
 import chalk from 'chalk';
 import { dirname } from 'path';
 
@@ -39,7 +37,7 @@ export default class GenerateCommandPlugin implements KitPlugin {
             complete: () => {
               api.syncHooks.afterAssetsTakingEffect.call();
               if (api.config!.destination) {
-                signale.success(
+                api.logger.complete(
                   `${chalk.underline.greenBright(
                     `[${api.config!.name}]`
                   )}: Done. The sources: ${chalk.underline.cyan(
@@ -47,7 +45,7 @@ export default class GenerateCommandPlugin implements KitPlugin {
                   )}.`
                 );
               } else {
-                signale.success(
+                api.logger.complete(
                   `${chalk.underline.greenBright(
                     `[${api.config!.name}]`
                   )}: Done. There is no file emitted. The sources: ${chalk.underline.cyan(
@@ -66,7 +64,7 @@ export default class GenerateCommandPlugin implements KitPlugin {
                   const writeStream = createWriteStream(to.absolute, 'utf8');
                   writeStream.write(content);
                   writeStream.end();
-                  signale.success(
+                  api.logger.complete(
                     `SubTask from ${chalk.underline.greenBright(
                       `[${api.config!.name}]`
                     )}. Generate extra file: ${chalk.underline.cyan(to.base)}.`

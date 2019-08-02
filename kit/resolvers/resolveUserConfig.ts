@@ -1,5 +1,5 @@
 import { pathExists } from 'fs-extra';
-import { error, success } from 'signale';
+import * as signale from 'signale';
 import { join } from 'path';
 import loadDefaultModuleFirst from '../utils/loadDefaultModuleFirst';
 import { CwdNeeded, KitConfig } from '../types';
@@ -21,10 +21,12 @@ export default async function resolveUserConfig({
     filePaths: CONFIG_FILES
   });
   if (!configFilePath) {
-    error(`Cannot find any config file!`);
+    signale.fatal(`Cannot find any config file!`);
     return null;
   }
-  success(`Load config file from ${chalk.underline.cyan(configFilePath)}.`);
+  signale.pending(
+    `Load config file from ${chalk.underline.cyan(configFilePath)}.`
+  );
   const userConfig = loadDefaultModuleFirst<KitConfig | KitConfig[] | null>(
     require(configFilePath)
   );
