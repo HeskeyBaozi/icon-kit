@@ -96,7 +96,7 @@ export default [
   {
     name: 'generate-list',
     context: __dirname,
-    sources: ['./inline-svg/**/*.svg'],
+    sources: ['./svg/**/*.svg'],
     plugins: [
       new GenerateIconListPlugin({
         output: resolve(__dirname, './docs/list.md')
