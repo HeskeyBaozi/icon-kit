@@ -28,7 +28,7 @@ export default class GenerateIconListPlugin implements KitPlugin {
         const theme = getThemeAccordingToDir(asset.from.dir);
         const rl = relative(dirname(this.options.output), asset.from.absolute);
         const name = asset.from.name;
-        set(acc, [name, theme], `![${name}](${normalize(rl)})`);
+        set(acc, [name, theme], `<img width="80" height="80" src="${normalize(rl)}" alt="${name}" />`);
       }
     });
 

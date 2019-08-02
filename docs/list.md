@@ -2,410 +2,410 @@
 
  icon | fill | outline | two-tone
 :----:|:----:|:-------:|:-------:
-account-book | ![account-book](..\svg\fill\account-book.svg) | ![account-book](..\svg\outline\account-book.svg) | ![account-book](..\svg\twotone\account-book.svg)
-alert | ![alert](..\svg\fill\alert.svg) | ![alert](..\svg\outline\alert.svg) | ![alert](..\svg\twotone\alert.svg)
-alipay-circle | ![alipay-circle](..\svg\fill\alipay-circle.svg) | ![alipay-circle](..\svg\outline\alipay-circle.svg) |  - 
-alipay-square | ![alipay-square](..\svg\fill\alipay-square.svg) |  -  |  - 
-aliwangwang | ![aliwangwang](..\svg\fill\aliwangwang.svg) | ![aliwangwang](..\svg\outline\aliwangwang.svg) |  - 
-amazon-circle | ![amazon-circle](..\svg\fill\amazon-circle.svg) |  -  |  - 
-amazon-square | ![amazon-square](..\svg\fill\amazon-square.svg) |  -  |  - 
-android | ![android](..\svg\fill\android.svg) | ![android](..\svg\outline\android.svg) |  - 
-api | ![api](..\svg\fill\api.svg) | ![api](..\svg\outline\api.svg) | ![api](..\svg\twotone\api.svg)
-apple | ![apple](..\svg\fill\apple.svg) | ![apple](..\svg\outline\apple.svg) |  - 
-appstore | ![appstore](..\svg\fill\appstore.svg) | ![appstore](..\svg\outline\appstore.svg) | ![appstore](..\svg\twotone\appstore.svg)
-audio | ![audio](..\svg\fill\audio.svg) | ![audio](..\svg\outline\audio.svg) | ![audio](..\svg\twotone\audio.svg)
-backward | ![backward](..\svg\fill\backward.svg) | ![backward](..\svg\outline\backward.svg) |  - 
-bank | ![bank](..\svg\fill\bank.svg) | ![bank](..\svg\outline\bank.svg) | ![bank](..\svg\twotone\bank.svg)
-behance-circle | ![behance-circle](..\svg\fill\behance-circle.svg) |  -  |  - 
-behance-square | ![behance-square](..\svg\fill\behance-square.svg) | ![behance-square](..\svg\outline\behance-square.svg) |  - 
-bell | ![bell](..\svg\fill\bell.svg) | ![bell](..\svg\outline\bell.svg) | ![bell](..\svg\twotone\bell.svg)
-book | ![book](..\svg\fill\book.svg) | ![book](..\svg\outline\book.svg) | ![book](..\svg\twotone\book.svg)
-box-plot | ![box-plot](..\svg\fill\box-plot.svg) | ![box-plot](..\svg\outline\box-plot.svg) | ![box-plot](..\svg\twotone\box-plot.svg)
-bug | ![bug](..\svg\fill\bug.svg) | ![bug](..\svg\outline\bug.svg) | ![bug](..\svg\twotone\bug.svg)
-build | ![build](..\svg\fill\build.svg) | ![build](..\svg\outline\build.svg) | ![build](..\svg\twotone\build.svg)
-bulb | ![bulb](..\svg\fill\bulb.svg) | ![bulb](..\svg\outline\bulb.svg) | ![bulb](..\svg\twotone\bulb.svg)
-calculator | ![calculator](..\svg\fill\calculator.svg) | ![calculator](..\svg\outline\calculator.svg) | ![calculator](..\svg\twotone\calculator.svg)
-calendar | ![calendar](..\svg\fill\calendar.svg) | ![calendar](..\svg\outline\calendar.svg) | ![calendar](..\svg\twotone\calendar.svg)
-camera | ![camera](..\svg\fill\camera.svg) | ![camera](..\svg\outline\camera.svg) | ![camera](..\svg\twotone\camera.svg)
-car | ![car](..\svg\fill\car.svg) | ![car](..\svg\outline\car.svg) | ![car](..\svg\twotone\car.svg)
-caret-down | ![caret-down](..\svg\fill\caret-down.svg) | ![caret-down](..\svg\outline\caret-down.svg) |  - 
-caret-left | ![caret-left](..\svg\fill\caret-left.svg) | ![caret-left](..\svg\outline\caret-left.svg) |  - 
-caret-right | ![caret-right](..\svg\fill\caret-right.svg) | ![caret-right](..\svg\outline\caret-right.svg) |  - 
-caret-up | ![caret-up](..\svg\fill\caret-up.svg) | ![caret-up](..\svg\outline\caret-up.svg) |  - 
-carry-out | ![carry-out](..\svg\fill\carry-out.svg) | ![carry-out](..\svg\outline\carry-out.svg) | ![carry-out](..\svg\twotone\carry-out.svg)
-check-circle | ![check-circle](..\svg\fill\check-circle.svg) | ![check-circle](..\svg\outline\check-circle.svg) | ![check-circle](..\svg\twotone\check-circle.svg)
-check-square | ![check-square](..\svg\fill\check-square.svg) | ![check-square](..\svg\outline\check-square.svg) | ![check-square](..\svg\twotone\check-square.svg)
-chrome | ![chrome](..\svg\fill\chrome.svg) | ![chrome](..\svg\outline\chrome.svg) |  - 
-ci-circle | ![ci-circle](..\svg\fill\ci-circle.svg) |  -  |  - 
-clock-circle | ![clock-circle](..\svg\fill\clock-circle.svg) | ![clock-circle](..\svg\outline\clock-circle.svg) | ![clock-circle](..\svg\twotone\clock-circle.svg)
-close-circle | ![close-circle](..\svg\fill\close-circle.svg) | ![close-circle](..\svg\outline\close-circle.svg) | ![close-circle](..\svg\twotone\close-circle.svg)
-close-square | ![close-square](..\svg\fill\close-square.svg) | ![close-square](..\svg\outline\close-square.svg) | ![close-square](..\svg\twotone\close-square.svg)
-cloud | ![cloud](..\svg\fill\cloud.svg) | ![cloud](..\svg\outline\cloud.svg) | ![cloud](..\svg\twotone\cloud.svg)
-code-sandbox-circle | ![code-sandbox-circle](..\svg\fill\code-sandbox-circle.svg) |  -  |  - 
-code-sandbox-square | ![code-sandbox-square](..\svg\fill\code-sandbox-square.svg) |  -  |  - 
-code | ![code](..\svg\fill\code.svg) | ![code](..\svg\outline\code.svg) | ![code](..\svg\twotone\code.svg)
-codepen-circle | ![codepen-circle](..\svg\fill\codepen-circle.svg) | ![codepen-circle](..\svg\outline\codepen-circle.svg) |  - 
-codepen-square | ![codepen-square](..\svg\fill\codepen-square.svg) |  -  |  - 
-compass | ![compass](..\svg\fill\compass.svg) | ![compass](..\svg\outline\compass.svg) | ![compass](..\svg\twotone\compass.svg)
-contacts | ![contacts](..\svg\fill\contacts.svg) | ![contacts](..\svg\outline\contacts.svg) | ![contacts](..\svg\twotone\contacts.svg)
-container | ![container](..\svg\fill\container.svg) | ![container](..\svg\outline\container.svg) | ![container](..\svg\twotone\container.svg)
-control | ![control](..\svg\fill\control.svg) | ![control](..\svg\outline\control.svg) | ![control](..\svg\twotone\control.svg)
-copy | ![copy](..\svg\fill\copy.svg) | ![copy](..\svg\outline\copy.svg) | ![copy](..\svg\twotone\copy.svg)
-copyright-circle | ![copyright-circle](..\svg\fill\copyright-circle.svg) |  -  |  - 
-credit-card | ![credit-card](..\svg\fill\credit-card.svg) | ![credit-card](..\svg\outline\credit-card.svg) | ![credit-card](..\svg\twotone\credit-card.svg)
-crown | ![crown](..\svg\fill\crown.svg) | ![crown](..\svg\outline\crown.svg) | ![crown](..\svg\twotone\crown.svg)
-customer-service | ![customer-service](..\svg\fill\customer-service.svg) | ![customer-service](..\svg\outline\customer-service.svg) | ![customer-service](..\svg\twotone\customer-service.svg)
-dashboard | ![dashboard](..\svg\fill\dashboard.svg) | ![dashboard](..\svg\outline\dashboard.svg) | ![dashboard](..\svg\twotone\dashboard.svg)
-database | ![database](..\svg\fill\database.svg) | ![database](..\svg\outline\database.svg) | ![database](..\svg\twotone\database.svg)
-delete | ![delete](..\svg\fill\delete.svg) | ![delete](..\svg\outline\delete.svg) | ![delete](..\svg\twotone\delete.svg)
-diff | ![diff](..\svg\fill\diff.svg) | ![diff](..\svg\outline\diff.svg) | ![diff](..\svg\twotone\diff.svg)
-dingtalk-circle | ![dingtalk-circle](..\svg\fill\dingtalk-circle.svg) |  -  |  - 
-dingtalk-square | ![dingtalk-square](..\svg\fill\dingtalk-square.svg) |  -  |  - 
-dislike | ![dislike](..\svg\fill\dislike.svg) | ![dislike](..\svg\outline\dislike.svg) | ![dislike](..\svg\twotone\dislike.svg)
-dollar-circle | ![dollar-circle](..\svg\fill\dollar-circle.svg) |  -  |  - 
-down-circle | ![down-circle](..\svg\fill\down-circle.svg) | ![down-circle](..\svg\outline\down-circle.svg) | ![down-circle](..\svg\twotone\down-circle.svg)
-down-square | ![down-square](..\svg\fill\down-square.svg) | ![down-square](..\svg\outline\down-square.svg) | ![down-square](..\svg\twotone\down-square.svg)
-dribbble-circle | ![dribbble-circle](..\svg\fill\dribbble-circle.svg) |  -  |  - 
-dribbble-square | ![dribbble-square](..\svg\fill\dribbble-square.svg) | ![dribbble-square](..\svg\outline\dribbble-square.svg) |  - 
-dropbox-circle | ![dropbox-circle](..\svg\fill\dropbox-circle.svg) |  -  |  - 
-dropbox-square | ![dropbox-square](..\svg\fill\dropbox-square.svg) |  -  |  - 
-edit | ![edit](..\svg\fill\edit.svg) | ![edit](..\svg\outline\edit.svg) | ![edit](..\svg\twotone\edit.svg)
-environment | ![environment](..\svg\fill\environment.svg) | ![environment](..\svg\outline\environment.svg) | ![environment](..\svg\twotone\environment.svg)
-euro-circle | ![euro-circle](..\svg\fill\euro-circle.svg) |  -  |  - 
-exclamation-circle | ![exclamation-circle](..\svg\fill\exclamation-circle.svg) | ![exclamation-circle](..\svg\outline\exclamation-circle.svg) | ![exclamation-circle](..\svg\twotone\exclamation-circle.svg)
-experiment | ![experiment](..\svg\fill\experiment.svg) | ![experiment](..\svg\outline\experiment.svg) | ![experiment](..\svg\twotone\experiment.svg)
-eye-invisible | ![eye-invisible](..\svg\fill\eye-invisible.svg) | ![eye-invisible](..\svg\outline\eye-invisible.svg) | ![eye-invisible](..\svg\twotone\eye-invisible.svg)
-eye | ![eye](..\svg\fill\eye.svg) | ![eye](..\svg\outline\eye.svg) | ![eye](..\svg\twotone\eye.svg)
-facebook | ![facebook](..\svg\fill\facebook.svg) | ![facebook](..\svg\outline\facebook.svg) |  - 
-fast-backward | ![fast-backward](..\svg\fill\fast-backward.svg) | ![fast-backward](..\svg\outline\fast-backward.svg) |  - 
-fast-forward | ![fast-forward](..\svg\fill\fast-forward.svg) | ![fast-forward](..\svg\outline\fast-forward.svg) |  - 
-file-add | ![file-add](..\svg\fill\file-add.svg) | ![file-add](..\svg\outline\file-add.svg) | ![file-add](..\svg\twotone\file-add.svg)
-file-excel | ![file-excel](..\svg\fill\file-excel.svg) | ![file-excel](..\svg\outline\file-excel.svg) | ![file-excel](..\svg\twotone\file-excel.svg)
-file-exclamation | ![file-exclamation](..\svg\fill\file-exclamation.svg) | ![file-exclamation](..\svg\outline\file-exclamation.svg) | ![file-exclamation](..\svg\twotone\file-exclamation.svg)
-file-image | ![file-image](..\svg\fill\file-image.svg) | ![file-image](..\svg\outline\file-image.svg) | ![file-image](..\svg\twotone\file-image.svg)
-file-markdown | ![file-markdown](..\svg\fill\file-markdown.svg) | ![file-markdown](..\svg\outline\file-markdown.svg) | ![file-markdown](..\svg\twotone\file-markdown.svg)
-file-pdf | ![file-pdf](..\svg\fill\file-pdf.svg) | ![file-pdf](..\svg\outline\file-pdf.svg) | ![file-pdf](..\svg\twotone\file-pdf.svg)
-file-ppt | ![file-ppt](..\svg\fill\file-ppt.svg) | ![file-ppt](..\svg\outline\file-ppt.svg) | ![file-ppt](..\svg\twotone\file-ppt.svg)
-file-text | ![file-text](..\svg\fill\file-text.svg) | ![file-text](..\svg\outline\file-text.svg) | ![file-text](..\svg\twotone\file-text.svg)
-file-unknown | ![file-unknown](..\svg\fill\file-unknown.svg) | ![file-unknown](..\svg\outline\file-unknown.svg) | ![file-unknown](..\svg\twotone\file-unknown.svg)
-file-word | ![file-word](..\svg\fill\file-word.svg) | ![file-word](..\svg\outline\file-word.svg) | ![file-word](..\svg\twotone\file-word.svg)
-file-zip | ![file-zip](..\svg\fill\file-zip.svg) | ![file-zip](..\svg\outline\file-zip.svg) | ![file-zip](..\svg\twotone\file-zip.svg)
-file | ![file](..\svg\fill\file.svg) | ![file](..\svg\outline\file.svg) | ![file](..\svg\twotone\file.svg)
-filter | ![filter](..\svg\fill\filter.svg) | ![filter](..\svg\outline\filter.svg) | ![filter](..\svg\twotone\filter.svg)
-fire | ![fire](..\svg\fill\fire.svg) | ![fire](..\svg\outline\fire.svg) | ![fire](..\svg\twotone\fire.svg)
-flag | ![flag](..\svg\fill\flag.svg) | ![flag](..\svg\outline\flag.svg) | ![flag](..\svg\twotone\flag.svg)
-folder-add | ![folder-add](..\svg\fill\folder-add.svg) | ![folder-add](..\svg\outline\folder-add.svg) | ![folder-add](..\svg\twotone\folder-add.svg)
-folder-open | ![folder-open](..\svg\fill\folder-open.svg) | ![folder-open](..\svg\outline\folder-open.svg) | ![folder-open](..\svg\twotone\folder-open.svg)
-folder | ![folder](..\svg\fill\folder.svg) | ![folder](..\svg\outline\folder.svg) | ![folder](..\svg\twotone\folder.svg)
-forward | ![forward](..\svg\fill\forward.svg) | ![forward](..\svg\outline\forward.svg) |  - 
-frown | ![frown](..\svg\fill\frown.svg) | ![frown](..\svg\outline\frown.svg) | ![frown](..\svg\twotone\frown.svg)
-fund | ![fund](..\svg\fill\fund.svg) | ![fund](..\svg\outline\fund.svg) | ![fund](..\svg\twotone\fund.svg)
-funnel-plot | ![funnel-plot](..\svg\fill\funnel-plot.svg) | ![funnel-plot](..\svg\outline\funnel-plot.svg) | ![funnel-plot](..\svg\twotone\funnel-plot.svg)
-gift | ![gift](..\svg\fill\gift.svg) | ![gift](..\svg\outline\gift.svg) | ![gift](..\svg\twotone\gift.svg)
-github | ![github](..\svg\fill\github.svg) | ![github](..\svg\outline\github.svg) |  - 
-gitlab | ![gitlab](..\svg\fill\gitlab.svg) | ![gitlab](..\svg\outline\gitlab.svg) |  - 
-golden | ![golden](..\svg\fill\golden.svg) |  -  |  - 
-google-circle | ![google-circle](..\svg\fill\google-circle.svg) |  -  |  - 
-google-plus-circle | ![google-plus-circle](..\svg\fill\google-plus-circle.svg) |  -  |  - 
-google-plus-square | ![google-plus-square](..\svg\fill\google-plus-square.svg) |  -  |  - 
-google-square | ![google-square](..\svg\fill\google-square.svg) |  -  |  - 
-hdd | ![hdd](..\svg\fill\hdd.svg) | ![hdd](..\svg\outline\hdd.svg) | ![hdd](..\svg\twotone\hdd.svg)
-heart | ![heart](..\svg\fill\heart.svg) | ![heart](..\svg\outline\heart.svg) | ![heart](..\svg\twotone\heart.svg)
-highlight | ![highlight](..\svg\fill\highlight.svg) | ![highlight](..\svg\outline\highlight.svg) | ![highlight](..\svg\twotone\highlight.svg)
-home | ![home](..\svg\fill\home.svg) | ![home](..\svg\outline\home.svg) | ![home](..\svg\twotone\home.svg)
-hourglass | ![hourglass](..\svg\fill\hourglass.svg) | ![hourglass](..\svg\outline\hourglass.svg) | ![hourglass](..\svg\twotone\hourglass.svg)
-html5 | ![html5](..\svg\fill\html5.svg) | ![html5](..\svg\outline\html5.svg) | ![html5](..\svg\twotone\html5.svg)
-idcard | ![idcard](..\svg\fill\idcard.svg) | ![idcard](..\svg\outline\idcard.svg) | ![idcard](..\svg\twotone\idcard.svg)
-ie-circle | ![ie-circle](..\svg\fill\ie-circle.svg) |  -  |  - 
-ie-square | ![ie-square](..\svg\fill\ie-square.svg) |  -  |  - 
-info-circle | ![info-circle](..\svg\fill\info-circle.svg) | ![info-circle](..\svg\outline\info-circle.svg) | ![info-circle](..\svg\twotone\info-circle.svg)
-instagram | ![instagram](..\svg\fill\instagram.svg) | ![instagram](..\svg\outline\instagram.svg) |  - 
-insurance | ![insurance](..\svg\fill\insurance.svg) | ![insurance](..\svg\outline\insurance.svg) | ![insurance](..\svg\twotone\insurance.svg)
-interaction | ![interaction](..\svg\fill\interaction.svg) | ![interaction](..\svg\outline\interaction.svg) | ![interaction](..\svg\twotone\interaction.svg)
-interation | ![interation](..\svg\fill\interation.svg) | ![interation](..\svg\outline\interation.svg) | ![interation](..\svg\twotone\interation.svg)
-layout | ![layout](..\svg\fill\layout.svg) | ![layout](..\svg\outline\layout.svg) | ![layout](..\svg\twotone\layout.svg)
-left-circle | ![left-circle](..\svg\fill\left-circle.svg) | ![left-circle](..\svg\outline\left-circle.svg) | ![left-circle](..\svg\twotone\left-circle.svg)
-left-square | ![left-square](..\svg\fill\left-square.svg) | ![left-square](..\svg\outline\left-square.svg) | ![left-square](..\svg\twotone\left-square.svg)
-like | ![like](..\svg\fill\like.svg) | ![like](..\svg\outline\like.svg) | ![like](..\svg\twotone\like.svg)
-linkedin | ![linkedin](..\svg\fill\linkedin.svg) | ![linkedin](..\svg\outline\linkedin.svg) |  - 
-lock | ![lock](..\svg\fill\lock.svg) | ![lock](..\svg\outline\lock.svg) | ![lock](..\svg\twotone\lock.svg)
-mail | ![mail](..\svg\fill\mail.svg) | ![mail](..\svg\outline\mail.svg) | ![mail](..\svg\twotone\mail.svg)
-medicine-box | ![medicine-box](..\svg\fill\medicine-box.svg) | ![medicine-box](..\svg\outline\medicine-box.svg) | ![medicine-box](..\svg\twotone\medicine-box.svg)
-medium-circle | ![medium-circle](..\svg\fill\medium-circle.svg) |  -  |  - 
-medium-square | ![medium-square](..\svg\fill\medium-square.svg) |  -  |  - 
-meh | ![meh](..\svg\fill\meh.svg) | ![meh](..\svg\outline\meh.svg) | ![meh](..\svg\twotone\meh.svg)
-message | ![message](..\svg\fill\message.svg) | ![message](..\svg\outline\message.svg) | ![message](..\svg\twotone\message.svg)
-minus-circle | ![minus-circle](..\svg\fill\minus-circle.svg) | ![minus-circle](..\svg\outline\minus-circle.svg) | ![minus-circle](..\svg\twotone\minus-circle.svg)
-minus-square | ![minus-square](..\svg\fill\minus-square.svg) | ![minus-square](..\svg\outline\minus-square.svg) | ![minus-square](..\svg\twotone\minus-square.svg)
-mobile | ![mobile](..\svg\fill\mobile.svg) | ![mobile](..\svg\outline\mobile.svg) | ![mobile](..\svg\twotone\mobile.svg)
-money-collect | ![money-collect](..\svg\fill\money-collect.svg) | ![money-collect](..\svg\outline\money-collect.svg) | ![money-collect](..\svg\twotone\money-collect.svg)
-notification | ![notification](..\svg\fill\notification.svg) | ![notification](..\svg\outline\notification.svg) | ![notification](..\svg\twotone\notification.svg)
-pause-circle | ![pause-circle](..\svg\fill\pause-circle.svg) | ![pause-circle](..\svg\outline\pause-circle.svg) | ![pause-circle](..\svg\twotone\pause-circle.svg)
-pay-circle | ![pay-circle](..\svg\fill\pay-circle.svg) | ![pay-circle](..\svg\outline\pay-circle.svg) |  - 
-phone | ![phone](..\svg\fill\phone.svg) | ![phone](..\svg\outline\phone.svg) | ![phone](..\svg\twotone\phone.svg)
-picture | ![picture](..\svg\fill\picture.svg) | ![picture](..\svg\outline\picture.svg) | ![picture](..\svg\twotone\picture.svg)
-pie-chart | ![pie-chart](..\svg\fill\pie-chart.svg) | ![pie-chart](..\svg\outline\pie-chart.svg) | ![pie-chart](..\svg\twotone\pie-chart.svg)
-play-circle | ![play-circle](..\svg\fill\play-circle.svg) | ![play-circle](..\svg\outline\play-circle.svg) | ![play-circle](..\svg\twotone\play-circle.svg)
-play-square | ![play-square](..\svg\fill\play-square.svg) | ![play-square](..\svg\outline\play-square.svg) | ![play-square](..\svg\twotone\play-square.svg)
-plus-circle | ![plus-circle](..\svg\fill\plus-circle.svg) | ![plus-circle](..\svg\outline\plus-circle.svg) | ![plus-circle](..\svg\twotone\plus-circle.svg)
-plus-square | ![plus-square](..\svg\fill\plus-square.svg) | ![plus-square](..\svg\outline\plus-square.svg) | ![plus-square](..\svg\twotone\plus-square.svg)
-pound-circle | ![pound-circle](..\svg\fill\pound-circle.svg) |  -  | ![pound-circle](..\svg\twotone\pound-circle.svg)
-printer | ![printer](..\svg\fill\printer.svg) | ![printer](..\svg\outline\printer.svg) | ![printer](..\svg\twotone\printer.svg)
-profile | ![profile](..\svg\fill\profile.svg) | ![profile](..\svg\outline\profile.svg) | ![profile](..\svg\twotone\profile.svg)
-project | ![project](..\svg\fill\project.svg) | ![project](..\svg\outline\project.svg) | ![project](..\svg\twotone\project.svg)
-property-safety | ![property-safety](..\svg\fill\property-safety.svg) | ![property-safety](..\svg\outline\property-safety.svg) | ![property-safety](..\svg\twotone\property-safety.svg)
-pushpin | ![pushpin](..\svg\fill\pushpin.svg) | ![pushpin](..\svg\outline\pushpin.svg) | ![pushpin](..\svg\twotone\pushpin.svg)
-qq-circle | ![qq-circle](..\svg\fill\qq-circle.svg) |  -  |  - 
-qq-square | ![qq-square](..\svg\fill\qq-square.svg) |  -  |  - 
-question-circle | ![question-circle](..\svg\fill\question-circle.svg) | ![question-circle](..\svg\outline\question-circle.svg) | ![question-circle](..\svg\twotone\question-circle.svg)
-read | ![read](..\svg\fill\read.svg) | ![read](..\svg\outline\read.svg) |  - 
-reconciliation | ![reconciliation](..\svg\fill\reconciliation.svg) | ![reconciliation](..\svg\outline\reconciliation.svg) | ![reconciliation](..\svg\twotone\reconciliation.svg)
-red-envelope | ![red-envelope](..\svg\fill\red-envelope.svg) | ![red-envelope](..\svg\outline\red-envelope.svg) | ![red-envelope](..\svg\twotone\red-envelope.svg)
-reddit-circle | ![reddit-circle](..\svg\fill\reddit-circle.svg) |  -  |  - 
-reddit-square | ![reddit-square](..\svg\fill\reddit-square.svg) |  -  |  - 
-rest | ![rest](..\svg\fill\rest.svg) | ![rest](..\svg\outline\rest.svg) | ![rest](..\svg\twotone\rest.svg)
-right-circle | ![right-circle](..\svg\fill\right-circle.svg) | ![right-circle](..\svg\outline\right-circle.svg) | ![right-circle](..\svg\twotone\right-circle.svg)
-right-square | ![right-square](..\svg\fill\right-square.svg) | ![right-square](..\svg\outline\right-square.svg) | ![right-square](..\svg\twotone\right-square.svg)
-rocket | ![rocket](..\svg\fill\rocket.svg) | ![rocket](..\svg\outline\rocket.svg) | ![rocket](..\svg\twotone\rocket.svg)
-safety-certificate | ![safety-certificate](..\svg\fill\safety-certificate.svg) | ![safety-certificate](..\svg\outline\safety-certificate.svg) | ![safety-certificate](..\svg\twotone\safety-certificate.svg)
-save | ![save](..\svg\fill\save.svg) | ![save](..\svg\outline\save.svg) | ![save](..\svg\twotone\save.svg)
-schedule | ![schedule](..\svg\fill\schedule.svg) | ![schedule](..\svg\outline\schedule.svg) | ![schedule](..\svg\twotone\schedule.svg)
-security-scan | ![security-scan](..\svg\fill\security-scan.svg) | ![security-scan](..\svg\outline\security-scan.svg) | ![security-scan](..\svg\twotone\security-scan.svg)
-setting | ![setting](..\svg\fill\setting.svg) | ![setting](..\svg\outline\setting.svg) | ![setting](..\svg\twotone\setting.svg)
-shop | ![shop](..\svg\fill\shop.svg) | ![shop](..\svg\outline\shop.svg) | ![shop](..\svg\twotone\shop.svg)
-shopping | ![shopping](..\svg\fill\shopping.svg) | ![shopping](..\svg\outline\shopping.svg) | ![shopping](..\svg\twotone\shopping.svg)
-sketch-circle | ![sketch-circle](..\svg\fill\sketch-circle.svg) |  -  |  - 
-sketch-square | ![sketch-square](..\svg\fill\sketch-square.svg) |  -  |  - 
-skin | ![skin](..\svg\fill\skin.svg) | ![skin](..\svg\outline\skin.svg) | ![skin](..\svg\twotone\skin.svg)
-skype | ![skype](..\svg\fill\skype.svg) | ![skype](..\svg\outline\skype.svg) |  - 
-slack-circle | ![slack-circle](..\svg\fill\slack-circle.svg) |  -  |  - 
-slack-square | ![slack-square](..\svg\fill\slack-square.svg) | ![slack-square](..\svg\outline\slack-square.svg) |  - 
-sliders | ![sliders](..\svg\fill\sliders.svg) | ![sliders](..\svg\outline\sliders.svg) | ![sliders](..\svg\twotone\sliders.svg)
-smile | ![smile](..\svg\fill\smile.svg) | ![smile](..\svg\outline\smile.svg) | ![smile](..\svg\twotone\smile.svg)
-snippets | ![snippets](..\svg\fill\snippets.svg) | ![snippets](..\svg\outline\snippets.svg) | ![snippets](..\svg\twotone\snippets.svg)
-sound | ![sound](..\svg\fill\sound.svg) | ![sound](..\svg\outline\sound.svg) | ![sound](..\svg\twotone\sound.svg)
-star | ![star](..\svg\fill\star.svg) | ![star](..\svg\outline\star.svg) | ![star](..\svg\twotone\star.svg)
-step-backward | ![step-backward](..\svg\fill\step-backward.svg) | ![step-backward](..\svg\outline\step-backward.svg) |  - 
-step-forward | ![step-forward](..\svg\fill\step-forward.svg) | ![step-forward](..\svg\outline\step-forward.svg) |  - 
-stop | ![stop](..\svg\fill\stop.svg) | ![stop](..\svg\outline\stop.svg) | ![stop](..\svg\twotone\stop.svg)
-switcher | ![switcher](..\svg\fill\switcher.svg) | ![switcher](..\svg\outline\switcher.svg) | ![switcher](..\svg\twotone\switcher.svg)
-tablet | ![tablet](..\svg\fill\tablet.svg) | ![tablet](..\svg\outline\tablet.svg) | ![tablet](..\svg\twotone\tablet.svg)
-tag | ![tag](..\svg\fill\tag.svg) | ![tag](..\svg\outline\tag.svg) | ![tag](..\svg\twotone\tag.svg)
-tags | ![tags](..\svg\fill\tags.svg) | ![tags](..\svg\outline\tags.svg) | ![tags](..\svg\twotone\tags.svg)
-taobao-circle | ![taobao-circle](..\svg\fill\taobao-circle.svg) | ![taobao-circle](..\svg\outline\taobao-circle.svg) |  - 
-taobao-square | ![taobao-square](..\svg\fill\taobao-square.svg) |  -  |  - 
-thunderbolt | ![thunderbolt](..\svg\fill\thunderbolt.svg) | ![thunderbolt](..\svg\outline\thunderbolt.svg) | ![thunderbolt](..\svg\twotone\thunderbolt.svg)
-tool | ![tool](..\svg\fill\tool.svg) | ![tool](..\svg\outline\tool.svg) | ![tool](..\svg\twotone\tool.svg)
-trademark-circle | ![trademark-circle](..\svg\fill\trademark-circle.svg) |  -  | ![trademark-circle](..\svg\twotone\trademark-circle.svg)
-trophy | ![trophy](..\svg\fill\trophy.svg) | ![trophy](..\svg\outline\trophy.svg) | ![trophy](..\svg\twotone\trophy.svg)
-twitter-circle | ![twitter-circle](..\svg\fill\twitter-circle.svg) |  -  |  - 
-twitter-square | ![twitter-square](..\svg\fill\twitter-square.svg) |  -  |  - 
-unlock | ![unlock](..\svg\fill\unlock.svg) | ![unlock](..\svg\outline\unlock.svg) | ![unlock](..\svg\twotone\unlock.svg)
-up-circle | ![up-circle](..\svg\fill\up-circle.svg) | ![up-circle](..\svg\outline\up-circle.svg) | ![up-circle](..\svg\twotone\up-circle.svg)
-up-square | ![up-square](..\svg\fill\up-square.svg) | ![up-square](..\svg\outline\up-square.svg) | ![up-square](..\svg\twotone\up-square.svg)
-usb | ![usb](..\svg\fill\usb.svg) | ![usb](..\svg\outline\usb.svg) | ![usb](..\svg\twotone\usb.svg)
-video-camera | ![video-camera](..\svg\fill\video-camera.svg) | ![video-camera](..\svg\outline\video-camera.svg) | ![video-camera](..\svg\twotone\video-camera.svg)
-wallet | ![wallet](..\svg\fill\wallet.svg) | ![wallet](..\svg\outline\wallet.svg) | ![wallet](..\svg\twotone\wallet.svg)
-warning | ![warning](..\svg\fill\warning.svg) | ![warning](..\svg\outline\warning.svg) | ![warning](..\svg\twotone\warning.svg)
-wechat | ![wechat](..\svg\fill\wechat.svg) | ![wechat](..\svg\outline\wechat.svg) |  - 
-weibo-circle | ![weibo-circle](..\svg\fill\weibo-circle.svg) | ![weibo-circle](..\svg\outline\weibo-circle.svg) |  - 
-weibo-square | ![weibo-square](..\svg\fill\weibo-square.svg) | ![weibo-square](..\svg\outline\weibo-square.svg) |  - 
-windows | ![windows](..\svg\fill\windows.svg) | ![windows](..\svg\outline\windows.svg) |  - 
-yahoo | ![yahoo](..\svg\fill\yahoo.svg) | ![yahoo](..\svg\outline\yahoo.svg) |  - 
-youtube | ![youtube](..\svg\fill\youtube.svg) | ![youtube](..\svg\outline\youtube.svg) |  - 
-yuque | ![yuque](..\svg\fill\yuque.svg) | ![yuque](..\svg\outline\yuque.svg) |  - 
-zhihu-circle | ![zhihu-circle](..\svg\fill\zhihu-circle.svg) |  -  |  - 
-zhihu-square | ![zhihu-square](..\svg\fill\zhihu-square.svg) |  -  |  - 
-alibaba |  -  | ![alibaba](..\svg\outline\alibaba.svg) |  - 
-align-center |  -  | ![align-center](..\svg\outline\align-center.svg) |  - 
-align-left |  -  | ![align-left](..\svg\outline\align-left.svg) |  - 
-align-right |  -  | ![align-right](..\svg\outline\align-right.svg) |  - 
-alipay |  -  | ![alipay](..\svg\outline\alipay.svg) |  - 
-aliyun |  -  | ![aliyun](..\svg\outline\aliyun.svg) |  - 
-amazon |  -  | ![amazon](..\svg\outline\amazon.svg) |  - 
-ant-cloud |  -  | ![ant-cloud](..\svg\outline\ant-cloud.svg) |  - 
-ant-design |  -  | ![ant-design](..\svg\outline\ant-design.svg) |  - 
-apartment |  -  | ![apartment](..\svg\outline\apartment.svg) |  - 
-area-chart |  -  | ![area-chart](..\svg\outline\area-chart.svg) |  - 
-arrow-down |  -  | ![arrow-down](..\svg\outline\arrow-down.svg) |  - 
-arrow-left |  -  | ![arrow-left](..\svg\outline\arrow-left.svg) |  - 
-arrow-right |  -  | ![arrow-right](..\svg\outline\arrow-right.svg) |  - 
-arrow-up |  -  | ![arrow-up](..\svg\outline\arrow-up.svg) |  - 
-arrows-alt |  -  | ![arrows-alt](..\svg\outline\arrows-alt.svg) |  - 
-audit |  -  | ![audit](..\svg\outline\audit.svg) |  - 
-bar-chart |  -  | ![bar-chart](..\svg\outline\bar-chart.svg) |  - 
-barcode |  -  | ![barcode](..\svg\outline\barcode.svg) |  - 
-bars |  -  | ![bars](..\svg\outline\bars.svg) |  - 
-behance |  -  | ![behance](..\svg\outline\behance.svg) |  - 
-bg-colors |  -  | ![bg-colors](..\svg\outline\bg-colors.svg) |  - 
-block |  -  | ![block](..\svg\outline\block.svg) |  - 
-bold |  -  | ![bold](..\svg\outline\bold.svg) |  - 
-border-bottom |  -  | ![border-bottom](..\svg\outline\border-bottom.svg) |  - 
-border-horizontal |  -  | ![border-horizontal](..\svg\outline\border-horizontal.svg) |  - 
-border-inner |  -  | ![border-inner](..\svg\outline\border-inner.svg) |  - 
-border-left |  -  | ![border-left](..\svg\outline\border-left.svg) |  - 
-border-outer |  -  | ![border-outer](..\svg\outline\border-outer.svg) |  - 
-border-right |  -  | ![border-right](..\svg\outline\border-right.svg) |  - 
-border-top |  -  | ![border-top](..\svg\outline\border-top.svg) |  - 
-border-verticle |  -  | ![border-verticle](..\svg\outline\border-verticle.svg) |  - 
-border |  -  | ![border](..\svg\outline\border.svg) |  - 
-branches |  -  | ![branches](..\svg\outline\branches.svg) |  - 
-check |  -  | ![check](..\svg\outline\check.svg) |  - 
-ci |  -  | ![ci](..\svg\outline\ci.svg) | ![ci](..\svg\twotone\ci.svg)
-close |  -  | ![close](..\svg\outline\close.svg) |  - 
-cloud-download |  -  | ![cloud-download](..\svg\outline\cloud-download.svg) |  - 
-cloud-server |  -  | ![cloud-server](..\svg\outline\cloud-server.svg) |  - 
-cloud-sync |  -  | ![cloud-sync](..\svg\outline\cloud-sync.svg) |  - 
-cloud-upload |  -  | ![cloud-upload](..\svg\outline\cloud-upload.svg) |  - 
-cluster |  -  | ![cluster](..\svg\outline\cluster.svg) |  - 
-code-sandbox |  -  | ![code-sandbox](..\svg\outline\code-sandbox.svg) |  - 
-codepen |  -  | ![codepen](..\svg\outline\codepen.svg) |  - 
-coffee |  -  | ![coffee](..\svg\outline\coffee.svg) |  - 
-colum-height |  -  | ![colum-height](..\svg\outline\colum-height.svg) |  - 
-column-height |  -  | ![column-height](..\svg\outline\column-height.svg) |  - 
-column-width |  -  | ![column-width](..\svg\outline\column-width.svg) |  - 
-copyright |  -  | ![copyright](..\svg\outline\copyright.svg) | ![copyright](..\svg\twotone\copyright.svg)
-dash |  -  | ![dash](..\svg\outline\dash.svg) |  - 
-deployment-unit |  -  | ![deployment-unit](..\svg\outline\deployment-unit.svg) |  - 
-desktop |  -  | ![desktop](..\svg\outline\desktop.svg) |  - 
-dingding |  -  | ![dingding](..\svg\outline\dingding.svg) |  - 
-disconnect |  -  | ![disconnect](..\svg\outline\disconnect.svg) |  - 
-dollar |  -  | ![dollar](..\svg\outline\dollar.svg) | ![dollar](..\svg\twotone\dollar.svg)
-dot-chart |  -  | ![dot-chart](..\svg\outline\dot-chart.svg) |  - 
-double-left |  -  | ![double-left](..\svg\outline\double-left.svg) |  - 
-double-right |  -  | ![double-right](..\svg\outline\double-right.svg) |  - 
-down |  -  | ![down](..\svg\outline\down.svg) |  - 
-download |  -  | ![download](..\svg\outline\download.svg) |  - 
-drag |  -  | ![drag](..\svg\outline\drag.svg) |  - 
-dribbble |  -  | ![dribbble](..\svg\outline\dribbble.svg) |  - 
-dropbox |  -  | ![dropbox](..\svg\outline\dropbox.svg) |  - 
-ellipsis |  -  | ![ellipsis](..\svg\outline\ellipsis.svg) |  - 
-enter |  -  | ![enter](..\svg\outline\enter.svg) |  - 
-euro |  -  | ![euro](..\svg\outline\euro.svg) | ![euro](..\svg\twotone\euro.svg)
-exception |  -  | ![exception](..\svg\outline\exception.svg) |  - 
-exclamation |  -  | ![exclamation](..\svg\outline\exclamation.svg) |  - 
-export |  -  | ![export](..\svg\outline\export.svg) |  - 
-fall |  -  | ![fall](..\svg\outline\fall.svg) |  - 
-file-done |  -  | ![file-done](..\svg\outline\file-done.svg) |  - 
-file-jpg |  -  | ![file-jpg](..\svg\outline\file-jpg.svg) |  - 
-file-protect |  -  | ![file-protect](..\svg\outline\file-protect.svg) |  - 
-file-search |  -  | ![file-search](..\svg\outline\file-search.svg) |  - 
-file-sync |  -  | ![file-sync](..\svg\outline\file-sync.svg) |  - 
-font-colors |  -  | ![font-colors](..\svg\outline\font-colors.svg) |  - 
-font-size |  -  | ![font-size](..\svg\outline\font-size.svg) |  - 
-fork |  -  | ![fork](..\svg\outline\fork.svg) |  - 
-form |  -  | ![form](..\svg\outline\form.svg) |  - 
-fullscreen-exit |  -  | ![fullscreen-exit](..\svg\outline\fullscreen-exit.svg) |  - 
-fullscreen |  -  | ![fullscreen](..\svg\outline\fullscreen.svg) |  - 
-gateway |  -  | ![gateway](..\svg\outline\gateway.svg) |  - 
-global |  -  | ![global](..\svg\outline\global.svg) |  - 
-gold |  -  | ![gold](..\svg\outline\gold.svg) | ![gold](..\svg\twotone\gold.svg)
-google-plus |  -  | ![google-plus](..\svg\outline\google-plus.svg) |  - 
-google |  -  | ![google](..\svg\outline\google.svg) |  - 
-heat-map |  -  | ![heat-map](..\svg\outline\heat-map.svg) |  - 
-history |  -  | ![history](..\svg\outline\history.svg) |  - 
-ie |  -  | ![ie](..\svg\outline\ie.svg) |  - 
-import |  -  | ![import](..\svg\outline\import.svg) |  - 
-inbox |  -  | ![inbox](..\svg\outline\inbox.svg) |  - 
-info |  -  | ![info](..\svg\outline\info.svg) |  - 
-issues-close |  -  | ![issues-close](..\svg\outline\issues-close.svg) |  - 
-italic |  -  | ![italic](..\svg\outline\italic.svg) |  - 
-key |  -  | ![key](..\svg\outline\key.svg) |  - 
-laptop |  -  | ![laptop](..\svg\outline\laptop.svg) |  - 
-left |  -  | ![left](..\svg\outline\left.svg) |  - 
-line-chart |  -  | ![line-chart](..\svg\outline\line-chart.svg) |  - 
-line-height |  -  | ![line-height](..\svg\outline\line-height.svg) |  - 
-line |  -  | ![line](..\svg\outline\line.svg) |  - 
-link |  -  | ![link](..\svg\outline\link.svg) |  - 
-loading-3-quarters |  -  | ![loading-3-quarters](..\svg\outline\loading-3-quarters.svg) |  - 
-loading |  -  | ![loading](..\svg\outline\loading.svg) |  - 
-login |  -  | ![login](..\svg\outline\login.svg) |  - 
-logout |  -  | ![logout](..\svg\outline\logout.svg) |  - 
-man |  -  | ![man](..\svg\outline\man.svg) |  - 
-medium-workmark |  -  | ![medium-workmark](..\svg\outline\medium-workmark.svg) |  - 
-medium |  -  | ![medium](..\svg\outline\medium.svg) |  - 
-menu-fold |  -  | ![menu-fold](..\svg\outline\menu-fold.svg) |  - 
-menu-unfold |  -  | ![menu-unfold](..\svg\outline\menu-unfold.svg) |  - 
-menu |  -  | ![menu](..\svg\outline\menu.svg) |  - 
-minus |  -  | ![minus](..\svg\outline\minus.svg) |  - 
-monitor |  -  | ![monitor](..\svg\outline\monitor.svg) |  - 
-more |  -  | ![more](..\svg\outline\more.svg) |  - 
-number |  -  | ![number](..\svg\outline\number.svg) |  - 
-ordered-list |  -  | ![ordered-list](..\svg\outline\ordered-list.svg) |  - 
-paper-clip |  -  | ![paper-clip](..\svg\outline\paper-clip.svg) |  - 
-pause |  -  | ![pause](..\svg\outline\pause.svg) |  - 
-percentage |  -  | ![percentage](..\svg\outline\percentage.svg) |  - 
-pic-center |  -  | ![pic-center](..\svg\outline\pic-center.svg) |  - 
-pic-left |  -  | ![pic-left](..\svg\outline\pic-left.svg) |  - 
-pic-right |  -  | ![pic-right](..\svg\outline\pic-right.svg) |  - 
-plus |  -  | ![plus](..\svg\outline\plus.svg) |  - 
-pound |  -  | ![pound](..\svg\outline\pound.svg) |  - 
-poweroff |  -  | ![poweroff](..\svg\outline\poweroff.svg) |  - 
-pull-request |  -  | ![pull-request](..\svg\outline\pull-request.svg) |  - 
-qq |  -  | ![qq](..\svg\outline\qq.svg) |  - 
-qrcode |  -  | ![qrcode](..\svg\outline\qrcode.svg) |  - 
-question |  -  | ![question](..\svg\outline\question.svg) |  - 
-radar-chart |  -  | ![radar-chart](..\svg\outline\radar-chart.svg) |  - 
-radius-bottomleft |  -  | ![radius-bottomleft](..\svg\outline\radius-bottomleft.svg) |  - 
-radius-bottomright |  -  | ![radius-bottomright](..\svg\outline\radius-bottomright.svg) |  - 
-radius-setting |  -  | ![radius-setting](..\svg\outline\radius-setting.svg) |  - 
-radius-upleft |  -  | ![radius-upleft](..\svg\outline\radius-upleft.svg) |  - 
-radius-upright |  -  | ![radius-upright](..\svg\outline\radius-upright.svg) |  - 
-reddit |  -  | ![reddit](..\svg\outline\reddit.svg) |  - 
-redo |  -  | ![redo](..\svg\outline\redo.svg) |  - 
-reload |  -  | ![reload](..\svg\outline\reload.svg) |  - 
-retweet |  -  | ![retweet](..\svg\outline\retweet.svg) |  - 
-right |  -  | ![right](..\svg\outline\right.svg) |  - 
-rise |  -  | ![rise](..\svg\outline\rise.svg) |  - 
-robot |  -  | ![robot](..\svg\outline\robot.svg) |  - 
-rollback |  -  | ![rollback](..\svg\outline\rollback.svg) |  - 
-safety |  -  | ![safety](..\svg\outline\safety.svg) |  - 
-scan |  -  | ![scan](..\svg\outline\scan.svg) |  - 
-scissor |  -  | ![scissor](..\svg\outline\scissor.svg) |  - 
-search |  -  | ![search](..\svg\outline\search.svg) |  - 
-select |  -  | ![select](..\svg\outline\select.svg) |  - 
-shake |  -  | ![shake](..\svg\outline\shake.svg) |  - 
-share-alt |  -  | ![share-alt](..\svg\outline\share-alt.svg) |  - 
-shopping-cart |  -  | ![shopping-cart](..\svg\outline\shopping-cart.svg) |  - 
-shrink |  -  | ![shrink](..\svg\outline\shrink.svg) |  - 
-sketch |  -  | ![sketch](..\svg\outline\sketch.svg) |  - 
-slack |  -  | ![slack](..\svg\outline\slack.svg) |  - 
-small-dash |  -  | ![small-dash](..\svg\outline\small-dash.svg) |  - 
-solution |  -  | ![solution](..\svg\outline\solution.svg) |  - 
-sort-ascending |  -  | ![sort-ascending](..\svg\outline\sort-ascending.svg) |  - 
-sort-descending |  -  | ![sort-descending](..\svg\outline\sort-descending.svg) |  - 
-stock |  -  | ![stock](..\svg\outline\stock.svg) |  - 
-strikethrough |  -  | ![strikethrough](..\svg\outline\strikethrough.svg) |  - 
-swap-left |  -  | ![swap-left](..\svg\outline\swap-left.svg) |  - 
-swap-right |  -  | ![swap-right](..\svg\outline\swap-right.svg) |  - 
-swap |  -  | ![swap](..\svg\outline\swap.svg) |  - 
-sync |  -  | ![sync](..\svg\outline\sync.svg) |  - 
-table |  -  | ![table](..\svg\outline\table.svg) |  - 
-taobao |  -  | ![taobao](..\svg\outline\taobao.svg) |  - 
-team |  -  | ![team](..\svg\outline\team.svg) |  - 
-to-top |  -  | ![to-top](..\svg\outline\to-top.svg) |  - 
-trademark |  -  | ![trademark](..\svg\outline\trademark.svg) |  - 
-transaction |  -  | ![transaction](..\svg\outline\transaction.svg) |  - 
-twitter |  -  | ![twitter](..\svg\outline\twitter.svg) |  - 
-underline |  -  | ![underline](..\svg\outline\underline.svg) |  - 
-undo |  -  | ![undo](..\svg\outline\undo.svg) |  - 
-unordered-list |  -  | ![unordered-list](..\svg\outline\unordered-list.svg) |  - 
-up |  -  | ![up](..\svg\outline\up.svg) |  - 
-upload |  -  | ![upload](..\svg\outline\upload.svg) |  - 
-user-add |  -  | ![user-add](..\svg\outline\user-add.svg) |  - 
-user-delete |  -  | ![user-delete](..\svg\outline\user-delete.svg) |  - 
-user |  -  | ![user](..\svg\outline\user.svg) |  - 
-usergroup-add |  -  | ![usergroup-add](..\svg\outline\usergroup-add.svg) |  - 
-usergroup-delete |  -  | ![usergroup-delete](..\svg\outline\usergroup-delete.svg) |  - 
-vertical-align-bottom |  -  | ![vertical-align-bottom](..\svg\outline\vertical-align-bottom.svg) |  - 
-vertical-align-middle |  -  | ![vertical-align-middle](..\svg\outline\vertical-align-middle.svg) |  - 
-vertical-align-top |  -  | ![vertical-align-top](..\svg\outline\vertical-align-top.svg) |  - 
-vertical-left |  -  | ![vertical-left](..\svg\outline\vertical-left.svg) |  - 
-vertical-right |  -  | ![vertical-right](..\svg\outline\vertical-right.svg) |  - 
-weibo |  -  | ![weibo](..\svg\outline\weibo.svg) |  - 
-wifi |  -  | ![wifi](..\svg\outline\wifi.svg) |  - 
-woman |  -  | ![woman](..\svg\outline\woman.svg) |  - 
-zhihu |  -  | ![zhihu](..\svg\outline\zhihu.svg) |  - 
-zoom-in |  -  | ![zoom-in](..\svg\outline\zoom-in.svg) |  - 
-zoom-out |  -  | ![zoom-out](..\svg\outline\zoom-out.svg) |  - 
-canlendar |  -  |  -  | ![canlendar](..\svg\twotone\canlendar.svg)
+account-book | <img width="80" height="80" src="..\svg\fill\account-book.svg" alt="account-book" /> | <img width="80" height="80" src="..\svg\outline\account-book.svg" alt="account-book" /> | <img width="80" height="80" src="..\svg\twotone\account-book.svg" alt="account-book" />
+alert | <img width="80" height="80" src="..\svg\fill\alert.svg" alt="alert" /> | <img width="80" height="80" src="..\svg\outline\alert.svg" alt="alert" /> | <img width="80" height="80" src="..\svg\twotone\alert.svg" alt="alert" />
+alipay-circle | <img width="80" height="80" src="..\svg\fill\alipay-circle.svg" alt="alipay-circle" /> | <img width="80" height="80" src="..\svg\outline\alipay-circle.svg" alt="alipay-circle" /> |  - 
+alipay-square | <img width="80" height="80" src="..\svg\fill\alipay-square.svg" alt="alipay-square" /> |  -  |  - 
+aliwangwang | <img width="80" height="80" src="..\svg\fill\aliwangwang.svg" alt="aliwangwang" /> | <img width="80" height="80" src="..\svg\outline\aliwangwang.svg" alt="aliwangwang" /> |  - 
+amazon-circle | <img width="80" height="80" src="..\svg\fill\amazon-circle.svg" alt="amazon-circle" /> |  -  |  - 
+amazon-square | <img width="80" height="80" src="..\svg\fill\amazon-square.svg" alt="amazon-square" /> |  -  |  - 
+android | <img width="80" height="80" src="..\svg\fill\android.svg" alt="android" /> | <img width="80" height="80" src="..\svg\outline\android.svg" alt="android" /> |  - 
+api | <img width="80" height="80" src="..\svg\fill\api.svg" alt="api" /> | <img width="80" height="80" src="..\svg\outline\api.svg" alt="api" /> | <img width="80" height="80" src="..\svg\twotone\api.svg" alt="api" />
+apple | <img width="80" height="80" src="..\svg\fill\apple.svg" alt="apple" /> | <img width="80" height="80" src="..\svg\outline\apple.svg" alt="apple" /> |  - 
+appstore | <img width="80" height="80" src="..\svg\fill\appstore.svg" alt="appstore" /> | <img width="80" height="80" src="..\svg\outline\appstore.svg" alt="appstore" /> | <img width="80" height="80" src="..\svg\twotone\appstore.svg" alt="appstore" />
+audio | <img width="80" height="80" src="..\svg\fill\audio.svg" alt="audio" /> | <img width="80" height="80" src="..\svg\outline\audio.svg" alt="audio" /> | <img width="80" height="80" src="..\svg\twotone\audio.svg" alt="audio" />
+backward | <img width="80" height="80" src="..\svg\fill\backward.svg" alt="backward" /> | <img width="80" height="80" src="..\svg\outline\backward.svg" alt="backward" /> |  - 
+bank | <img width="80" height="80" src="..\svg\fill\bank.svg" alt="bank" /> | <img width="80" height="80" src="..\svg\outline\bank.svg" alt="bank" /> | <img width="80" height="80" src="..\svg\twotone\bank.svg" alt="bank" />
+behance-circle | <img width="80" height="80" src="..\svg\fill\behance-circle.svg" alt="behance-circle" /> |  -  |  - 
+behance-square | <img width="80" height="80" src="..\svg\fill\behance-square.svg" alt="behance-square" /> | <img width="80" height="80" src="..\svg\outline\behance-square.svg" alt="behance-square" /> |  - 
+bell | <img width="80" height="80" src="..\svg\fill\bell.svg" alt="bell" /> | <img width="80" height="80" src="..\svg\outline\bell.svg" alt="bell" /> | <img width="80" height="80" src="..\svg\twotone\bell.svg" alt="bell" />
+book | <img width="80" height="80" src="..\svg\fill\book.svg" alt="book" /> | <img width="80" height="80" src="..\svg\outline\book.svg" alt="book" /> | <img width="80" height="80" src="..\svg\twotone\book.svg" alt="book" />
+box-plot | <img width="80" height="80" src="..\svg\fill\box-plot.svg" alt="box-plot" /> | <img width="80" height="80" src="..\svg\outline\box-plot.svg" alt="box-plot" /> | <img width="80" height="80" src="..\svg\twotone\box-plot.svg" alt="box-plot" />
+bug | <img width="80" height="80" src="..\svg\fill\bug.svg" alt="bug" /> | <img width="80" height="80" src="..\svg\outline\bug.svg" alt="bug" /> | <img width="80" height="80" src="..\svg\twotone\bug.svg" alt="bug" />
+build | <img width="80" height="80" src="..\svg\fill\build.svg" alt="build" /> | <img width="80" height="80" src="..\svg\outline\build.svg" alt="build" /> | <img width="80" height="80" src="..\svg\twotone\build.svg" alt="build" />
+bulb | <img width="80" height="80" src="..\svg\fill\bulb.svg" alt="bulb" /> | <img width="80" height="80" src="..\svg\outline\bulb.svg" alt="bulb" /> | <img width="80" height="80" src="..\svg\twotone\bulb.svg" alt="bulb" />
+calculator | <img width="80" height="80" src="..\svg\fill\calculator.svg" alt="calculator" /> | <img width="80" height="80" src="..\svg\outline\calculator.svg" alt="calculator" /> | <img width="80" height="80" src="..\svg\twotone\calculator.svg" alt="calculator" />
+calendar | <img width="80" height="80" src="..\svg\fill\calendar.svg" alt="calendar" /> | <img width="80" height="80" src="..\svg\outline\calendar.svg" alt="calendar" /> | <img width="80" height="80" src="..\svg\twotone\calendar.svg" alt="calendar" />
+camera | <img width="80" height="80" src="..\svg\fill\camera.svg" alt="camera" /> | <img width="80" height="80" src="..\svg\outline\camera.svg" alt="camera" /> | <img width="80" height="80" src="..\svg\twotone\camera.svg" alt="camera" />
+car | <img width="80" height="80" src="..\svg\fill\car.svg" alt="car" /> | <img width="80" height="80" src="..\svg\outline\car.svg" alt="car" /> | <img width="80" height="80" src="..\svg\twotone\car.svg" alt="car" />
+caret-down | <img width="80" height="80" src="..\svg\fill\caret-down.svg" alt="caret-down" /> | <img width="80" height="80" src="..\svg\outline\caret-down.svg" alt="caret-down" /> |  - 
+caret-left | <img width="80" height="80" src="..\svg\fill\caret-left.svg" alt="caret-left" /> | <img width="80" height="80" src="..\svg\outline\caret-left.svg" alt="caret-left" /> |  - 
+caret-right | <img width="80" height="80" src="..\svg\fill\caret-right.svg" alt="caret-right" /> | <img width="80" height="80" src="..\svg\outline\caret-right.svg" alt="caret-right" /> |  - 
+caret-up | <img width="80" height="80" src="..\svg\fill\caret-up.svg" alt="caret-up" /> | <img width="80" height="80" src="..\svg\outline\caret-up.svg" alt="caret-up" /> |  - 
+carry-out | <img width="80" height="80" src="..\svg\fill\carry-out.svg" alt="carry-out" /> | <img width="80" height="80" src="..\svg\outline\carry-out.svg" alt="carry-out" /> | <img width="80" height="80" src="..\svg\twotone\carry-out.svg" alt="carry-out" />
+check-circle | <img width="80" height="80" src="..\svg\fill\check-circle.svg" alt="check-circle" /> | <img width="80" height="80" src="..\svg\outline\check-circle.svg" alt="check-circle" /> | <img width="80" height="80" src="..\svg\twotone\check-circle.svg" alt="check-circle" />
+check-square | <img width="80" height="80" src="..\svg\fill\check-square.svg" alt="check-square" /> | <img width="80" height="80" src="..\svg\outline\check-square.svg" alt="check-square" /> | <img width="80" height="80" src="..\svg\twotone\check-square.svg" alt="check-square" />
+chrome | <img width="80" height="80" src="..\svg\fill\chrome.svg" alt="chrome" /> | <img width="80" height="80" src="..\svg\outline\chrome.svg" alt="chrome" /> |  - 
+ci-circle | <img width="80" height="80" src="..\svg\fill\ci-circle.svg" alt="ci-circle" /> |  -  |  - 
+clock-circle | <img width="80" height="80" src="..\svg\fill\clock-circle.svg" alt="clock-circle" /> | <img width="80" height="80" src="..\svg\outline\clock-circle.svg" alt="clock-circle" /> | <img width="80" height="80" src="..\svg\twotone\clock-circle.svg" alt="clock-circle" />
+close-circle | <img width="80" height="80" src="..\svg\fill\close-circle.svg" alt="close-circle" /> | <img width="80" height="80" src="..\svg\outline\close-circle.svg" alt="close-circle" /> | <img width="80" height="80" src="..\svg\twotone\close-circle.svg" alt="close-circle" />
+close-square | <img width="80" height="80" src="..\svg\fill\close-square.svg" alt="close-square" /> | <img width="80" height="80" src="..\svg\outline\close-square.svg" alt="close-square" /> | <img width="80" height="80" src="..\svg\twotone\close-square.svg" alt="close-square" />
+cloud | <img width="80" height="80" src="..\svg\fill\cloud.svg" alt="cloud" /> | <img width="80" height="80" src="..\svg\outline\cloud.svg" alt="cloud" /> | <img width="80" height="80" src="..\svg\twotone\cloud.svg" alt="cloud" />
+code-sandbox-circle | <img width="80" height="80" src="..\svg\fill\code-sandbox-circle.svg" alt="code-sandbox-circle" /> |  -  |  - 
+code-sandbox-square | <img width="80" height="80" src="..\svg\fill\code-sandbox-square.svg" alt="code-sandbox-square" /> |  -  |  - 
+code | <img width="80" height="80" src="..\svg\fill\code.svg" alt="code" /> | <img width="80" height="80" src="..\svg\outline\code.svg" alt="code" /> | <img width="80" height="80" src="..\svg\twotone\code.svg" alt="code" />
+codepen-circle | <img width="80" height="80" src="..\svg\fill\codepen-circle.svg" alt="codepen-circle" /> | <img width="80" height="80" src="..\svg\outline\codepen-circle.svg" alt="codepen-circle" /> |  - 
+codepen-square | <img width="80" height="80" src="..\svg\fill\codepen-square.svg" alt="codepen-square" /> |  -  |  - 
+compass | <img width="80" height="80" src="..\svg\fill\compass.svg" alt="compass" /> | <img width="80" height="80" src="..\svg\outline\compass.svg" alt="compass" /> | <img width="80" height="80" src="..\svg\twotone\compass.svg" alt="compass" />
+contacts | <img width="80" height="80" src="..\svg\fill\contacts.svg" alt="contacts" /> | <img width="80" height="80" src="..\svg\outline\contacts.svg" alt="contacts" /> | <img width="80" height="80" src="..\svg\twotone\contacts.svg" alt="contacts" />
+container | <img width="80" height="80" src="..\svg\fill\container.svg" alt="container" /> | <img width="80" height="80" src="..\svg\outline\container.svg" alt="container" /> | <img width="80" height="80" src="..\svg\twotone\container.svg" alt="container" />
+control | <img width="80" height="80" src="..\svg\fill\control.svg" alt="control" /> | <img width="80" height="80" src="..\svg\outline\control.svg" alt="control" /> | <img width="80" height="80" src="..\svg\twotone\control.svg" alt="control" />
+copy | <img width="80" height="80" src="..\svg\fill\copy.svg" alt="copy" /> | <img width="80" height="80" src="..\svg\outline\copy.svg" alt="copy" /> | <img width="80" height="80" src="..\svg\twotone\copy.svg" alt="copy" />
+copyright-circle | <img width="80" height="80" src="..\svg\fill\copyright-circle.svg" alt="copyright-circle" /> |  -  |  - 
+credit-card | <img width="80" height="80" src="..\svg\fill\credit-card.svg" alt="credit-card" /> | <img width="80" height="80" src="..\svg\outline\credit-card.svg" alt="credit-card" /> | <img width="80" height="80" src="..\svg\twotone\credit-card.svg" alt="credit-card" />
+crown | <img width="80" height="80" src="..\svg\fill\crown.svg" alt="crown" /> | <img width="80" height="80" src="..\svg\outline\crown.svg" alt="crown" /> | <img width="80" height="80" src="..\svg\twotone\crown.svg" alt="crown" />
+customer-service | <img width="80" height="80" src="..\svg\fill\customer-service.svg" alt="customer-service" /> | <img width="80" height="80" src="..\svg\outline\customer-service.svg" alt="customer-service" /> | <img width="80" height="80" src="..\svg\twotone\customer-service.svg" alt="customer-service" />
+dashboard | <img width="80" height="80" src="..\svg\fill\dashboard.svg" alt="dashboard" /> | <img width="80" height="80" src="..\svg\outline\dashboard.svg" alt="dashboard" /> | <img width="80" height="80" src="..\svg\twotone\dashboard.svg" alt="dashboard" />
+database | <img width="80" height="80" src="..\svg\fill\database.svg" alt="database" /> | <img width="80" height="80" src="..\svg\outline\database.svg" alt="database" /> | <img width="80" height="80" src="..\svg\twotone\database.svg" alt="database" />
+delete | <img width="80" height="80" src="..\svg\fill\delete.svg" alt="delete" /> | <img width="80" height="80" src="..\svg\outline\delete.svg" alt="delete" /> | <img width="80" height="80" src="..\svg\twotone\delete.svg" alt="delete" />
+diff | <img width="80" height="80" src="..\svg\fill\diff.svg" alt="diff" /> | <img width="80" height="80" src="..\svg\outline\diff.svg" alt="diff" /> | <img width="80" height="80" src="..\svg\twotone\diff.svg" alt="diff" />
+dingtalk-circle | <img width="80" height="80" src="..\svg\fill\dingtalk-circle.svg" alt="dingtalk-circle" /> |  -  |  - 
+dingtalk-square | <img width="80" height="80" src="..\svg\fill\dingtalk-square.svg" alt="dingtalk-square" /> |  -  |  - 
+dislike | <img width="80" height="80" src="..\svg\fill\dislike.svg" alt="dislike" /> | <img width="80" height="80" src="..\svg\outline\dislike.svg" alt="dislike" /> | <img width="80" height="80" src="..\svg\twotone\dislike.svg" alt="dislike" />
+dollar-circle | <img width="80" height="80" src="..\svg\fill\dollar-circle.svg" alt="dollar-circle" /> |  -  |  - 
+down-circle | <img width="80" height="80" src="..\svg\fill\down-circle.svg" alt="down-circle" /> | <img width="80" height="80" src="..\svg\outline\down-circle.svg" alt="down-circle" /> | <img width="80" height="80" src="..\svg\twotone\down-circle.svg" alt="down-circle" />
+down-square | <img width="80" height="80" src="..\svg\fill\down-square.svg" alt="down-square" /> | <img width="80" height="80" src="..\svg\outline\down-square.svg" alt="down-square" /> | <img width="80" height="80" src="..\svg\twotone\down-square.svg" alt="down-square" />
+dribbble-circle | <img width="80" height="80" src="..\svg\fill\dribbble-circle.svg" alt="dribbble-circle" /> |  -  |  - 
+dribbble-square | <img width="80" height="80" src="..\svg\fill\dribbble-square.svg" alt="dribbble-square" /> | <img width="80" height="80" src="..\svg\outline\dribbble-square.svg" alt="dribbble-square" /> |  - 
+dropbox-circle | <img width="80" height="80" src="..\svg\fill\dropbox-circle.svg" alt="dropbox-circle" /> |  -  |  - 
+dropbox-square | <img width="80" height="80" src="..\svg\fill\dropbox-square.svg" alt="dropbox-square" /> |  -  |  - 
+edit | <img width="80" height="80" src="..\svg\fill\edit.svg" alt="edit" /> | <img width="80" height="80" src="..\svg\outline\edit.svg" alt="edit" /> | <img width="80" height="80" src="..\svg\twotone\edit.svg" alt="edit" />
+environment | <img width="80" height="80" src="..\svg\fill\environment.svg" alt="environment" /> | <img width="80" height="80" src="..\svg\outline\environment.svg" alt="environment" /> | <img width="80" height="80" src="..\svg\twotone\environment.svg" alt="environment" />
+euro-circle | <img width="80" height="80" src="..\svg\fill\euro-circle.svg" alt="euro-circle" /> |  -  |  - 
+exclamation-circle | <img width="80" height="80" src="..\svg\fill\exclamation-circle.svg" alt="exclamation-circle" /> | <img width="80" height="80" src="..\svg\outline\exclamation-circle.svg" alt="exclamation-circle" /> | <img width="80" height="80" src="..\svg\twotone\exclamation-circle.svg" alt="exclamation-circle" />
+experiment | <img width="80" height="80" src="..\svg\fill\experiment.svg" alt="experiment" /> | <img width="80" height="80" src="..\svg\outline\experiment.svg" alt="experiment" /> | <img width="80" height="80" src="..\svg\twotone\experiment.svg" alt="experiment" />
+eye-invisible | <img width="80" height="80" src="..\svg\fill\eye-invisible.svg" alt="eye-invisible" /> | <img width="80" height="80" src="..\svg\outline\eye-invisible.svg" alt="eye-invisible" /> | <img width="80" height="80" src="..\svg\twotone\eye-invisible.svg" alt="eye-invisible" />
+eye | <img width="80" height="80" src="..\svg\fill\eye.svg" alt="eye" /> | <img width="80" height="80" src="..\svg\outline\eye.svg" alt="eye" /> | <img width="80" height="80" src="..\svg\twotone\eye.svg" alt="eye" />
+facebook | <img width="80" height="80" src="..\svg\fill\facebook.svg" alt="facebook" /> | <img width="80" height="80" src="..\svg\outline\facebook.svg" alt="facebook" /> |  - 
+fast-backward | <img width="80" height="80" src="..\svg\fill\fast-backward.svg" alt="fast-backward" /> | <img width="80" height="80" src="..\svg\outline\fast-backward.svg" alt="fast-backward" /> |  - 
+fast-forward | <img width="80" height="80" src="..\svg\fill\fast-forward.svg" alt="fast-forward" /> | <img width="80" height="80" src="..\svg\outline\fast-forward.svg" alt="fast-forward" /> |  - 
+file-add | <img width="80" height="80" src="..\svg\fill\file-add.svg" alt="file-add" /> | <img width="80" height="80" src="..\svg\outline\file-add.svg" alt="file-add" /> | <img width="80" height="80" src="..\svg\twotone\file-add.svg" alt="file-add" />
+file-excel | <img width="80" height="80" src="..\svg\fill\file-excel.svg" alt="file-excel" /> | <img width="80" height="80" src="..\svg\outline\file-excel.svg" alt="file-excel" /> | <img width="80" height="80" src="..\svg\twotone\file-excel.svg" alt="file-excel" />
+file-exclamation | <img width="80" height="80" src="..\svg\fill\file-exclamation.svg" alt="file-exclamation" /> | <img width="80" height="80" src="..\svg\outline\file-exclamation.svg" alt="file-exclamation" /> | <img width="80" height="80" src="..\svg\twotone\file-exclamation.svg" alt="file-exclamation" />
+file-image | <img width="80" height="80" src="..\svg\fill\file-image.svg" alt="file-image" /> | <img width="80" height="80" src="..\svg\outline\file-image.svg" alt="file-image" /> | <img width="80" height="80" src="..\svg\twotone\file-image.svg" alt="file-image" />
+file-markdown | <img width="80" height="80" src="..\svg\fill\file-markdown.svg" alt="file-markdown" /> | <img width="80" height="80" src="..\svg\outline\file-markdown.svg" alt="file-markdown" /> | <img width="80" height="80" src="..\svg\twotone\file-markdown.svg" alt="file-markdown" />
+file-pdf | <img width="80" height="80" src="..\svg\fill\file-pdf.svg" alt="file-pdf" /> | <img width="80" height="80" src="..\svg\outline\file-pdf.svg" alt="file-pdf" /> | <img width="80" height="80" src="..\svg\twotone\file-pdf.svg" alt="file-pdf" />
+file-ppt | <img width="80" height="80" src="..\svg\fill\file-ppt.svg" alt="file-ppt" /> | <img width="80" height="80" src="..\svg\outline\file-ppt.svg" alt="file-ppt" /> | <img width="80" height="80" src="..\svg\twotone\file-ppt.svg" alt="file-ppt" />
+file-text | <img width="80" height="80" src="..\svg\fill\file-text.svg" alt="file-text" /> | <img width="80" height="80" src="..\svg\outline\file-text.svg" alt="file-text" /> | <img width="80" height="80" src="..\svg\twotone\file-text.svg" alt="file-text" />
+file-unknown | <img width="80" height="80" src="..\svg\fill\file-unknown.svg" alt="file-unknown" /> | <img width="80" height="80" src="..\svg\outline\file-unknown.svg" alt="file-unknown" /> | <img width="80" height="80" src="..\svg\twotone\file-unknown.svg" alt="file-unknown" />
+file-word | <img width="80" height="80" src="..\svg\fill\file-word.svg" alt="file-word" /> | <img width="80" height="80" src="..\svg\outline\file-word.svg" alt="file-word" /> | <img width="80" height="80" src="..\svg\twotone\file-word.svg" alt="file-word" />
+file-zip | <img width="80" height="80" src="..\svg\fill\file-zip.svg" alt="file-zip" /> | <img width="80" height="80" src="..\svg\outline\file-zip.svg" alt="file-zip" /> | <img width="80" height="80" src="..\svg\twotone\file-zip.svg" alt="file-zip" />
+file | <img width="80" height="80" src="..\svg\fill\file.svg" alt="file" /> | <img width="80" height="80" src="..\svg\outline\file.svg" alt="file" /> | <img width="80" height="80" src="..\svg\twotone\file.svg" alt="file" />
+filter | <img width="80" height="80" src="..\svg\fill\filter.svg" alt="filter" /> | <img width="80" height="80" src="..\svg\outline\filter.svg" alt="filter" /> | <img width="80" height="80" src="..\svg\twotone\filter.svg" alt="filter" />
+fire | <img width="80" height="80" src="..\svg\fill\fire.svg" alt="fire" /> | <img width="80" height="80" src="..\svg\outline\fire.svg" alt="fire" /> | <img width="80" height="80" src="..\svg\twotone\fire.svg" alt="fire" />
+flag | <img width="80" height="80" src="..\svg\fill\flag.svg" alt="flag" /> | <img width="80" height="80" src="..\svg\outline\flag.svg" alt="flag" /> | <img width="80" height="80" src="..\svg\twotone\flag.svg" alt="flag" />
+folder-add | <img width="80" height="80" src="..\svg\fill\folder-add.svg" alt="folder-add" /> | <img width="80" height="80" src="..\svg\outline\folder-add.svg" alt="folder-add" /> | <img width="80" height="80" src="..\svg\twotone\folder-add.svg" alt="folder-add" />
+folder-open | <img width="80" height="80" src="..\svg\fill\folder-open.svg" alt="folder-open" /> | <img width="80" height="80" src="..\svg\outline\folder-open.svg" alt="folder-open" /> | <img width="80" height="80" src="..\svg\twotone\folder-open.svg" alt="folder-open" />
+folder | <img width="80" height="80" src="..\svg\fill\folder.svg" alt="folder" /> | <img width="80" height="80" src="..\svg\outline\folder.svg" alt="folder" /> | <img width="80" height="80" src="..\svg\twotone\folder.svg" alt="folder" />
+forward | <img width="80" height="80" src="..\svg\fill\forward.svg" alt="forward" /> | <img width="80" height="80" src="..\svg\outline\forward.svg" alt="forward" /> |  - 
+frown | <img width="80" height="80" src="..\svg\fill\frown.svg" alt="frown" /> | <img width="80" height="80" src="..\svg\outline\frown.svg" alt="frown" /> | <img width="80" height="80" src="..\svg\twotone\frown.svg" alt="frown" />
+fund | <img width="80" height="80" src="..\svg\fill\fund.svg" alt="fund" /> | <img width="80" height="80" src="..\svg\outline\fund.svg" alt="fund" /> | <img width="80" height="80" src="..\svg\twotone\fund.svg" alt="fund" />
+funnel-plot | <img width="80" height="80" src="..\svg\fill\funnel-plot.svg" alt="funnel-plot" /> | <img width="80" height="80" src="..\svg\outline\funnel-plot.svg" alt="funnel-plot" /> | <img width="80" height="80" src="..\svg\twotone\funnel-plot.svg" alt="funnel-plot" />
+gift | <img width="80" height="80" src="..\svg\fill\gift.svg" alt="gift" /> | <img width="80" height="80" src="..\svg\outline\gift.svg" alt="gift" /> | <img width="80" height="80" src="..\svg\twotone\gift.svg" alt="gift" />
+github | <img width="80" height="80" src="..\svg\fill\github.svg" alt="github" /> | <img width="80" height="80" src="..\svg\outline\github.svg" alt="github" /> |  - 
+gitlab | <img width="80" height="80" src="..\svg\fill\gitlab.svg" alt="gitlab" /> | <img width="80" height="80" src="..\svg\outline\gitlab.svg" alt="gitlab" /> |  - 
+golden | <img width="80" height="80" src="..\svg\fill\golden.svg" alt="golden" /> |  -  |  - 
+google-circle | <img width="80" height="80" src="..\svg\fill\google-circle.svg" alt="google-circle" /> |  -  |  - 
+google-plus-circle | <img width="80" height="80" src="..\svg\fill\google-plus-circle.svg" alt="google-plus-circle" /> |  -  |  - 
+google-plus-square | <img width="80" height="80" src="..\svg\fill\google-plus-square.svg" alt="google-plus-square" /> |  -  |  - 
+google-square | <img width="80" height="80" src="..\svg\fill\google-square.svg" alt="google-square" /> |  -  |  - 
+hdd | <img width="80" height="80" src="..\svg\fill\hdd.svg" alt="hdd" /> | <img width="80" height="80" src="..\svg\outline\hdd.svg" alt="hdd" /> | <img width="80" height="80" src="..\svg\twotone\hdd.svg" alt="hdd" />
+heart | <img width="80" height="80" src="..\svg\fill\heart.svg" alt="heart" /> | <img width="80" height="80" src="..\svg\outline\heart.svg" alt="heart" /> | <img width="80" height="80" src="..\svg\twotone\heart.svg" alt="heart" />
+highlight | <img width="80" height="80" src="..\svg\fill\highlight.svg" alt="highlight" /> | <img width="80" height="80" src="..\svg\outline\highlight.svg" alt="highlight" /> | <img width="80" height="80" src="..\svg\twotone\highlight.svg" alt="highlight" />
+home | <img width="80" height="80" src="..\svg\fill\home.svg" alt="home" /> | <img width="80" height="80" src="..\svg\outline\home.svg" alt="home" /> | <img width="80" height="80" src="..\svg\twotone\home.svg" alt="home" />
+hourglass | <img width="80" height="80" src="..\svg\fill\hourglass.svg" alt="hourglass" /> | <img width="80" height="80" src="..\svg\outline\hourglass.svg" alt="hourglass" /> | <img width="80" height="80" src="..\svg\twotone\hourglass.svg" alt="hourglass" />
+html5 | <img width="80" height="80" src="..\svg\fill\html5.svg" alt="html5" /> | <img width="80" height="80" src="..\svg\outline\html5.svg" alt="html5" /> | <img width="80" height="80" src="..\svg\twotone\html5.svg" alt="html5" />
+idcard | <img width="80" height="80" src="..\svg\fill\idcard.svg" alt="idcard" /> | <img width="80" height="80" src="..\svg\outline\idcard.svg" alt="idcard" /> | <img width="80" height="80" src="..\svg\twotone\idcard.svg" alt="idcard" />
+ie-circle | <img width="80" height="80" src="..\svg\fill\ie-circle.svg" alt="ie-circle" /> |  -  |  - 
+ie-square | <img width="80" height="80" src="..\svg\fill\ie-square.svg" alt="ie-square" /> |  -  |  - 
+info-circle | <img width="80" height="80" src="..\svg\fill\info-circle.svg" alt="info-circle" /> | <img width="80" height="80" src="..\svg\outline\info-circle.svg" alt="info-circle" /> | <img width="80" height="80" src="..\svg\twotone\info-circle.svg" alt="info-circle" />
+instagram | <img width="80" height="80" src="..\svg\fill\instagram.svg" alt="instagram" /> | <img width="80" height="80" src="..\svg\outline\instagram.svg" alt="instagram" /> |  - 
+insurance | <img width="80" height="80" src="..\svg\fill\insurance.svg" alt="insurance" /> | <img width="80" height="80" src="..\svg\outline\insurance.svg" alt="insurance" /> | <img width="80" height="80" src="..\svg\twotone\insurance.svg" alt="insurance" />
+interaction | <img width="80" height="80" src="..\svg\fill\interaction.svg" alt="interaction" /> | <img width="80" height="80" src="..\svg\outline\interaction.svg" alt="interaction" /> | <img width="80" height="80" src="..\svg\twotone\interaction.svg" alt="interaction" />
+interation | <img width="80" height="80" src="..\svg\fill\interation.svg" alt="interation" /> | <img width="80" height="80" src="..\svg\outline\interation.svg" alt="interation" /> | <img width="80" height="80" src="..\svg\twotone\interation.svg" alt="interation" />
+layout | <img width="80" height="80" src="..\svg\fill\layout.svg" alt="layout" /> | <img width="80" height="80" src="..\svg\outline\layout.svg" alt="layout" /> | <img width="80" height="80" src="..\svg\twotone\layout.svg" alt="layout" />
+left-circle | <img width="80" height="80" src="..\svg\fill\left-circle.svg" alt="left-circle" /> | <img width="80" height="80" src="..\svg\outline\left-circle.svg" alt="left-circle" /> | <img width="80" height="80" src="..\svg\twotone\left-circle.svg" alt="left-circle" />
+left-square | <img width="80" height="80" src="..\svg\fill\left-square.svg" alt="left-square" /> | <img width="80" height="80" src="..\svg\outline\left-square.svg" alt="left-square" /> | <img width="80" height="80" src="..\svg\twotone\left-square.svg" alt="left-square" />
+like | <img width="80" height="80" src="..\svg\fill\like.svg" alt="like" /> | <img width="80" height="80" src="..\svg\outline\like.svg" alt="like" /> | <img width="80" height="80" src="..\svg\twotone\like.svg" alt="like" />
+linkedin | <img width="80" height="80" src="..\svg\fill\linkedin.svg" alt="linkedin" /> | <img width="80" height="80" src="..\svg\outline\linkedin.svg" alt="linkedin" /> |  - 
+lock | <img width="80" height="80" src="..\svg\fill\lock.svg" alt="lock" /> | <img width="80" height="80" src="..\svg\outline\lock.svg" alt="lock" /> | <img width="80" height="80" src="..\svg\twotone\lock.svg" alt="lock" />
+mail | <img width="80" height="80" src="..\svg\fill\mail.svg" alt="mail" /> | <img width="80" height="80" src="..\svg\outline\mail.svg" alt="mail" /> | <img width="80" height="80" src="..\svg\twotone\mail.svg" alt="mail" />
+medicine-box | <img width="80" height="80" src="..\svg\fill\medicine-box.svg" alt="medicine-box" /> | <img width="80" height="80" src="..\svg\outline\medicine-box.svg" alt="medicine-box" /> | <img width="80" height="80" src="..\svg\twotone\medicine-box.svg" alt="medicine-box" />
+medium-circle | <img width="80" height="80" src="..\svg\fill\medium-circle.svg" alt="medium-circle" /> |  -  |  - 
+medium-square | <img width="80" height="80" src="..\svg\fill\medium-square.svg" alt="medium-square" /> |  -  |  - 
+meh | <img width="80" height="80" src="..\svg\fill\meh.svg" alt="meh" /> | <img width="80" height="80" src="..\svg\outline\meh.svg" alt="meh" /> | <img width="80" height="80" src="..\svg\twotone\meh.svg" alt="meh" />
+message | <img width="80" height="80" src="..\svg\fill\message.svg" alt="message" /> | <img width="80" height="80" src="..\svg\outline\message.svg" alt="message" /> | <img width="80" height="80" src="..\svg\twotone\message.svg" alt="message" />
+minus-circle | <img width="80" height="80" src="..\svg\fill\minus-circle.svg" alt="minus-circle" /> | <img width="80" height="80" src="..\svg\outline\minus-circle.svg" alt="minus-circle" /> | <img width="80" height="80" src="..\svg\twotone\minus-circle.svg" alt="minus-circle" />
+minus-square | <img width="80" height="80" src="..\svg\fill\minus-square.svg" alt="minus-square" /> | <img width="80" height="80" src="..\svg\outline\minus-square.svg" alt="minus-square" /> | <img width="80" height="80" src="..\svg\twotone\minus-square.svg" alt="minus-square" />
+mobile | <img width="80" height="80" src="..\svg\fill\mobile.svg" alt="mobile" /> | <img width="80" height="80" src="..\svg\outline\mobile.svg" alt="mobile" /> | <img width="80" height="80" src="..\svg\twotone\mobile.svg" alt="mobile" />
+money-collect | <img width="80" height="80" src="..\svg\fill\money-collect.svg" alt="money-collect" /> | <img width="80" height="80" src="..\svg\outline\money-collect.svg" alt="money-collect" /> | <img width="80" height="80" src="..\svg\twotone\money-collect.svg" alt="money-collect" />
+notification | <img width="80" height="80" src="..\svg\fill\notification.svg" alt="notification" /> | <img width="80" height="80" src="..\svg\outline\notification.svg" alt="notification" /> | <img width="80" height="80" src="..\svg\twotone\notification.svg" alt="notification" />
+pause-circle | <img width="80" height="80" src="..\svg\fill\pause-circle.svg" alt="pause-circle" /> | <img width="80" height="80" src="..\svg\outline\pause-circle.svg" alt="pause-circle" /> | <img width="80" height="80" src="..\svg\twotone\pause-circle.svg" alt="pause-circle" />
+pay-circle | <img width="80" height="80" src="..\svg\fill\pay-circle.svg" alt="pay-circle" /> | <img width="80" height="80" src="..\svg\outline\pay-circle.svg" alt="pay-circle" /> |  - 
+phone | <img width="80" height="80" src="..\svg\fill\phone.svg" alt="phone" /> | <img width="80" height="80" src="..\svg\outline\phone.svg" alt="phone" /> | <img width="80" height="80" src="..\svg\twotone\phone.svg" alt="phone" />
+picture | <img width="80" height="80" src="..\svg\fill\picture.svg" alt="picture" /> | <img width="80" height="80" src="..\svg\outline\picture.svg" alt="picture" /> | <img width="80" height="80" src="..\svg\twotone\picture.svg" alt="picture" />
+pie-chart | <img width="80" height="80" src="..\svg\fill\pie-chart.svg" alt="pie-chart" /> | <img width="80" height="80" src="..\svg\outline\pie-chart.svg" alt="pie-chart" /> | <img width="80" height="80" src="..\svg\twotone\pie-chart.svg" alt="pie-chart" />
+play-circle | <img width="80" height="80" src="..\svg\fill\play-circle.svg" alt="play-circle" /> | <img width="80" height="80" src="..\svg\outline\play-circle.svg" alt="play-circle" /> | <img width="80" height="80" src="..\svg\twotone\play-circle.svg" alt="play-circle" />
+play-square | <img width="80" height="80" src="..\svg\fill\play-square.svg" alt="play-square" /> | <img width="80" height="80" src="..\svg\outline\play-square.svg" alt="play-square" /> | <img width="80" height="80" src="..\svg\twotone\play-square.svg" alt="play-square" />
+plus-circle | <img width="80" height="80" src="..\svg\fill\plus-circle.svg" alt="plus-circle" /> | <img width="80" height="80" src="..\svg\outline\plus-circle.svg" alt="plus-circle" /> | <img width="80" height="80" src="..\svg\twotone\plus-circle.svg" alt="plus-circle" />
+plus-square | <img width="80" height="80" src="..\svg\fill\plus-square.svg" alt="plus-square" /> | <img width="80" height="80" src="..\svg\outline\plus-square.svg" alt="plus-square" /> | <img width="80" height="80" src="..\svg\twotone\plus-square.svg" alt="plus-square" />
+pound-circle | <img width="80" height="80" src="..\svg\fill\pound-circle.svg" alt="pound-circle" /> |  -  | <img width="80" height="80" src="..\svg\twotone\pound-circle.svg" alt="pound-circle" />
+printer | <img width="80" height="80" src="..\svg\fill\printer.svg" alt="printer" /> | <img width="80" height="80" src="..\svg\outline\printer.svg" alt="printer" /> | <img width="80" height="80" src="..\svg\twotone\printer.svg" alt="printer" />
+profile | <img width="80" height="80" src="..\svg\fill\profile.svg" alt="profile" /> | <img width="80" height="80" src="..\svg\outline\profile.svg" alt="profile" /> | <img width="80" height="80" src="..\svg\twotone\profile.svg" alt="profile" />
+project | <img width="80" height="80" src="..\svg\fill\project.svg" alt="project" /> | <img width="80" height="80" src="..\svg\outline\project.svg" alt="project" /> | <img width="80" height="80" src="..\svg\twotone\project.svg" alt="project" />
+property-safety | <img width="80" height="80" src="..\svg\fill\property-safety.svg" alt="property-safety" /> | <img width="80" height="80" src="..\svg\outline\property-safety.svg" alt="property-safety" /> | <img width="80" height="80" src="..\svg\twotone\property-safety.svg" alt="property-safety" />
+pushpin | <img width="80" height="80" src="..\svg\fill\pushpin.svg" alt="pushpin" /> | <img width="80" height="80" src="..\svg\outline\pushpin.svg" alt="pushpin" /> | <img width="80" height="80" src="..\svg\twotone\pushpin.svg" alt="pushpin" />
+qq-circle | <img width="80" height="80" src="..\svg\fill\qq-circle.svg" alt="qq-circle" /> |  -  |  - 
+qq-square | <img width="80" height="80" src="..\svg\fill\qq-square.svg" alt="qq-square" /> |  -  |  - 
+question-circle | <img width="80" height="80" src="..\svg\fill\question-circle.svg" alt="question-circle" /> | <img width="80" height="80" src="..\svg\outline\question-circle.svg" alt="question-circle" /> | <img width="80" height="80" src="..\svg\twotone\question-circle.svg" alt="question-circle" />
+read | <img width="80" height="80" src="..\svg\fill\read.svg" alt="read" /> | <img width="80" height="80" src="..\svg\outline\read.svg" alt="read" /> |  - 
+reconciliation | <img width="80" height="80" src="..\svg\fill\reconciliation.svg" alt="reconciliation" /> | <img width="80" height="80" src="..\svg\outline\reconciliation.svg" alt="reconciliation" /> | <img width="80" height="80" src="..\svg\twotone\reconciliation.svg" alt="reconciliation" />
+red-envelope | <img width="80" height="80" src="..\svg\fill\red-envelope.svg" alt="red-envelope" /> | <img width="80" height="80" src="..\svg\outline\red-envelope.svg" alt="red-envelope" /> | <img width="80" height="80" src="..\svg\twotone\red-envelope.svg" alt="red-envelope" />
+reddit-circle | <img width="80" height="80" src="..\svg\fill\reddit-circle.svg" alt="reddit-circle" /> |  -  |  - 
+reddit-square | <img width="80" height="80" src="..\svg\fill\reddit-square.svg" alt="reddit-square" /> |  -  |  - 
+rest | <img width="80" height="80" src="..\svg\fill\rest.svg" alt="rest" /> | <img width="80" height="80" src="..\svg\outline\rest.svg" alt="rest" /> | <img width="80" height="80" src="..\svg\twotone\rest.svg" alt="rest" />
+right-circle | <img width="80" height="80" src="..\svg\fill\right-circle.svg" alt="right-circle" /> | <img width="80" height="80" src="..\svg\outline\right-circle.svg" alt="right-circle" /> | <img width="80" height="80" src="..\svg\twotone\right-circle.svg" alt="right-circle" />
+right-square | <img width="80" height="80" src="..\svg\fill\right-square.svg" alt="right-square" /> | <img width="80" height="80" src="..\svg\outline\right-square.svg" alt="right-square" /> | <img width="80" height="80" src="..\svg\twotone\right-square.svg" alt="right-square" />
+rocket | <img width="80" height="80" src="..\svg\fill\rocket.svg" alt="rocket" /> | <img width="80" height="80" src="..\svg\outline\rocket.svg" alt="rocket" /> | <img width="80" height="80" src="..\svg\twotone\rocket.svg" alt="rocket" />
+safety-certificate | <img width="80" height="80" src="..\svg\fill\safety-certificate.svg" alt="safety-certificate" /> | <img width="80" height="80" src="..\svg\outline\safety-certificate.svg" alt="safety-certificate" /> | <img width="80" height="80" src="..\svg\twotone\safety-certificate.svg" alt="safety-certificate" />
+save | <img width="80" height="80" src="..\svg\fill\save.svg" alt="save" /> | <img width="80" height="80" src="..\svg\outline\save.svg" alt="save" /> | <img width="80" height="80" src="..\svg\twotone\save.svg" alt="save" />
+schedule | <img width="80" height="80" src="..\svg\fill\schedule.svg" alt="schedule" /> | <img width="80" height="80" src="..\svg\outline\schedule.svg" alt="schedule" /> | <img width="80" height="80" src="..\svg\twotone\schedule.svg" alt="schedule" />
+security-scan | <img width="80" height="80" src="..\svg\fill\security-scan.svg" alt="security-scan" /> | <img width="80" height="80" src="..\svg\outline\security-scan.svg" alt="security-scan" /> | <img width="80" height="80" src="..\svg\twotone\security-scan.svg" alt="security-scan" />
+setting | <img width="80" height="80" src="..\svg\fill\setting.svg" alt="setting" /> | <img width="80" height="80" src="..\svg\outline\setting.svg" alt="setting" /> | <img width="80" height="80" src="..\svg\twotone\setting.svg" alt="setting" />
+shop | <img width="80" height="80" src="..\svg\fill\shop.svg" alt="shop" /> | <img width="80" height="80" src="..\svg\outline\shop.svg" alt="shop" /> | <img width="80" height="80" src="..\svg\twotone\shop.svg" alt="shop" />
+shopping | <img width="80" height="80" src="..\svg\fill\shopping.svg" alt="shopping" /> | <img width="80" height="80" src="..\svg\outline\shopping.svg" alt="shopping" /> | <img width="80" height="80" src="..\svg\twotone\shopping.svg" alt="shopping" />
+sketch-circle | <img width="80" height="80" src="..\svg\fill\sketch-circle.svg" alt="sketch-circle" /> |  -  |  - 
+sketch-square | <img width="80" height="80" src="..\svg\fill\sketch-square.svg" alt="sketch-square" /> |  -  |  - 
+skin | <img width="80" height="80" src="..\svg\fill\skin.svg" alt="skin" /> | <img width="80" height="80" src="..\svg\outline\skin.svg" alt="skin" /> | <img width="80" height="80" src="..\svg\twotone\skin.svg" alt="skin" />
+skype | <img width="80" height="80" src="..\svg\fill\skype.svg" alt="skype" /> | <img width="80" height="80" src="..\svg\outline\skype.svg" alt="skype" /> |  - 
+slack-circle | <img width="80" height="80" src="..\svg\fill\slack-circle.svg" alt="slack-circle" /> |  -  |  - 
+slack-square | <img width="80" height="80" src="..\svg\fill\slack-square.svg" alt="slack-square" /> | <img width="80" height="80" src="..\svg\outline\slack-square.svg" alt="slack-square" /> |  - 
+sliders | <img width="80" height="80" src="..\svg\fill\sliders.svg" alt="sliders" /> | <img width="80" height="80" src="..\svg\outline\sliders.svg" alt="sliders" /> | <img width="80" height="80" src="..\svg\twotone\sliders.svg" alt="sliders" />
+smile | <img width="80" height="80" src="..\svg\fill\smile.svg" alt="smile" /> | <img width="80" height="80" src="..\svg\outline\smile.svg" alt="smile" /> | <img width="80" height="80" src="..\svg\twotone\smile.svg" alt="smile" />
+snippets | <img width="80" height="80" src="..\svg\fill\snippets.svg" alt="snippets" /> | <img width="80" height="80" src="..\svg\outline\snippets.svg" alt="snippets" /> | <img width="80" height="80" src="..\svg\twotone\snippets.svg" alt="snippets" />
+sound | <img width="80" height="80" src="..\svg\fill\sound.svg" alt="sound" /> | <img width="80" height="80" src="..\svg\outline\sound.svg" alt="sound" /> | <img width="80" height="80" src="..\svg\twotone\sound.svg" alt="sound" />
+star | <img width="80" height="80" src="..\svg\fill\star.svg" alt="star" /> | <img width="80" height="80" src="..\svg\outline\star.svg" alt="star" /> | <img width="80" height="80" src="..\svg\twotone\star.svg" alt="star" />
+step-backward | <img width="80" height="80" src="..\svg\fill\step-backward.svg" alt="step-backward" /> | <img width="80" height="80" src="..\svg\outline\step-backward.svg" alt="step-backward" /> |  - 
+step-forward | <img width="80" height="80" src="..\svg\fill\step-forward.svg" alt="step-forward" /> | <img width="80" height="80" src="..\svg\outline\step-forward.svg" alt="step-forward" /> |  - 
+stop | <img width="80" height="80" src="..\svg\fill\stop.svg" alt="stop" /> | <img width="80" height="80" src="..\svg\outline\stop.svg" alt="stop" /> | <img width="80" height="80" src="..\svg\twotone\stop.svg" alt="stop" />
+switcher | <img width="80" height="80" src="..\svg\fill\switcher.svg" alt="switcher" /> | <img width="80" height="80" src="..\svg\outline\switcher.svg" alt="switcher" /> | <img width="80" height="80" src="..\svg\twotone\switcher.svg" alt="switcher" />
+tablet | <img width="80" height="80" src="..\svg\fill\tablet.svg" alt="tablet" /> | <img width="80" height="80" src="..\svg\outline\tablet.svg" alt="tablet" /> | <img width="80" height="80" src="..\svg\twotone\tablet.svg" alt="tablet" />
+tag | <img width="80" height="80" src="..\svg\fill\tag.svg" alt="tag" /> | <img width="80" height="80" src="..\svg\outline\tag.svg" alt="tag" /> | <img width="80" height="80" src="..\svg\twotone\tag.svg" alt="tag" />
+tags | <img width="80" height="80" src="..\svg\fill\tags.svg" alt="tags" /> | <img width="80" height="80" src="..\svg\outline\tags.svg" alt="tags" /> | <img width="80" height="80" src="..\svg\twotone\tags.svg" alt="tags" />
+taobao-circle | <img width="80" height="80" src="..\svg\fill\taobao-circle.svg" alt="taobao-circle" /> | <img width="80" height="80" src="..\svg\outline\taobao-circle.svg" alt="taobao-circle" /> |  - 
+taobao-square | <img width="80" height="80" src="..\svg\fill\taobao-square.svg" alt="taobao-square" /> |  -  |  - 
+thunderbolt | <img width="80" height="80" src="..\svg\fill\thunderbolt.svg" alt="thunderbolt" /> | <img width="80" height="80" src="..\svg\outline\thunderbolt.svg" alt="thunderbolt" /> | <img width="80" height="80" src="..\svg\twotone\thunderbolt.svg" alt="thunderbolt" />
+tool | <img width="80" height="80" src="..\svg\fill\tool.svg" alt="tool" /> | <img width="80" height="80" src="..\svg\outline\tool.svg" alt="tool" /> | <img width="80" height="80" src="..\svg\twotone\tool.svg" alt="tool" />
+trademark-circle | <img width="80" height="80" src="..\svg\fill\trademark-circle.svg" alt="trademark-circle" /> |  -  | <img width="80" height="80" src="..\svg\twotone\trademark-circle.svg" alt="trademark-circle" />
+trophy | <img width="80" height="80" src="..\svg\fill\trophy.svg" alt="trophy" /> | <img width="80" height="80" src="..\svg\outline\trophy.svg" alt="trophy" /> | <img width="80" height="80" src="..\svg\twotone\trophy.svg" alt="trophy" />
+twitter-circle | <img width="80" height="80" src="..\svg\fill\twitter-circle.svg" alt="twitter-circle" /> |  -  |  - 
+twitter-square | <img width="80" height="80" src="..\svg\fill\twitter-square.svg" alt="twitter-square" /> |  -  |  - 
+unlock | <img width="80" height="80" src="..\svg\fill\unlock.svg" alt="unlock" /> | <img width="80" height="80" src="..\svg\outline\unlock.svg" alt="unlock" /> | <img width="80" height="80" src="..\svg\twotone\unlock.svg" alt="unlock" />
+up-circle | <img width="80" height="80" src="..\svg\fill\up-circle.svg" alt="up-circle" /> | <img width="80" height="80" src="..\svg\outline\up-circle.svg" alt="up-circle" /> | <img width="80" height="80" src="..\svg\twotone\up-circle.svg" alt="up-circle" />
+up-square | <img width="80" height="80" src="..\svg\fill\up-square.svg" alt="up-square" /> | <img width="80" height="80" src="..\svg\outline\up-square.svg" alt="up-square" /> | <img width="80" height="80" src="..\svg\twotone\up-square.svg" alt="up-square" />
+usb | <img width="80" height="80" src="..\svg\fill\usb.svg" alt="usb" /> | <img width="80" height="80" src="..\svg\outline\usb.svg" alt="usb" /> | <img width="80" height="80" src="..\svg\twotone\usb.svg" alt="usb" />
+video-camera | <img width="80" height="80" src="..\svg\fill\video-camera.svg" alt="video-camera" /> | <img width="80" height="80" src="..\svg\outline\video-camera.svg" alt="video-camera" /> | <img width="80" height="80" src="..\svg\twotone\video-camera.svg" alt="video-camera" />
+wallet | <img width="80" height="80" src="..\svg\fill\wallet.svg" alt="wallet" /> | <img width="80" height="80" src="..\svg\outline\wallet.svg" alt="wallet" /> | <img width="80" height="80" src="..\svg\twotone\wallet.svg" alt="wallet" />
+warning | <img width="80" height="80" src="..\svg\fill\warning.svg" alt="warning" /> | <img width="80" height="80" src="..\svg\outline\warning.svg" alt="warning" /> | <img width="80" height="80" src="..\svg\twotone\warning.svg" alt="warning" />
+wechat | <img width="80" height="80" src="..\svg\fill\wechat.svg" alt="wechat" /> | <img width="80" height="80" src="..\svg\outline\wechat.svg" alt="wechat" /> |  - 
+weibo-circle | <img width="80" height="80" src="..\svg\fill\weibo-circle.svg" alt="weibo-circle" /> | <img width="80" height="80" src="..\svg\outline\weibo-circle.svg" alt="weibo-circle" /> |  - 
+weibo-square | <img width="80" height="80" src="..\svg\fill\weibo-square.svg" alt="weibo-square" /> | <img width="80" height="80" src="..\svg\outline\weibo-square.svg" alt="weibo-square" /> |  - 
+windows | <img width="80" height="80" src="..\svg\fill\windows.svg" alt="windows" /> | <img width="80" height="80" src="..\svg\outline\windows.svg" alt="windows" /> |  - 
+yahoo | <img width="80" height="80" src="..\svg\fill\yahoo.svg" alt="yahoo" /> | <img width="80" height="80" src="..\svg\outline\yahoo.svg" alt="yahoo" /> |  - 
+youtube | <img width="80" height="80" src="..\svg\fill\youtube.svg" alt="youtube" /> | <img width="80" height="80" src="..\svg\outline\youtube.svg" alt="youtube" /> |  - 
+yuque | <img width="80" height="80" src="..\svg\fill\yuque.svg" alt="yuque" /> | <img width="80" height="80" src="..\svg\outline\yuque.svg" alt="yuque" /> |  - 
+zhihu-circle | <img width="80" height="80" src="..\svg\fill\zhihu-circle.svg" alt="zhihu-circle" /> |  -  |  - 
+zhihu-square | <img width="80" height="80" src="..\svg\fill\zhihu-square.svg" alt="zhihu-square" /> |  -  |  - 
+alibaba |  -  | <img width="80" height="80" src="..\svg\outline\alibaba.svg" alt="alibaba" /> |  - 
+align-center |  -  | <img width="80" height="80" src="..\svg\outline\align-center.svg" alt="align-center" /> |  - 
+align-left |  -  | <img width="80" height="80" src="..\svg\outline\align-left.svg" alt="align-left" /> |  - 
+align-right |  -  | <img width="80" height="80" src="..\svg\outline\align-right.svg" alt="align-right" /> |  - 
+alipay |  -  | <img width="80" height="80" src="..\svg\outline\alipay.svg" alt="alipay" /> |  - 
+aliyun |  -  | <img width="80" height="80" src="..\svg\outline\aliyun.svg" alt="aliyun" /> |  - 
+amazon |  -  | <img width="80" height="80" src="..\svg\outline\amazon.svg" alt="amazon" /> |  - 
+ant-cloud |  -  | <img width="80" height="80" src="..\svg\outline\ant-cloud.svg" alt="ant-cloud" /> |  - 
+ant-design |  -  | <img width="80" height="80" src="..\svg\outline\ant-design.svg" alt="ant-design" /> |  - 
+apartment |  -  | <img width="80" height="80" src="..\svg\outline\apartment.svg" alt="apartment" /> |  - 
+area-chart |  -  | <img width="80" height="80" src="..\svg\outline\area-chart.svg" alt="area-chart" /> |  - 
+arrow-down |  -  | <img width="80" height="80" src="..\svg\outline\arrow-down.svg" alt="arrow-down" /> |  - 
+arrow-left |  -  | <img width="80" height="80" src="..\svg\outline\arrow-left.svg" alt="arrow-left" /> |  - 
+arrow-right |  -  | <img width="80" height="80" src="..\svg\outline\arrow-right.svg" alt="arrow-right" /> |  - 
+arrow-up |  -  | <img width="80" height="80" src="..\svg\outline\arrow-up.svg" alt="arrow-up" /> |  - 
+arrows-alt |  -  | <img width="80" height="80" src="..\svg\outline\arrows-alt.svg" alt="arrows-alt" /> |  - 
+audit |  -  | <img width="80" height="80" src="..\svg\outline\audit.svg" alt="audit" /> |  - 
+bar-chart |  -  | <img width="80" height="80" src="..\svg\outline\bar-chart.svg" alt="bar-chart" /> |  - 
+barcode |  -  | <img width="80" height="80" src="..\svg\outline\barcode.svg" alt="barcode" /> |  - 
+bars |  -  | <img width="80" height="80" src="..\svg\outline\bars.svg" alt="bars" /> |  - 
+behance |  -  | <img width="80" height="80" src="..\svg\outline\behance.svg" alt="behance" /> |  - 
+bg-colors |  -  | <img width="80" height="80" src="..\svg\outline\bg-colors.svg" alt="bg-colors" /> |  - 
+block |  -  | <img width="80" height="80" src="..\svg\outline\block.svg" alt="block" /> |  - 
+bold |  -  | <img width="80" height="80" src="..\svg\outline\bold.svg" alt="bold" /> |  - 
+border-bottom |  -  | <img width="80" height="80" src="..\svg\outline\border-bottom.svg" alt="border-bottom" /> |  - 
+border-horizontal |  -  | <img width="80" height="80" src="..\svg\outline\border-horizontal.svg" alt="border-horizontal" /> |  - 
+border-inner |  -  | <img width="80" height="80" src="..\svg\outline\border-inner.svg" alt="border-inner" /> |  - 
+border-left |  -  | <img width="80" height="80" src="..\svg\outline\border-left.svg" alt="border-left" /> |  - 
+border-outer |  -  | <img width="80" height="80" src="..\svg\outline\border-outer.svg" alt="border-outer" /> |  - 
+border-right |  -  | <img width="80" height="80" src="..\svg\outline\border-right.svg" alt="border-right" /> |  - 
+border-top |  -  | <img width="80" height="80" src="..\svg\outline\border-top.svg" alt="border-top" /> |  - 
+border-verticle |  -  | <img width="80" height="80" src="..\svg\outline\border-verticle.svg" alt="border-verticle" /> |  - 
+border |  -  | <img width="80" height="80" src="..\svg\outline\border.svg" alt="border" /> |  - 
+branches |  -  | <img width="80" height="80" src="..\svg\outline\branches.svg" alt="branches" /> |  - 
+check |  -  | <img width="80" height="80" src="..\svg\outline\check.svg" alt="check" /> |  - 
+ci |  -  | <img width="80" height="80" src="..\svg\outline\ci.svg" alt="ci" /> | <img width="80" height="80" src="..\svg\twotone\ci.svg" alt="ci" />
+close |  -  | <img width="80" height="80" src="..\svg\outline\close.svg" alt="close" /> |  - 
+cloud-download |  -  | <img width="80" height="80" src="..\svg\outline\cloud-download.svg" alt="cloud-download" /> |  - 
+cloud-server |  -  | <img width="80" height="80" src="..\svg\outline\cloud-server.svg" alt="cloud-server" /> |  - 
+cloud-sync |  -  | <img width="80" height="80" src="..\svg\outline\cloud-sync.svg" alt="cloud-sync" /> |  - 
+cloud-upload |  -  | <img width="80" height="80" src="..\svg\outline\cloud-upload.svg" alt="cloud-upload" /> |  - 
+cluster |  -  | <img width="80" height="80" src="..\svg\outline\cluster.svg" alt="cluster" /> |  - 
+code-sandbox |  -  | <img width="80" height="80" src="..\svg\outline\code-sandbox.svg" alt="code-sandbox" /> |  - 
+codepen |  -  | <img width="80" height="80" src="..\svg\outline\codepen.svg" alt="codepen" /> |  - 
+coffee |  -  | <img width="80" height="80" src="..\svg\outline\coffee.svg" alt="coffee" /> |  - 
+colum-height |  -  | <img width="80" height="80" src="..\svg\outline\colum-height.svg" alt="colum-height" /> |  - 
+column-height |  -  | <img width="80" height="80" src="..\svg\outline\column-height.svg" alt="column-height" /> |  - 
+column-width |  -  | <img width="80" height="80" src="..\svg\outline\column-width.svg" alt="column-width" /> |  - 
+copyright |  -  | <img width="80" height="80" src="..\svg\outline\copyright.svg" alt="copyright" /> | <img width="80" height="80" src="..\svg\twotone\copyright.svg" alt="copyright" />
+dash |  -  | <img width="80" height="80" src="..\svg\outline\dash.svg" alt="dash" /> |  - 
+deployment-unit |  -  | <img width="80" height="80" src="..\svg\outline\deployment-unit.svg" alt="deployment-unit" /> |  - 
+desktop |  -  | <img width="80" height="80" src="..\svg\outline\desktop.svg" alt="desktop" /> |  - 
+dingding |  -  | <img width="80" height="80" src="..\svg\outline\dingding.svg" alt="dingding" /> |  - 
+disconnect |  -  | <img width="80" height="80" src="..\svg\outline\disconnect.svg" alt="disconnect" /> |  - 
+dollar |  -  | <img width="80" height="80" src="..\svg\outline\dollar.svg" alt="dollar" /> | <img width="80" height="80" src="..\svg\twotone\dollar.svg" alt="dollar" />
+dot-chart |  -  | <img width="80" height="80" src="..\svg\outline\dot-chart.svg" alt="dot-chart" /> |  - 
+double-left |  -  | <img width="80" height="80" src="..\svg\outline\double-left.svg" alt="double-left" /> |  - 
+double-right |  -  | <img width="80" height="80" src="..\svg\outline\double-right.svg" alt="double-right" /> |  - 
+down |  -  | <img width="80" height="80" src="..\svg\outline\down.svg" alt="down" /> |  - 
+download |  -  | <img width="80" height="80" src="..\svg\outline\download.svg" alt="download" /> |  - 
+drag |  -  | <img width="80" height="80" src="..\svg\outline\drag.svg" alt="drag" /> |  - 
+dribbble |  -  | <img width="80" height="80" src="..\svg\outline\dribbble.svg" alt="dribbble" /> |  - 
+dropbox |  -  | <img width="80" height="80" src="..\svg\outline\dropbox.svg" alt="dropbox" /> |  - 
+ellipsis |  -  | <img width="80" height="80" src="..\svg\outline\ellipsis.svg" alt="ellipsis" /> |  - 
+enter |  -  | <img width="80" height="80" src="..\svg\outline\enter.svg" alt="enter" /> |  - 
+euro |  -  | <img width="80" height="80" src="..\svg\outline\euro.svg" alt="euro" /> | <img width="80" height="80" src="..\svg\twotone\euro.svg" alt="euro" />
+exception |  -  | <img width="80" height="80" src="..\svg\outline\exception.svg" alt="exception" /> |  - 
+exclamation |  -  | <img width="80" height="80" src="..\svg\outline\exclamation.svg" alt="exclamation" /> |  - 
+export |  -  | <img width="80" height="80" src="..\svg\outline\export.svg" alt="export" /> |  - 
+fall |  -  | <img width="80" height="80" src="..\svg\outline\fall.svg" alt="fall" /> |  - 
+file-done |  -  | <img width="80" height="80" src="..\svg\outline\file-done.svg" alt="file-done" /> |  - 
+file-jpg |  -  | <img width="80" height="80" src="..\svg\outline\file-jpg.svg" alt="file-jpg" /> |  - 
+file-protect |  -  | <img width="80" height="80" src="..\svg\outline\file-protect.svg" alt="file-protect" /> |  - 
+file-search |  -  | <img width="80" height="80" src="..\svg\outline\file-search.svg" alt="file-search" /> |  - 
+file-sync |  -  | <img width="80" height="80" src="..\svg\outline\file-sync.svg" alt="file-sync" /> |  - 
+font-colors |  -  | <img width="80" height="80" src="..\svg\outline\font-colors.svg" alt="font-colors" /> |  - 
+font-size |  -  | <img width="80" height="80" src="..\svg\outline\font-size.svg" alt="font-size" /> |  - 
+fork |  -  | <img width="80" height="80" src="..\svg\outline\fork.svg" alt="fork" /> |  - 
+form |  -  | <img width="80" height="80" src="..\svg\outline\form.svg" alt="form" /> |  - 
+fullscreen-exit |  -  | <img width="80" height="80" src="..\svg\outline\fullscreen-exit.svg" alt="fullscreen-exit" /> |  - 
+fullscreen |  -  | <img width="80" height="80" src="..\svg\outline\fullscreen.svg" alt="fullscreen" /> |  - 
+gateway |  -  | <img width="80" height="80" src="..\svg\outline\gateway.svg" alt="gateway" /> |  - 
+global |  -  | <img width="80" height="80" src="..\svg\outline\global.svg" alt="global" /> |  - 
+gold |  -  | <img width="80" height="80" src="..\svg\outline\gold.svg" alt="gold" /> | <img width="80" height="80" src="..\svg\twotone\gold.svg" alt="gold" />
+google-plus |  -  | <img width="80" height="80" src="..\svg\outline\google-plus.svg" alt="google-plus" /> |  - 
+google |  -  | <img width="80" height="80" src="..\svg\outline\google.svg" alt="google" /> |  - 
+heat-map |  -  | <img width="80" height="80" src="..\svg\outline\heat-map.svg" alt="heat-map" /> |  - 
+history |  -  | <img width="80" height="80" src="..\svg\outline\history.svg" alt="history" /> |  - 
+ie |  -  | <img width="80" height="80" src="..\svg\outline\ie.svg" alt="ie" /> |  - 
+import |  -  | <img width="80" height="80" src="..\svg\outline\import.svg" alt="import" /> |  - 
+inbox |  -  | <img width="80" height="80" src="..\svg\outline\inbox.svg" alt="inbox" /> |  - 
+info |  -  | <img width="80" height="80" src="..\svg\outline\info.svg" alt="info" /> |  - 
+issues-close |  -  | <img width="80" height="80" src="..\svg\outline\issues-close.svg" alt="issues-close" /> |  - 
+italic |  -  | <img width="80" height="80" src="..\svg\outline\italic.svg" alt="italic" /> |  - 
+key |  -  | <img width="80" height="80" src="..\svg\outline\key.svg" alt="key" /> |  - 
+laptop |  -  | <img width="80" height="80" src="..\svg\outline\laptop.svg" alt="laptop" /> |  - 
+left |  -  | <img width="80" height="80" src="..\svg\outline\left.svg" alt="left" /> |  - 
+line-chart |  -  | <img width="80" height="80" src="..\svg\outline\line-chart.svg" alt="line-chart" /> |  - 
+line-height |  -  | <img width="80" height="80" src="..\svg\outline\line-height.svg" alt="line-height" /> |  - 
+line |  -  | <img width="80" height="80" src="..\svg\outline\line.svg" alt="line" /> |  - 
+link |  -  | <img width="80" height="80" src="..\svg\outline\link.svg" alt="link" /> |  - 
+loading-3-quarters |  -  | <img width="80" height="80" src="..\svg\outline\loading-3-quarters.svg" alt="loading-3-quarters" /> |  - 
+loading |  -  | <img width="80" height="80" src="..\svg\outline\loading.svg" alt="loading" /> |  - 
+login |  -  | <img width="80" height="80" src="..\svg\outline\login.svg" alt="login" /> |  - 
+logout |  -  | <img width="80" height="80" src="..\svg\outline\logout.svg" alt="logout" /> |  - 
+man |  -  | <img width="80" height="80" src="..\svg\outline\man.svg" alt="man" /> |  - 
+medium-workmark |  -  | <img width="80" height="80" src="..\svg\outline\medium-workmark.svg" alt="medium-workmark" /> |  - 
+medium |  -  | <img width="80" height="80" src="..\svg\outline\medium.svg" alt="medium" /> |  - 
+menu-fold |  -  | <img width="80" height="80" src="..\svg\outline\menu-fold.svg" alt="menu-fold" /> |  - 
+menu-unfold |  -  | <img width="80" height="80" src="..\svg\outline\menu-unfold.svg" alt="menu-unfold" /> |  - 
+menu |  -  | <img width="80" height="80" src="..\svg\outline\menu.svg" alt="menu" /> |  - 
+minus |  -  | <img width="80" height="80" src="..\svg\outline\minus.svg" alt="minus" /> |  - 
+monitor |  -  | <img width="80" height="80" src="..\svg\outline\monitor.svg" alt="monitor" /> |  - 
+more |  -  | <img width="80" height="80" src="..\svg\outline\more.svg" alt="more" /> |  - 
+number |  -  | <img width="80" height="80" src="..\svg\outline\number.svg" alt="number" /> |  - 
+ordered-list |  -  | <img width="80" height="80" src="..\svg\outline\ordered-list.svg" alt="ordered-list" /> |  - 
+paper-clip |  -  | <img width="80" height="80" src="..\svg\outline\paper-clip.svg" alt="paper-clip" /> |  - 
+pause |  -  | <img width="80" height="80" src="..\svg\outline\pause.svg" alt="pause" /> |  - 
+percentage |  -  | <img width="80" height="80" src="..\svg\outline\percentage.svg" alt="percentage" /> |  - 
+pic-center |  -  | <img width="80" height="80" src="..\svg\outline\pic-center.svg" alt="pic-center" /> |  - 
+pic-left |  -  | <img width="80" height="80" src="..\svg\outline\pic-left.svg" alt="pic-left" /> |  - 
+pic-right |  -  | <img width="80" height="80" src="..\svg\outline\pic-right.svg" alt="pic-right" /> |  - 
+plus |  -  | <img width="80" height="80" src="..\svg\outline\plus.svg" alt="plus" /> |  - 
+pound |  -  | <img width="80" height="80" src="..\svg\outline\pound.svg" alt="pound" /> |  - 
+poweroff |  -  | <img width="80" height="80" src="..\svg\outline\poweroff.svg" alt="poweroff" /> |  - 
+pull-request |  -  | <img width="80" height="80" src="..\svg\outline\pull-request.svg" alt="pull-request" /> |  - 
+qq |  -  | <img width="80" height="80" src="..\svg\outline\qq.svg" alt="qq" /> |  - 
+qrcode |  -  | <img width="80" height="80" src="..\svg\outline\qrcode.svg" alt="qrcode" /> |  - 
+question |  -  | <img width="80" height="80" src="..\svg\outline\question.svg" alt="question" /> |  - 
+radar-chart |  -  | <img width="80" height="80" src="..\svg\outline\radar-chart.svg" alt="radar-chart" /> |  - 
+radius-bottomleft |  -  | <img width="80" height="80" src="..\svg\outline\radius-bottomleft.svg" alt="radius-bottomleft" /> |  - 
+radius-bottomright |  -  | <img width="80" height="80" src="..\svg\outline\radius-bottomright.svg" alt="radius-bottomright" /> |  - 
+radius-setting |  -  | <img width="80" height="80" src="..\svg\outline\radius-setting.svg" alt="radius-setting" /> |  - 
+radius-upleft |  -  | <img width="80" height="80" src="..\svg\outline\radius-upleft.svg" alt="radius-upleft" /> |  - 
+radius-upright |  -  | <img width="80" height="80" src="..\svg\outline\radius-upright.svg" alt="radius-upright" /> |  - 
+reddit |  -  | <img width="80" height="80" src="..\svg\outline\reddit.svg" alt="reddit" /> |  - 
+redo |  -  | <img width="80" height="80" src="..\svg\outline\redo.svg" alt="redo" /> |  - 
+reload |  -  | <img width="80" height="80" src="..\svg\outline\reload.svg" alt="reload" /> |  - 
+retweet |  -  | <img width="80" height="80" src="..\svg\outline\retweet.svg" alt="retweet" /> |  - 
+right |  -  | <img width="80" height="80" src="..\svg\outline\right.svg" alt="right" /> |  - 
+rise |  -  | <img width="80" height="80" src="..\svg\outline\rise.svg" alt="rise" /> |  - 
+robot |  -  | <img width="80" height="80" src="..\svg\outline\robot.svg" alt="robot" /> |  - 
+rollback |  -  | <img width="80" height="80" src="..\svg\outline\rollback.svg" alt="rollback" /> |  - 
+safety |  -  | <img width="80" height="80" src="..\svg\outline\safety.svg" alt="safety" /> |  - 
+scan |  -  | <img width="80" height="80" src="..\svg\outline\scan.svg" alt="scan" /> |  - 
+scissor |  -  | <img width="80" height="80" src="..\svg\outline\scissor.svg" alt="scissor" /> |  - 
+search |  -  | <img width="80" height="80" src="..\svg\outline\search.svg" alt="search" /> |  - 
+select |  -  | <img width="80" height="80" src="..\svg\outline\select.svg" alt="select" /> |  - 
+shake |  -  | <img width="80" height="80" src="..\svg\outline\shake.svg" alt="shake" /> |  - 
+share-alt |  -  | <img width="80" height="80" src="..\svg\outline\share-alt.svg" alt="share-alt" /> |  - 
+shopping-cart |  -  | <img width="80" height="80" src="..\svg\outline\shopping-cart.svg" alt="shopping-cart" /> |  - 
+shrink |  -  | <img width="80" height="80" src="..\svg\outline\shrink.svg" alt="shrink" /> |  - 
+sketch |  -  | <img width="80" height="80" src="..\svg\outline\sketch.svg" alt="sketch" /> |  - 
+slack |  -  | <img width="80" height="80" src="..\svg\outline\slack.svg" alt="slack" /> |  - 
+small-dash |  -  | <img width="80" height="80" src="..\svg\outline\small-dash.svg" alt="small-dash" /> |  - 
+solution |  -  | <img width="80" height="80" src="..\svg\outline\solution.svg" alt="solution" /> |  - 
+sort-ascending |  -  | <img width="80" height="80" src="..\svg\outline\sort-ascending.svg" alt="sort-ascending" /> |  - 
+sort-descending |  -  | <img width="80" height="80" src="..\svg\outline\sort-descending.svg" alt="sort-descending" /> |  - 
+stock |  -  | <img width="80" height="80" src="..\svg\outline\stock.svg" alt="stock" /> |  - 
+strikethrough |  -  | <img width="80" height="80" src="..\svg\outline\strikethrough.svg" alt="strikethrough" /> |  - 
+swap-left |  -  | <img width="80" height="80" src="..\svg\outline\swap-left.svg" alt="swap-left" /> |  - 
+swap-right |  -  | <img width="80" height="80" src="..\svg\outline\swap-right.svg" alt="swap-right" /> |  - 
+swap |  -  | <img width="80" height="80" src="..\svg\outline\swap.svg" alt="swap" /> |  - 
+sync |  -  | <img width="80" height="80" src="..\svg\outline\sync.svg" alt="sync" /> |  - 
+table |  -  | <img width="80" height="80" src="..\svg\outline\table.svg" alt="table" /> |  - 
+taobao |  -  | <img width="80" height="80" src="..\svg\outline\taobao.svg" alt="taobao" /> |  - 
+team |  -  | <img width="80" height="80" src="..\svg\outline\team.svg" alt="team" /> |  - 
+to-top |  -  | <img width="80" height="80" src="..\svg\outline\to-top.svg" alt="to-top" /> |  - 
+trademark |  -  | <img width="80" height="80" src="..\svg\outline\trademark.svg" alt="trademark" /> |  - 
+transaction |  -  | <img width="80" height="80" src="..\svg\outline\transaction.svg" alt="transaction" /> |  - 
+twitter |  -  | <img width="80" height="80" src="..\svg\outline\twitter.svg" alt="twitter" /> |  - 
+underline |  -  | <img width="80" height="80" src="..\svg\outline\underline.svg" alt="underline" /> |  - 
+undo |  -  | <img width="80" height="80" src="..\svg\outline\undo.svg" alt="undo" /> |  - 
+unordered-list |  -  | <img width="80" height="80" src="..\svg\outline\unordered-list.svg" alt="unordered-list" /> |  - 
+up |  -  | <img width="80" height="80" src="..\svg\outline\up.svg" alt="up" /> |  - 
+upload |  -  | <img width="80" height="80" src="..\svg\outline\upload.svg" alt="upload" /> |  - 
+user-add |  -  | <img width="80" height="80" src="..\svg\outline\user-add.svg" alt="user-add" /> |  - 
+user-delete |  -  | <img width="80" height="80" src="..\svg\outline\user-delete.svg" alt="user-delete" /> |  - 
+user |  -  | <img width="80" height="80" src="..\svg\outline\user.svg" alt="user" /> |  - 
+usergroup-add |  -  | <img width="80" height="80" src="..\svg\outline\usergroup-add.svg" alt="usergroup-add" /> |  - 
+usergroup-delete |  -  | <img width="80" height="80" src="..\svg\outline\usergroup-delete.svg" alt="usergroup-delete" /> |  - 
+vertical-align-bottom |  -  | <img width="80" height="80" src="..\svg\outline\vertical-align-bottom.svg" alt="vertical-align-bottom" /> |  - 
+vertical-align-middle |  -  | <img width="80" height="80" src="..\svg\outline\vertical-align-middle.svg" alt="vertical-align-middle" /> |  - 
+vertical-align-top |  -  | <img width="80" height="80" src="..\svg\outline\vertical-align-top.svg" alt="vertical-align-top" /> |  - 
+vertical-left |  -  | <img width="80" height="80" src="..\svg\outline\vertical-left.svg" alt="vertical-left" /> |  - 
+vertical-right |  -  | <img width="80" height="80" src="..\svg\outline\vertical-right.svg" alt="vertical-right" /> |  - 
+weibo |  -  | <img width="80" height="80" src="..\svg\outline\weibo.svg" alt="weibo" /> |  - 
+wifi |  -  | <img width="80" height="80" src="..\svg\outline\wifi.svg" alt="wifi" /> |  - 
+woman |  -  | <img width="80" height="80" src="..\svg\outline\woman.svg" alt="woman" /> |  - 
+zhihu |  -  | <img width="80" height="80" src="..\svg\outline\zhihu.svg" alt="zhihu" /> |  - 
+zoom-in |  -  | <img width="80" height="80" src="..\svg\outline\zoom-in.svg" alt="zoom-in" /> |  - 
+zoom-out |  -  | <img width="80" height="80" src="..\svg\outline\zoom-out.svg" alt="zoom-out" /> |  - 
+canlendar |  -  |  -  | <img width="80" height="80" src="..\svg\twotone\canlendar.svg" alt="canlendar" />
