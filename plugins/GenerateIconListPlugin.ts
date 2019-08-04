@@ -7,6 +7,7 @@ import { oldIcons } from '../processors/XMLProcessor';
 
 export interface GenerateIconListPluginOptions {
   output: string;
+  template: string;
 }
 
 export default class GenerateIconListPlugin implements KitPlugin {
@@ -51,10 +52,7 @@ export default class GenerateIconListPlugin implements KitPlugin {
         content += row.join(' | ') + '\n';
       });
 
-      const tpl = readFileSync(
-        resolve(__dirname, '../templates/icons-list.md'),
-        'utf8'
-      );
+      const tpl = readFileSync(this.options.template, 'utf8');
 
       api.extraAssets$.next({
         to: {

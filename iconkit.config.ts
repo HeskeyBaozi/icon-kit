@@ -99,6 +99,7 @@ export default [
     sources: ['./svg/**/*.svg'],
     plugins: [
       new GenerateIconListPlugin({
+        template: resolve(__dirname, './templates/icons-list.md'),
         output: resolve(__dirname, './docs/list.md')
       }),
       new GenerateFilesPlugin([
