@@ -30,6 +30,7 @@ coverage
 _site/
 .cache
 public
+src
 src/ast/**/*
 src/types.d.ts
 inline-svg/**/*.svg
