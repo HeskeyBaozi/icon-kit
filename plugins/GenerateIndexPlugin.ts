@@ -9,6 +9,7 @@ import { template } from 'lodash';
 export interface GenerateIndexPluginOptions {
   output: string;
   template: string;
+  literalFromPath: string;
 }
 
 export default class GenerateIndexPlugin implements KitPlugin {
@@ -22,8 +23,12 @@ export default class GenerateIndexPlugin implements KitPlugin {
   apply(api: ProxyPluginAPI) {
     api.syncHooks.beforeAssetEmit.tap(this.namespace, (asset: Asset) => {
       const identifier = getIdentifierAccordingToNameAndDir(asset.from);
+      const fromPath = this.options.literalFromPath.replace(
+        '[identifier]',
+        identifier
+      );
       this.content.push(
-        `export { default as ${identifier} } from './ast/${identifier}';`
+        `export { default as ${identifier} } from '${fromPath}';`
       );
     });
 

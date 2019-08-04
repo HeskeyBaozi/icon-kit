@@ -39,7 +39,7 @@ export default [
           })
         : null
     ],
-    destination: resolve(__dirname, './src/ast'),
+    destination: resolve(__dirname, './src/asn'),
     plugins: [
       new RenameIconByThemePlugin({ ext: '.ts' }),
       new GenerateInlineSVGPlugin({
@@ -85,7 +85,7 @@ export default [
           })
         : null
     ],
-    destination: resolve(__dirname, './src/ast'),
+    destination: resolve(__dirname, './src/asn'),
     plugins: [
       new RenameIconByThemePlugin({ ext: '.ts' }),
       new GenerateInlineSVGPlugin({
@@ -111,7 +111,8 @@ export default [
       ]),
       new GenerateIndexPlugin({
         template: resolve(__dirname, './templates/index.ts.ejs'),
-        output: resolve(__dirname, './src/index.ts')
+        output: resolve(__dirname, './src/index.ts'),
+        literalFromPath: './asn/[identifier]'
       })
     ]
   }

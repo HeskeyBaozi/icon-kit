@@ -2,10 +2,16 @@
   "name": "icon-kit",
   "version": "1.0.0",
   "description": "Description",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": "https://github.com/HeskeyBaozi/icon-kit",
   "author": "HeskeyBaozi <hezhiyu233@foxmail.com>",
   "license": "MIT",
+  "files": [
+    "es",
+    "lib",
+    "inline-svg"
+  ],
   "scripts": {
     "g": "cross-env KIT_FAST_GENERATE=true npm run generate",
     "generate": "cross-env NODE_ENV=development dotenv_config_path=kit/scripts/.env node -r dotenv/config -r ts-node/register kit/scripts/generate.ts",
