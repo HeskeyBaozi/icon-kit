@@ -1,4 +1,4 @@
-import { KitProcessor, Asset } from '@kit';
+import { KitProcessor, Asset } from '../kit';
 import { template } from 'lodash';
 import { readFile } from 'fs-extra';
 

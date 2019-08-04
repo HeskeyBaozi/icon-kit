@@ -1,4 +1,4 @@
-import { KitPlugin, ProxyPluginAPI, Asset } from '@kit';
+import { KitPlugin, ProxyPluginAPI, Asset } from '../kit';
 import { getToPath } from '../kit/utils';
 import {
   HelperRenderOptions,

@@ -1,5 +1,5 @@
 import { resolve } from 'path';
-import { KitConfig } from '@kit';
+import { KitConfig } from './kit';
 import { twoToneSVGOConfig, singleColorSVGOConfig } from './svgo.config';
 import SVGOProcessor from './processors/SVGOProcessor';
 import XMLProcessor, { AbstractNode } from './processors/XMLProcessor';
@@ -11,6 +11,7 @@ import GenerateFilesPlugin from './plugins/GenerateFilesPlugin';
 import GenerateIconListPlugin from './plugins/GenerateIconListPlugin';
 import { getIdentifierAccordingToNameAndDir } from './utils';
 import GenerateInlineSVGPlugin from './plugins/GenerateInlineSVGPlugin';
+import GenerateIndexPlugin from './plugins/GenerateIndexPlugin';
 
 export default [
   {
@@ -94,7 +95,7 @@ export default [
     ]
   },
   {
-    name: 'generate-list',
+    name: 'generate-list-and-index-and-types',
     context: __dirname,
     sources: ['./svg/**/*.svg'],
     plugins: [
@@ -107,7 +108,11 @@ export default [
           dataSource: resolve(__dirname, './templates/types.d.ts'),
           output: resolve(__dirname, './src/types.d.ts')
         }
-      ])
+      ]),
+      new GenerateIndexPlugin({
+        template: resolve(__dirname, './templates/index.ts.ejs'),
+        output: resolve(__dirname, './src/index.ts')
+      })
     ]
   }
 ] as KitConfig[];

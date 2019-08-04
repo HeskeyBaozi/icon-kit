@@ -3,15 +3,10 @@
     "strict": true,
     "target": "esnext",
     "module": "esnext",
-    "declaration": true,
-    "removeComments": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@kit": ["./kit"],
-      "@kit/*": ["./kit/*"]
-    }
+    "declaration": true,
+    "removeComments": true
   },
-  "exclude": ["kit"]
+  "include": ["src"]
 }

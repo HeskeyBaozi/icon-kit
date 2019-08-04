@@ -1,4 +1,4 @@
-import { KitProcessor, Asset } from '@kit';
+import { KitProcessor, Asset } from '../kit';
 import * as Prettier from 'prettier';
 
 export interface PrettierProcessorOptions {

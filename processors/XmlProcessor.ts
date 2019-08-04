@@ -1,4 +1,4 @@
-import { KitProcessor, Asset, AssetPath } from '@kit';
+import { KitProcessor, Asset, AssetPath } from '../kit';
 import * as parseXml from '@rgrove/parse-xml';
 import { SyncWaterfallHook } from 'tapable';
 import { getThemeAccordingToDir } from '../utils';

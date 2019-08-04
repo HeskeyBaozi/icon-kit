@@ -1,5 +1,8 @@
-import { KitPlugin, ProxyPluginAPI } from '@kit';
-import { getIdentifierAccordingToNameAndDir } from '../utils';
+import { KitPlugin, ProxyPluginAPI } from '../kit';
+import {
+  getIdentifierAccordingToNameAndDir,
+  getAssetPathFromAbsolute
+} from '../utils';
 import { resolve, parse } from 'path';
 
 export interface RenameIconByThemePluginOptions {
@@ -21,10 +24,7 @@ export default class RenameIconByThemePlugin implements KitPlugin {
         const absolute = resolve(api.config!.destination, filename);
         return {
           from,
-          to: {
-            ...parse(absolute),
-            absolute
-          },
+          to: getAssetPathFromAbsolute(absolute),
           content
         };
       }

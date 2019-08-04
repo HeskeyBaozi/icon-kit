@@ -1,6 +1,6 @@
-import { KitPlugin, ProxyPluginAPI } from '@kit';
-import { parse } from 'path';
+import { KitPlugin, ProxyPluginAPI } from '../kit';
 import { readFileSync } from 'fs-extra';
+import { getAssetPathFromAbsolute } from '../utils';
 
 export type GenerateFilesPluginOptions = Array<{
   output: string;
@@ -16,15 +16,14 @@ export default class GenerateFilesPlugin implements KitPlugin {
   }
 
   apply(api: ProxyPluginAPI) {
-    this.options.forEach(({ output, data, dataSource }) => {
-      const content =
-        data || (dataSource && readFileSync(dataSource, 'utf8')) || '';
-      api.extraAssets$.next({
-        to: {
-          ...parse(output),
-          absolute: output
-        },
-        content
+    api.syncHooks.afterInitialized.tap(this.namespace, () => {
+      this.options.forEach(({ output, data, dataSource }) => {
+        const content =
+          data || (dataSource && readFileSync(dataSource, 'utf8')) || '';
+        api.extraAssets$.next({
+          to: getAssetPathFromAbsolute(output),
+          content
+        });
       });
     });
   }

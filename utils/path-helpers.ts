@@ -1,6 +1,6 @@
-import { normalize, sep } from 'path';
+import { normalize, sep, parse } from 'path';
 import { memoize, flow, camelCase, upperFirst } from 'lodash';
-import { AssetPath } from '@kit';
+import { AssetPath } from '../kit';
 
 export const getThemeAccordingToDir = function getThemeAccordingToDir(
   dir: string
@@ -24,3 +24,12 @@ export const getIdentifierAccordingToNameAndDir = memoize((from: AssetPath) => {
   const kkCase = `${from.name}${theme ? `-${theme}` : ''}`;
   return getIdentifierCase(kkCase);
 });
+
+export const getAssetPathFromAbsolute = memoize(
+  (abs: string): AssetPath => {
+    return {
+      ...parse(abs),
+      absolute: abs
+    };
+  }
+);
