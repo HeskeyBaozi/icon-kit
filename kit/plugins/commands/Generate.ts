@@ -27,7 +27,6 @@ export default class GenerateCommandPlugin implements KitPlugin {
           }
         },
         complete: () => {
-          // maybe never run!?
           api.syncHooks.onExtraAssetsComplete.call();
           api.logger.complete(
             `Extra assets from ${chalk.underline.greenBright(
@@ -48,37 +47,41 @@ export default class GenerateCommandPlugin implements KitPlugin {
           if (api.config!.destination) {
             await emptyDir(api.config!.destination);
           }
-          const assets$Subscription = api.assets$.subscribe({
-            next: async (asset) => {
-              api.syncHooks.beforeAssetEmit.call(asset);
-              if (api.config!.destination && asset.to) {
-                await api.writeAsset(asset as Asset);
+
+          return new Promise((resolve) => {
+            const assets$Subscription = api.assets$!.subscribe({
+              next: async (asset) => {
+                api.syncHooks.beforeAssetEmit.call(asset);
+                if (api.config!.destination && asset.to) {
+                  await api.writeAsset(asset as Asset);
+                }
+              },
+              complete: () => {
+                api.syncHooks.onAssetsComplete.call();
+                if (api.config!.destination) {
+                  api.logger.complete(
+                    `${chalk.underline.greenBright(
+                      `[${api.config!.name}]`
+                    )}: Done. The sources: ${chalk.underline.cyan(
+                      '[ ' + api.config!.sources + ' ]'
+                    )}.`
+                  );
+                } else {
+                  api.logger.complete(
+                    `${chalk.underline.greenBright(
+                      `[${api.config!.name}]`
+                    )}: Done. There is no file emitted. The sources: ${chalk.underline.cyan(
+                      '[ ' + api.config!.sources + ' ]'
+                    )}.`
+                  );
+                }
+                assets$Subscription.unsubscribe();
+                api.extraAssets$.complete();
+                resolve();
               }
-            },
-            complete: () => {
-              api.syncHooks.onAssetsComplete.call();
-              if (api.config!.destination) {
-                api.logger.complete(
-                  `${chalk.underline.greenBright(
-                    `[${api.config!.name}]`
-                  )}: Done. The sources: ${chalk.underline.cyan(
-                    '[ ' + api.config!.sources + ' ]'
-                  )}.`
-                );
-              } else {
-                api.logger.complete(
-                  `${chalk.underline.greenBright(
-                    `[${api.config!.name}]`
-                  )}: Done. There is no file emitted. The sources: ${chalk.underline.cyan(
-                    '[ ' + api.config!.sources + ' ]'
-                  )}.`
-                );
-              }
-              assets$Subscription.unsubscribe();
-              api.extraAssets$.complete();
-            }
+            });
+            api.syncHooks.afterAssetsTakingEffect.call(assets$Subscription);
           });
-          api.syncHooks.afterAssetsTakingEffect.call(assets$Subscription);
         }
       },
       options
