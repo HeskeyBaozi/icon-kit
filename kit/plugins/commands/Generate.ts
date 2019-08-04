@@ -17,21 +17,17 @@ export default class GenerateCommandPlugin implements KitPlugin {
           api.syncHooks.beforeExtraAssetEmit.call(asset);
           await api.writeAsset(asset);
           if (!asset.to.absolute.endsWith('.svg')) {
-            api.logger.complete(
-              `${chalk.underline.greenBright(
-                `[${api.config!.name}]`
-              )}: Extra file: ${chalk.underline.cyan(
+            api.logger.scope(api.config!.name).complete(
+              `Extra file ${chalk.underline.cyan(
                 relative(api.config!.context, asset.to.absolute)
-              )} generated.`
+              )} is generated.`
             );
           }
         },
         complete: () => {
           api.syncHooks.onExtraAssetsComplete.call();
-          api.logger.complete(
-            `Extra assets from ${chalk.underline.greenBright(
-              `[${api.config!.name}]`
-            )}: Done.`
+          api.logger.scope(api.config!.name).complete(
+            `Extra assets is generated.`
           );
           extraAssets$Subsription.unsubscribe();
         }
@@ -59,18 +55,14 @@ export default class GenerateCommandPlugin implements KitPlugin {
               complete: () => {
                 api.syncHooks.onAssetsComplete.call();
                 if (api.config!.destination) {
-                  api.logger.complete(
-                    `${chalk.underline.greenBright(
-                      `[${api.config!.name}]`
-                    )}: Done. The sources: ${chalk.underline.cyan(
+                  api.logger.scope(api.config!.name).complete(
+                    `Done. The sources: ${chalk.underline.cyan(
                       '[ ' + api.config!.sources + ' ]'
                     )}.`
                   );
                 } else {
-                  api.logger.complete(
-                    `${chalk.underline.greenBright(
-                      `[${api.config!.name}]`
-                    )}: Done. There is no file emitted. The sources: ${chalk.underline.cyan(
+                  api.logger.scope(api.config!.name).complete(
+                    `Done. There is no file emitted. The sources: ${chalk.underline.cyan(
                       '[ ' + api.config!.sources + ' ]'
                     )}.`
                   );
