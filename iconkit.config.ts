@@ -105,8 +105,8 @@ export default [
       }),
       new GenerateFilesPlugin([
         {
-          dataSource: resolve(__dirname, './templates/types.d.ts'),
-          output: resolve(__dirname, './src/types.d.ts')
+          dataSource: resolve(__dirname, './templates/types.ts'),
+          output: resolve(__dirname, './src/types.ts')
         }
       ]),
       new GenerateIndexPlugin({

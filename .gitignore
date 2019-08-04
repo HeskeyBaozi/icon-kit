@@ -32,7 +32,7 @@ _site/
 public
 src
 src/ast/**/*
-src/types.d.ts
+src/types.ts
 inline-svg/**/*.svg
 
 # publish

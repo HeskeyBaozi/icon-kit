@@ -1,0 +1,6 @@
+{
+  "extends": "./build.esm.tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs"
+  }
+}

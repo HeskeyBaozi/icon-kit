@@ -9,7 +9,11 @@
   "scripts": {
     "g": "cross-env KIT_FAST_GENERATE=true npm run generate",
     "generate": "cross-env NODE_ENV=development dotenv_config_path=kit/scripts/.env node -r dotenv/config -r ts-node/register kit/scripts/generate.ts",
-    "build": "father build",
+    "build": "npm run build:esm && npm run build:cjs",
+    "clean:esm": "rimraf ./es",
+    "clean:cjs": "rimraf ./lib",
+    "build:esm": "npm run clean:esm && cross-env NODE_ENV=production tsc --outDir ./es --project ./build.esm.tsconfig.json",
+    "build:cjs": "npm run clean:cjs && cross-env NODE_ENV=production tsc --outDir ./lib --project ./build.cjs.tsconfig.json",
     "test": "npm run test:unit",
     "test:unit": "father test",
     "test:type-check": "tsc --noEmit --project kit/tsconfig.json"
@@ -40,6 +44,7 @@
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "rimraf": "^2.6.3",
     "rxjs": "^6.5.2",
     "sax": "^1.2.4",
     "signale": "^1.4.0",

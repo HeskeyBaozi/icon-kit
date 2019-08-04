@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "esnext",
+    "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
-    "sourceMap": true,
     "declaration": true,
-    "removeComments": true,
-    "noEmit": true
+    "removeComments": true
   },
   "include": ["src"]
 }
